@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAgamasTable extends Migration
+class CreateTIKOrganisasisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateAgamasTable extends Migration
      */
     public function up()
     {
-        Schema::create('agamas', function (Blueprint $table) {
-            $table->smallIncrements('id');
-            $table->string('name', 100);
+        Schema::create('t_i_k_organisasis', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ class CreateAgamasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agamas');
+        Schema::dropIfExists('t_i_k_organisasis');
     }
 }

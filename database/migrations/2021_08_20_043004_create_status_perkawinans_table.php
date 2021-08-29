@@ -14,7 +14,7 @@ class CreateStatusPerkawinansTable extends Migration
     public function up()
     {
         Schema::create('status_perkawinans', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->smallIncrements('id');
             $table->string('name');
             $table->timestamps();
         });

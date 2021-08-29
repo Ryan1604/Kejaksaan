@@ -14,7 +14,7 @@ class CreatePekerjaansTable extends Migration
     public function up()
     {
         Schema::create('pekerjaans', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->smallIncrements('id');
             $table->string('name');
             $table->timestamps();
         });

@@ -29,34 +29,11 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'active', '
     // Kelurahan
     Route::resource('kelurahan', 'KelurahanController');
 
-    // Articles
-    Route::resource('article', 'ArticleController');
+    // Biodata Terpidana WNI
+    Route::resource('wni', 'BiodataWNIController');
 
-    // Locations
-    Route::resource('location', 'LocationController');
-
-    // History Dropper
-    Route::resource('history/request', 'WasteController');
-    Route::post('history/{id}', 'WasteController@reject')->name('history.reject');
-
-    Route::resource('history/accepted', 'WasteAcceptedController');
-    Route::resource('history/rejected', 'WasteRejectedController');
-
-    // Merchandise
-    Route::resource('merchandise', 'MerchandiseController');
-    Route::post('merchandise/change', 'MerchandiseController@change')->name('merchandise.change');
-
-    // Statictics
-    Route::resource('statistics/homepage', 'HomepageController');
-    Route::resource('statistics/bycategory', 'CollectionByCategoryController');
-    Route::resource('statistics/year', 'CollectionPerYearController');
-
-    // Event
-    Route::resource('event', 'EventController');
-    Route::post('event/change', 'EventController@change')->name('event.change');
-
-    // Users
-    Route::resource('users', 'UserController');
+    // Biodata Terpidana WNA
+    Route::resource('wna', 'BiodataWNAController');
 
     /* Reference Data */
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNegarasTable extends Migration
+class CreateBiodataWNASTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateNegarasTable extends Migration
      */
     public function up()
     {
-        Schema::create('negaras', function (Blueprint $table) {
-            $table->smallIncrements('id');
+        Schema::create('biodata_w_n_a_s', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('pasport');
             $table->string('name');
+            $table->unsignedSmallInteger('country_id');
             $table->timestamps();
+
+            $table->foreign('country_id')->references('id')->on('negaras')->onDelete('cascade');
         });
     }
 
@@ -27,6 +31,6 @@ class CreateNegarasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('negaras');
+        Schema::dropIfExists('biodata_w_n_a_s');
     }
 }

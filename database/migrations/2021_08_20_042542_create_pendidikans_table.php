@@ -14,7 +14,7 @@ class CreatePendidikansTable extends Migration
     public function up()
     {
         Schema::create('pendidikans', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->smallIncrements('id');
             $table->string('name');
             $table->timestamps();
         });

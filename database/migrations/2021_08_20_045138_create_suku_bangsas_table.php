@@ -14,7 +14,7 @@ class CreateSukuBangsasTable extends Migration
     public function up()
     {
         Schema::create('suku_bangsas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->smallIncrements('id');
             $table->string('name');
             $table->timestamps();
         });

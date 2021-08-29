@@ -24,14 +24,14 @@
                     <span>Kelurahan</span>
                 </a>
             </li>
-            <li class="{{ request()->segment(2) == 'article' ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin.article.index') }}">
+            <li class="{{ request()->segment(2) == 'wni' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.wni.index') }}">
                     <i class="fas fa-list"></i>
                     <span>Biodata Terpidana WNI</span>
                 </a>
             </li>
-            <li class="{{ request()->segment(2) == 'users' ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin.users.index') }}">
+            <li class="{{ request()->segment(2) == 'wna' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.wna.index') }}">
                     <i class="fas fa-list"></i>
                     <span>Biodata Terpidana WNA</span>
                 </a>
@@ -39,11 +39,11 @@
             <li class="dropdown {{ request()->segment(2) == 'history' ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Kartu TIK</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="{{ route('admin.accepted.index') }}">Biodata</a></li>
-                  <li><a class="nav-link" href="{{ route('admin.request.index') }}">Barang Cetakan</a></li>
-                  <li><a class="nav-link" href="{{ route('admin.rejected.index') }}">Organisasi</a></li>
-                  <li><a class="nav-link" href="{{ route('admin.rejected.index') }}">Tersangka/Terdakwa/Terpidana</a></li>
-                  <li><a class="nav-link" href="{{ route('admin.rejected.index') }}">Pengawasan Media Komunikasi</a></li>
+                  <li><a class="nav-link" href="{{ route('admin.wni.index') }}">Biodata</a></li>
+                  <li><a class="nav-link" href="{{ route('admin.wni.index') }}">Barang Cetakan</a></li>
+                  <li><a class="nav-link" href="{{ route('admin.wni.index') }}">Organisasi</a></li>
+                  <li><a class="nav-link" href="{{ route('admin.wni.index') }}">Tersangka/Terdakwa/Terpidana</a></li>
+                  <li><a class="nav-link" href="{{ route('admin.wni.index') }}">Pengawasan Media Komunikasi</a></li>
                 </ul>
             </li>
 
