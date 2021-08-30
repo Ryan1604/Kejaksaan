@@ -75,6 +75,7 @@ class BiodataWNIController extends Controller
             'nama'                  => 'required|string',
             'tempat_lahir'          => 'required|string',
             'tanggal_lahir'         => 'required|date',
+            'jenis_kelamin'         => 'required|string',
             'bangsa'                => 'required|integer',
             'kecamatan'             => 'required|integer',
             'alamat'                => 'required|string',
@@ -94,6 +95,7 @@ class BiodataWNIController extends Controller
         $data->name                     = strip_tags(request()->post('nama'));
         $data->tempat_lahir             = strip_tags(request()->post('tempat_lahir'));
         $data->tanggal_lahir            = request()->post('tanggal_lahir');
+        $data->jenis_kelamin            = request()->post('jenis_kelamin');
         $data->bangsa_id                = strip_tags(request()->post('bangsa'));
         $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
         $data->alamat                   = strip_tags(request()->post('alamat'));
@@ -164,6 +166,7 @@ class BiodataWNIController extends Controller
             'nama'                  => 'required|string',
             'tempat_lahir'          => 'required|string',
             'tanggal_lahir'         => 'required|date',
+            'jenis_kelamin'         => 'required|string',
             'bangsa'                => 'required|integer',
             'kecamatan'             => 'required|integer',
             'alamat'                => 'required|string',
@@ -182,6 +185,7 @@ class BiodataWNIController extends Controller
         $data->name                     = strip_tags(request()->post('nama'));
         $data->tempat_lahir             = strip_tags(request()->post('tempat_lahir'));
         $data->tanggal_lahir            = request()->post('tanggal_lahir');
+        $data->jenis_kelamin            = request()->post('jenis_kelamin');
         $data->bangsa_id                = strip_tags(request()->post('bangsa'));
         $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
         $data->alamat                   = strip_tags(request()->post('alamat'));
@@ -207,10 +211,8 @@ class BiodataWNIController extends Controller
      */
     public function destroy($id)
     {
-        $data = BiodataWNI::findOrFail($id);
+        $data = BiodataWNI::destroy($id);
 
-        $dataDelete = $data->delete();
-
-        return response()->json($dataDelete);
+        return response()->json($data);
     }
 }

@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Detail Biodata Terpidana WNI')
+@section('title', 'Detail Kartu TIK Barang Cetakan')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('backend/modules/select2/dist/css/select2.min.css') }}">
@@ -12,7 +12,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Detail Biodata Terpidana WNI</h1>
+                <h1>Detail Kartu TIK Barang Cetakan</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item">
                         <a href="{{ route('admin.dashboard') }}">
@@ -23,7 +23,7 @@
                     <div class="breadcrumb-item">
                         <a href="{{ route('admin.wni.index') }}">
                             <i class="fa fa-file-pdf"></i>
-                            Biodata Terpidana WNI Dropper
+                            Kartu TIK Barang Cetakan
                         </a>
                     </div>
                     <div class="breadcrumb-item">
@@ -35,85 +35,96 @@
             <div class="section-body">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h4 class="card-title">Detail</h4>
+                        <h4 class="card-title">Identitas</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-md">
                                 <tr>
-                                    <td>NIK</td>
-                                    <td class="text-center">{{ $data->nik }}</th>
+                                    <td>Nama Barang Cetakan</td>
+                                    <td class="text-center">{{ $data->nama}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Nama</td>
-                                    <td class="text-center">{{ $data->name }}</th>
+                                    <td>Penerbit</td>
+                                    <td class="text-center">{{ $data->penerbit }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Tempat Lahir</td>
-                                    <td class="text-center">{{ $data->tempat_lahir }}</th>
+                                    <td>Pengarang / Penanggung Jawab</td>
+                                    <td class="text-center">{{ $data->pengarang }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Tanggal Lahir</td>
-                                    <td class="text-center">{{ date('d M Y', strtotime($data->tanggal_lahir)) }}</th>
+                                    <td>Waktu Peredaran</td>
+                                    <td class="text-center"> {{ date('d M Y', strtotime($data->waktu)) }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Jenis Kelamin</td>
-                                    <td class="text-center">{{ $data->jenis_kelamin == 'P' ? 'Perempuan' : 'Laki-laki' }}</th>
+                                    <td>Daerah Peredaran</td>
+                                    <td class="text-center">{{ $data->daerah }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Suku Bangsa</td>
-                                    <td class="text-center">{{ $data->bangsa->name }}</th>
+                                    <td>Pencetak</td>
+                                    <td class="text-center">{{ $data->pencetak }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Kewarganegaraan</td>
-                                    <td class="text-center">{{ $data->kewarganegaraan }}</th>
+                                    <td>Nama Pimpinan Redaksi</td>
+                                    <td class="text-center">{{ $data->nama_pimpinan }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Alamat Penerbit</td>
+                                    <td class="text-center">{{ $data->alamat_penerbit }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Alamat Percetakan</td>
+                                    <td class="text-center">{{ $data->alamat_percetakan }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Jumlah Oplah</td>
+                                    <td class="text-center">{{ $data->jumlah_oplah }}</td>
                                 </tr>
                                 <tr>
                                     <td>Kecamatan</td>
-                                    <td class="text-center">{{ $data->kecamatan->name }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Alamat</td>
-                                    <td class="text-center">{{ $data->alamat }}</th>
-                                </tr>
-                                <tr>
-                                    <td>No Handphone</td>
-                                    <td class="text-center">{{ $data->phone }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Agama</td>
-                                    <td class="text-center">{{ $data->agama->name }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Pendidikan</td>
-                                    <td class="text-center">{{ $data->pendidikan->name }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Pekerjaan</td>
-                                    <td class="text-center">{{ $data->pekerjaan->name }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Alamat Kantor</td>
-                                    <td class="text-center">{{ $data->alamat_kantor }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Status Perkawinan</td>
-                                    <td class="text-center">{{ $data->perkawinan->name }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Legitimasi Perkawinan</td>
-                                    <td class="text-center">{{ $data->legitimasi_perkawinan }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Tempat Perkawinan</td>
-                                    <td class="text-center">{{ $data->tempat_perkawinan }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Tanggal Perkawinan</td>
-                                    <td class="text-center">{{ date('d M Y', strtotime($data->tanggal_perkawinan)) }}</th>
+                                    <td class="text-center">{{ $data->kecamatan->name }}</td>
                                 </tr>
                             </table>
                           </div>
+                    </div>
+                </div>
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h4 class="card-title">Biodata Intelijen</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-md">
+                                <tr>
+                                    <td>Kasus / Masalah yang terjadi</td>
+                                    <td>{{ $data->kasus }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Latang belakang dan akibatnya</td>
+                                    <td>{{ $data->background}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tindakan yang dilakukan oleh</td>
+                                    <td>{{ $data->tindakan }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tindakan Kejaksaan</td>
+                                    <td>{{ $data->tindakan_kejaksaan }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tindakan Kepolisian</td>
+                                    <td>{{ $data->tindakan_kepolisian }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tindakan Pengadilan</td>
+                                    <td>{{ $data->tindakan_pengadilan }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Keterangan lain-lain</td>
+                                    <td>{{ $data->keterangan }}</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -80,19 +80,6 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="jenis_kelamin">Jenis Kelamin</label>
-                                                <select class="select2 form-control form-control-sm @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" id="jenis_kelamin">
-                                                    <option value="" selected disabled>-- Pilih Jenis Kelamin --</option>
-                                                    <option value="L">Laki-laki</option>
-                                                    <option value="P">Perempuan</option>
-                                                </select>
-                                                <div class="invalid-feedback" id="valid-jenis_kelamin">{{ $errors->first('jenis_kelamin') }}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="form-group">
                                                 <label for="bangsa">Suku Bangsa</label>
                                                 <select class="select2 form-control form-control-sm @error('bangsa') is-invalid @enderror" name="bangsa" id="bangsa">
                                                     <option value="" selected disabled>-- Pilih Suku Bangsa --</option>

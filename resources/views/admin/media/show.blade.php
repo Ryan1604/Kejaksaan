@@ -57,10 +57,6 @@
                                     <td class="text-center">{{ date('d M Y', strtotime($data->tanggal_lahir)) }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Jenis Kelamin</td>
-                                    <td class="text-center">{{ $data->jenis_kelamin == 'P' ? 'Perempuan' : 'Laki-laki' }}</th>
-                                </tr>
-                                <tr>
                                     <td>Suku Bangsa</td>
                                     <td class="text-center">{{ $data->bangsa->name }}</th>
                                 </tr>

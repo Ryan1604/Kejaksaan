@@ -36,14 +36,14 @@
                     <span>Biodata Terpidana WNA</span>
                 </a>
             </li>
-            <li class="dropdown {{ request()->segment(2) == 'history' ? 'active' : '' }}">
+            <li class="dropdown {{ request()->segment(2) == 'tik' ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Kartu TIK</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="{{ route('admin.wni.index') }}">Biodata</a></li>
-                  <li><a class="nav-link" href="{{ route('admin.wni.index') }}">Barang Cetakan</a></li>
-                  <li><a class="nav-link" href="{{ route('admin.wni.index') }}">Organisasi</a></li>
-                  <li><a class="nav-link" href="{{ route('admin.wni.index') }}">Tersangka/Terdakwa/Terpidana</a></li>
-                  <li><a class="nav-link" href="{{ route('admin.wni.index') }}">Pengawasan Media Komunikasi</a></li>
+                  <li><a class="nav-link" href="{{ route('admin.biodata.index') }}">Biodata</a></li>
+                  <li><a class="nav-link" href="{{ route('admin.barang.index') }}">Barang Cetakan</a></li>
+                  <li><a class="nav-link" href="{{ route('admin.organisasi.index') }}">Organisasi</a></li>
+                  <li><a class="nav-link" href="{{ route('admin.terdakwa.index') }}">Terdakwa</a></li>
+                  <li><a class="nav-link" href="{{ route('admin.media.index') }}">Pengawasan Media</a></li>
                 </ul>
             </li>
 

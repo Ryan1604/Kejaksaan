@@ -14,7 +14,7 @@ class CreateWargaNegarasTable extends Migration
     public function up()
     {
         Schema::create('warga_negaras', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->smallIncrements('id');
             $table->string('name');
             $table->timestamps();
         });

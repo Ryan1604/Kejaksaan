@@ -35,6 +35,21 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'active', '
     // Biodata Terpidana WNA
     Route::resource('wna', 'BiodataWNAController');
 
+    // Kartu TIK Biodata
+    Route::resource('tik/biodata', 'TIKBiodataController');
+
+    // Kartu TIK Barang
+    Route::resource('tik/barang', 'TIKBarangController');
+
+    // Kartu TIK Organisasi
+    Route::resource('tik/organisasi', 'TIKOrganisasiController');
+
+    // Kartu TIK Media
+    Route::resource('tik/media', 'TIKMediaController');
+
+    // Kartu TIK Terdakwa
+    Route::resource('tik/terdakwa', 'TIKTerdakwaController');
+
     /* Reference Data */
 
     // Kecamatan

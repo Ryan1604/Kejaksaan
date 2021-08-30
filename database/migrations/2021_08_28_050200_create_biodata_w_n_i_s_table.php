@@ -19,6 +19,7 @@ class CreateBiodataWNISTable extends Migration
             $table->string('name');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
+            $table->string('jenis_kelamin');
             $table->unsignedSmallInteger('bangsa_id');
             $table->string('kewarganegaraan')->default('WNI');
             $table->unsignedSmallInteger('kecamatan_id');
