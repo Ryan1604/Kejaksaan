@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Biodata Terpidana WNI')
+@section('title', 'Kartu TIK Organisasi')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('backend/modules/datatables/datatables.min.css') }}">
@@ -10,7 +10,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Biodata Terpidana WNI</h1>
+                <h1>Kartu TIK Organisasi</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item">
                         <a href="{{ route('admin.dashboard') }}">
@@ -20,7 +20,7 @@
                     </div>
                     <div class="breadcrumb-item">
                         <i class="fa fa-file-pdf"></i>
-                        Biodata Terpidana WNI
+                        Kartu TIK Organisasi
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
             <div class="section-body">
                 <div class="card card-primary">  
                     <div class="card-header">
-                        <a class="btn btn-primary ml-auto" href="{{ route('admin.wni.create') }}">
+                        <a class="btn btn-primary ml-auto" href="{{ route('admin.organisasi.create') }}">
                             <i class="fas fa-plus-circle"></i>
                             Tambah Data
                         </a>
@@ -50,9 +50,9 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Alamat</th>
-                                        <th>No Hp</th>
+                                        <th>Nama Organisasi</th>
+                                        <th>Domisili Hukum/Alamat</th>
+                                        <th>Nomor Telepon</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -82,7 +82,7 @@
             $('#ebook-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('admin.wni.index') }}',
+                ajax: '{{ route('admin.organisasi.index') }}',
                 columns: [
                     {
                         data: 'DT_RowIndex',
@@ -91,8 +91,8 @@
                         searchable: false
                     },
                     {
-                        data: 'name',
-                        name: 'name',
+                        data: 'nama',
+                        name: 'nama',
                     },
                     {
                         data: 'alamat',
@@ -131,7 +131,7 @@
                         case "ok" :
                             $.ajax({
                                 type: "DELETE",
-                                url: '{{ route('admin.wni.index') }}' + '/' + id,
+                                url: '{{ route('admin.organisasi.index') }}' + '/' + id,
                                 success: function(data) {
                                     $('#ebook-table').DataTable().draw(false);
                                     $('#ebook-table').DataTable().on('draw', function() {

@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Detail Biodata Terpidana WNI')
+@section('title', 'Detail Kartu TIK Organisasi')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('backend/modules/select2/dist/css/select2.min.css') }}">
@@ -12,7 +12,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Detail Biodata Terpidana WNI</h1>
+                <h1>Detail Kartu TIK Organisasi</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item">
                         <a href="{{ route('admin.dashboard') }}">
@@ -21,9 +21,9 @@
                         </a>
                     </div>
                     <div class="breadcrumb-item">
-                        <a href="{{ route('admin.wni.index') }}">
+                        <a href="{{ route('admin.organisasi.index') }}">
                             <i class="fa fa-file-pdf"></i>
-                            Biodata Terpidana WNI Dropper
+                            Kartu TIK Organisasi
                         </a>
                     </div>
                     <div class="breadcrumb-item">
@@ -35,81 +35,77 @@
             <div class="section-body">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h4 class="card-title">Detail</h4>
+                        <h4 class="card-title">Identitas</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-md">
                                 <tr>
-                                    <td>NIK</td>
-                                    <td class="text-center">{{ $data->nik }}</th>
+                                    <td>Nama Organisasi</td>
+                                    <td class="text-center">{{ $data->nama}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Nama</td>
-                                    <td class="text-center">{{ $data->name }}</th>
+                                    <td>Akte Pendirian / Bukti Pendaftaran</td>
+                                    <td class="text-center">{{ $data->akte }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Tempat Lahir</td>
-                                    <td class="text-center">{{ $data->tempat_lahir }}</th>
+                                    <td>Kedudukan / Status</td>
+                                    <td class="text-center">{{ $data->status }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Tanggal Lahir</td>
-                                    <td class="text-center">{{ date('d M Y', strtotime($data->tanggal_lahir)) }}</th>
+                                    <td>Berdiri Sejak</td>
+                                    <td class="text-center"> {{ date('d M Y', strtotime($data->berdiri)) }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Suku Bangsa</td>
-                                    <td class="text-center">{{ $data->bangsa->name }}</th>
+                                    <td>Domisili Hukum / Alamat</td>
+                                    <td class="text-center">{{ $data->alamat }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Kewarganegaraan</td>
-                                    <td class="text-center">{{ $data->kewarganegaraan }}</th>
+                                    <td>Nomor Telepon</td>
+                                    <td class="text-center">{{ $data->phone }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Kecamatan</td>
-                                    <td class="text-center">{{ $data->kecamatan->name }}</th>
+                                    <td>Website / Email</td>
+                                    <td class="text-center">{{ $data->web }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Alamat</td>
-                                    <td class="text-center">{{ $data->alamat }}</th>
+                                    <td>Nama Pengurus</td>
+                                    <td class="text-center">{{ $data->nama_pengurus }}</td>
                                 </tr>
                                 <tr>
-                                    <td>No Handphone</td>
-                                    <td class="text-center">{{ $data->phone }}</th>
+                                    <td>Kedudukan Pengurus</td>
+                                    <td class="text-center">{{ $data->kedudukan_pengurus }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Agama</td>
-                                    <td class="text-center">{{ $data->agama->name }}</th>
+                                    <td>Periode Pengurus</td>
+                                    <td class="text-center">{{ $data->periode_pengurus }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Pendidikan</td>
-                                    <td class="text-center">{{ $data->pendidikan->name }}</th>
+                                    <td>Alamat Pengurus</td>
+                                    <td class="text-center">{{ $data->alamat_pengurus }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Pekerjaan</td>
-                                    <td class="text-center">{{ $data->pekerjaan->name }}</th>
+                                    <td>Nomor Telepon / HP Pengurus</td>
+                                    <td class="text-center">{{ $data->hp_pengurus }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Alamat Kantor</td>
-                                    <td class="text-center">{{ $data->alamat_kantor }}</th>
+                                    <td>Ruang Lingkup Kegiatan Organisasi (Kedalam)</td>
+                                    <td class="text-center">{{ $data->kegiatan_kedalam }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Status Perkawinan</td>
-                                    <td class="text-center">{{ $data->perkawinan->name }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Legitimasi Perkawinan</td>
-                                    <td class="text-center">{{ $data->legitimasi_perkawinan }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Tempat Perkawinan</td>
-                                    <td class="text-center">{{ $data->tempat_perkawinan }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Tanggal Perkawinan</td>
-                                    <td class="text-center">{{ date('d M Y', strtotime($data->tanggal_perkawinan)) }}</th>
+                                    <td>Ruang Lingkup Kegiatan Organisasi (Keluar)</td>
+                                    <td class="text-center">{{ $data->kegiatan_keluar }}</td>
                                 </tr>
                             </table>
                           </div>
+                    </div>
+                </div>
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h4 class="card-title">KEGIATAN ORGANISASI / PENGURUS ORGANISASI YANG BERKAITAN DENGAN PELANGGARAN HUKUM :</h4>
+                    </div>
+                    <div class="card-body">
+                        <td>{{ $data->kegiatan }}</td>
                     </div>
                 </div>
             </div>

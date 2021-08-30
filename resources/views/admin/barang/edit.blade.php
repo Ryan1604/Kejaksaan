@@ -21,7 +21,7 @@
                         </a>
                     </div>
                     <div class="breadcrumb-item">
-                        <a href="{{ route('admin.wni.index') }}">
+                        <a href="{{ route('admin.barang.index') }}">
                             <i class="fa fa-file-pdf"></i>
                             Kartu TIK Biodata
                         </a>
