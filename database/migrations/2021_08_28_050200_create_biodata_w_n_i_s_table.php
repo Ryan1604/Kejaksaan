@@ -14,7 +14,7 @@ class CreateBiodataWNISTable extends Migration
     public function up()
     {
         Schema::create('biodata_w_n_i_s', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->smallIncrements('id');
             $table->string('nik');
             $table->string('name');
             $table->string('tempat_lahir');

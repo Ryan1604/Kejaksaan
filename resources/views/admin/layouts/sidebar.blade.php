@@ -17,6 +17,7 @@
                     <span>Dashboard</span>
                 </a>
             </li>
+            {{-- Master Data --}}
             <li class="menu-header">Master Data</li>
             <li class="{{ request()->segment(2) == 'kelurahan' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.kelurahan.index') }}">
@@ -45,6 +46,27 @@
                   <li><a class="nav-link" href="{{ route('admin.terdakwa.index') }}">Terdakwa</a></li>
                   <li><a class="nav-link" href="{{ route('admin.media.index') }}">Pengawasan Media</a></li>
                 </ul>
+            </li>
+
+            {{-- Pidum Pidsus --}}
+            <li class="menu-header">Pidum Pidsus</li>
+            <li class="{{ request()->segment(2) == 'korupsi' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.korupsi.index') }}">
+                    <i class="fas fa-bug"></i>
+                    <span>Korupsi</span>
+                </a>
+            </li>
+            <li class="{{ request()->segment(2) == 'narkotika' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.narkotika.index') }}">
+                    <i class="fas fa-bug"></i>
+                    <span>Narkotika</span>
+                </a>
+            </li>
+            <li class="{{ request()->segment(2) == 'umum' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.umum.index') }}">
+                    <i class="fas fa-bug"></i>
+                    <span>Umum</span>
+                </a>
             </li>
 
             {{-- Reference Data --}}

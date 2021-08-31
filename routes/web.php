@@ -50,6 +50,17 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'active', '
     // Kartu TIK Terdakwa
     Route::resource('tik/terdakwa', 'TIKTerdakwaController');
 
+    /* Pidum Pidsus */
+
+    // Korupsi
+    Route::resource('korupsi', 'KorupsiController');
+
+    // Narkotika
+    Route::resource('narkotika', 'NarkotikaController');
+
+    // Umum
+    Route::resource('umum', 'UmumController');
+
     /* Reference Data */
 
     // Kecamatan

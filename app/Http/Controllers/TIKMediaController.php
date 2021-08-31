@@ -2,28 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kecamatan;
+use App\Models\TIKMedia;
 use Illuminate\Http\Request;
 
 class TIKMediaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    protected $customMessages = [
+        'required'              => ':attribute harus diisi',
+        'unique'                => 'This :attribute has already been taken.',
+        'integer'               => ':Attribute must be a number.',
+        'min'                   => ':Attribute must be at least :min.',
+        'max'                   => ':Attribute may not be more than :max characters.',
+        'exists'                => 'Not found.',
+        'kecamatan.required'    => 'Pilih Kecamatan.',
+    ];
+
     public function index()
     {
-        //
+        if (request()->ajax()) {
+            return datatables()->of(TIKMedia::orderBy('updated_at', 'DESC')->get())
+                ->addColumn('action', 'admin.media.action')
+                ->rawColumns(['action'])
+                ->addIndexColumn()
+                ->make(true);
+        }
+        return view('admin.media.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $kecamatan = Kecamatan::orderBy('name')->get();
+
+        return view('admin.media.create', compact('kecamatan'));
     }
 
     /**
@@ -34,7 +45,53 @@ class TIKMediaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'nama'                  => 'required|string',
+            'npwp'                  => 'required|string',
+            'jenis'                 => 'required|string',
+            'alamat'                => 'required|string',
+            'phone'                 => 'required|string',
+            'nama_pimpinan'         => 'required|string',
+            'penanggung_jawab'      => 'required|string',
+            'ijin_usaha'            => 'required|string',
+            'waktu'                 => 'required|date',
+            'daerah'                => 'required|string',
+            'jumlah'                => 'required|string',
+            'kecamatan'             => 'required|integer',
+            'kasus'                 => 'string',
+            'background'            => 'string',
+            'tindakan'              => 'string',
+            'tindakan_kejaksaan'    => 'string',
+            'tindakan_kepolisian'   => 'string',
+            'tindakan_kominfo'   => 'string',
+            'tindakan_pengadilan'   => 'string',
+            'keterangan'            => 'string',
+        ], $this->customMessages);
+
+        $data = new TIKMedia();
+        $data->nama                     = strip_tags(request()->post('nama'));
+        $data->npwp                     = strip_tags(request()->post('npwp'));
+        $data->jenis                    = strip_tags(request()->post('jenis'));
+        $data->alamat                   = strip_tags(request()->post('alamat'));
+        $data->phone                    = strip_tags(request()->post('phone'));
+        $data->nama_pimpinan            = strip_tags(request()->post('nama_pimpinan'));
+        $data->penanggung_jawab         = strip_tags(request()->post('penanggung_jawab'));
+        $data->ijin_usaha               = strip_tags(request()->post('ijin_usaha'));
+        $data->waktu                    = request()->post('waktu');
+        $data->daerah                   = strip_tags(request()->post('daerah'));
+        $data->jumlah                   = strip_tags(request()->post('jumlah'));
+        $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
+        $data->kasus                    = strip_tags(request()->post('kasus'));
+        $data->background               = request()->post('background');
+        $data->tindakan                 = strip_tags(request()->post('tindakan'));
+        $data->tindakan_kejaksaan       = strip_tags(request()->post('tindakan_kejaksaan'));
+        $data->tindakan_kepolisian      = strip_tags(request()->post('tindakan_kepolisian'));
+        $data->tindakan_kominfo         = strip_tags(request()->post('tindakan_kominfo'));
+        $data->tindakan_pengadilan      = strip_tags(request()->post('tindakan_pengadilan'));
+        $data->keterangan               = strip_tags(request()->post('keterangan'));
+        $data->save();
+
+        return redirect()->route('admin.media.index')->with('success', "Data berhasil ditambahkan!");
     }
 
     /**
@@ -45,7 +102,10 @@ class TIKMediaController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = TIKMedia::findOrFail($id);
+        $kecamatan = Kecamatan::orderBy('name')->get();
+
+        return view('admin.media.show', compact('data', 'kecamatan'));
     }
 
     /**
@@ -56,7 +116,10 @@ class TIKMediaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = TIKMedia::findOrFail($id);
+        $kecamatans = Kecamatan::orderBy('name')->get();
+
+        return view('admin.media.edit', compact('data', 'kecamatans'));
     }
 
     /**
@@ -68,7 +131,54 @@ class TIKMediaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = TIKMedia::findOrFail($id);
+        request()->validate([
+            'nama'                  => 'required|string',
+            'npwp'                  => 'required|string',
+            'jenis'                 => 'required|string',
+            'alamat'                => 'required|string',
+            'phone'                 => 'required|string',
+            'nama_pimpinan'         => 'required|string',
+            'penanggung_jawab'      => 'required|string',
+            'ijin_usaha'            => 'required|string',
+            'waktu'                 => 'required|date',
+            'daerah'                => 'required|string',
+            'jumlah'                => 'required|string',
+            'kecamatan'             => 'required|integer',
+            'kasus'                 => 'string',
+            'background'            => 'string',
+            'tindakan'              => 'string',
+            'tindakan_kejaksaan'    => 'string',
+            'tindakan_kepolisian'   => 'string',
+            'tindakan_kominfo'   => 'string',
+            'tindakan_pengadilan'   => 'string',
+            'keterangan'            => 'string',
+        ], $this->customMessages);
+
+        $data->nama                     = strip_tags(request()->post('nama'));
+        $data->npwp                     = strip_tags(request()->post('npwp'));
+        $data->jenis                    = strip_tags(request()->post('jenis'));
+        $data->alamat                   = strip_tags(request()->post('alamat'));
+        $data->phone                    = strip_tags(request()->post('phone'));
+        $data->nama_pimpinan            = strip_tags(request()->post('nama_pimpinan'));
+        $data->penanggung_jawab         = strip_tags(request()->post('penanggung_jawab'));
+        $data->ijin_usaha               = strip_tags(request()->post('ijin_usaha'));
+        $data->waktu                    = request()->post('waktu');
+        $data->daerah                   = strip_tags(request()->post('daerah'));
+        $data->jumlah                   = strip_tags(request()->post('jumlah'));
+        $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
+        $data->kasus                    = strip_tags(request()->post('kasus'));
+        $data->background               = request()->post('background');
+        $data->tindakan                 = strip_tags(request()->post('tindakan'));
+        $data->tindakan_kejaksaan       = strip_tags(request()->post('tindakan_kejaksaan'));
+        $data->tindakan_kepolisian      = strip_tags(request()->post('tindakan_kepolisian'));
+        $data->tindakan_kominfo         = strip_tags(request()->post('tindakan_kominfo'));
+        $data->tindakan_pengadilan      = strip_tags(request()->post('tindakan_pengadilan'));
+        $data->keterangan               = strip_tags(request()->post('keterangan'));
+        $data->save();
+
+
+        return redirect()->route('admin.media.index')->with('success', "Data berhasil di edit!");
     }
 
     /**
@@ -79,6 +189,8 @@ class TIKMediaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = TIKMedia::destroy($id);
+
+        return response()->json($data);
     }
 }
