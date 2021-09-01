@@ -88,7 +88,7 @@ class NarkotikaController extends Controller
         $data->nomor_surat_penuntutan       = strip_tags(request()->post('nomor_surat_penuntutan'));
         $data->eksekusi                     = strip_tags(request()->post('eksekusi'));
         $data->upaya                        = strip_tags(request()->post('upaya'));
-        $data->keterangan                   = strip_tags(request()->post('upaya'));
+        $data->keterangan                   = strip_tags(request()->post('keterangan'));
         $data->save();
 
         return redirect()->route('admin.narkotika.index')->with('success', "Data berhasil ditambahkan!");
@@ -159,7 +159,7 @@ class NarkotikaController extends Controller
         $data->nomor_surat_penuntutan       = strip_tags(request()->post('nomor_surat_penuntutan'));
         $data->eksekusi                     = strip_tags(request()->post('eksekusi'));
         $data->upaya                        = strip_tags(request()->post('upaya'));
-        $data->keterangan                   = strip_tags(request()->post('upaya'));
+        $data->keterangan                   = strip_tags(request()->post('keterangan'));
         $data->save();
 
         return redirect()->route('admin.narkotika.index')->with('success', "Data berhasil di edit!");

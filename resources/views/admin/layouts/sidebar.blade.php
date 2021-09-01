@@ -69,6 +69,27 @@
                 </a>
             </li>
 
+            {{-- Labun Intel --}}
+            <li class="menu-header">Labun Intel</li>
+            <li class="{{ request()->segment(2) == 'pencegahan' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.pencegahan.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>Pencegahan & Penangkalan</span>
+                </a>
+            </li>
+            <li class="{{ request()->segment(2) == 'pengawasan' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.pengawasan.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>Pengawasan Lalu Lintas Orang Asing</span>
+                </a>
+            </li>
+            <li class="{{ request()->segment(2) == 'asing-pidana' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.asing-pidana.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>WNA Yang Terlibat Perkara Tindak Pidana</span>
+                </a>
+            </li>
+
             {{-- Reference Data --}}
             <li class="menu-header">Reference Data</li>
             <li class="{{ request()->segment(2) == 'kecamatan' ? 'active' : '' }}">

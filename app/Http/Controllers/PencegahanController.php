@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\BiodataWNI;
 use App\Models\Kecamatan;
-use App\Models\Korupsi;
+use App\Models\Pencegahan;
 use Illuminate\Http\Request;
 
-class KorupsiController extends Controller
+class PencegahanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,16 +28,16 @@ class KorupsiController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            return datatables()->of(Korupsi::with('biodata')
+            return datatables()->of(Pencegahan::with('biodata')
                 ->orderBy('updated_at', 'DESC')
                 ->get())
-                ->addColumn('biodata', 'admin.korupsi.biodata')
-                ->addColumn('action', 'admin.korupsi.action')
+                ->addColumn('biodata', 'admin.pencegahan.biodata')
+                ->addColumn('action', 'admin.pencegahan.action')
                 ->rawColumns(['biodata', 'action'])
                 ->addIndexColumn()
                 ->make(true);
         }
-        return view('admin.korupsi.index');
+        return view('admin.pencegahan.index');
     }
 
     /**
@@ -50,7 +50,7 @@ class KorupsiController extends Controller
         $biodata = BiodataWNI::orderBy('name')->get();
         $kecamatan = Kecamatan::orderBy('name')->get();
 
-        return view('admin.korupsi.create', compact('biodata', 'kecamatan'));
+        return view('admin.pencegahan.create', compact('biodata', 'kecamatan'));
     }
 
     /**
@@ -65,37 +65,33 @@ class KorupsiController extends Controller
             'tgl'                   => 'required|date',
             'biodata'               => 'required|integer',
             'kecamatan'             => 'required|integer',
-            'locus'                 => 'required|string',
-            'pasal'                 => 'required|string',
-            'penyelidikan'          => 'required|string',
-            'tgl_surat_kejaksaan'   => 'nullable|date',
-            'nomor_surat_kejaksaan' => 'nullable|string',
-            'tgl_surat_polri'       => 'nullable|date',
-            'nomor_surat_polri'     => 'nullable|string',
-            'penuntutan'            => 'required|string',
-            'eksekusi'              => 'required|string',
-            'upaya'                 => 'required|string',
-            'keterangan'            => 'required|string',
+            'nomor_pencegahan'      => 'nullable|string',
+            'tgl_pencegahan'        => 'nullable|date',
+            'locus'                 => 'nullable|string',
+            'pasal'                 => 'nullable|string',
+            'nomor_kepja'           => 'nullable|string',
+            'tgl_kepja'             => 'nullable|date',
+            'tgl_mulai'             => 'nullable|date',
+            'tgl_akhir'             => 'nullable|date',
+            'keterangan'            => 'nullable|string',
         ], $this->customMessages);
 
-        $data = new Korupsi();
+        $data = new Pencegahan();
         $data->tgl                      = request()->post('tgl');
         $data->biodata_id               = strip_tags(request()->post('biodata'));
         $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
+        $data->nomor_pencegahan         = strip_tags(request()->post('nomor_pencegahan'));
+        $data->tgl_pencegahan           = request()->post('tgl_pencegahan');
         $data->locus                    = strip_tags(request()->post('locus'));
         $data->pasal                    = strip_tags(request()->post('pasal'));
-        $data->penyelidikan             = strip_tags(request()->post('penyelidikan'));
-        $data->tgl_surat_kejaksaan      = request()->post('tgl_surat_kejaksaan');
-        $data->nomor_surat_kejaksaan    = strip_tags(request()->post('nomor_surat_kejaksaan'));
-        $data->tgl_surat_polri          = request()->post('tgl_surat_polri');
-        $data->nomor_surat_polri        = strip_tags(request()->post('nomor_surat_polri'));
-        $data->penuntutan               = strip_tags(request()->post('penuntutan'));
-        $data->eksekusi                 = strip_tags(request()->post('eksekusi'));
-        $data->upaya                    = strip_tags(request()->post('upaya'));
+        $data->nomor_kepja              = strip_tags(request()->post('nomor_kepja'));
+        $data->tgl_kepja                = request()->post('tgl_kepja');
+        $data->tgl_mulai                = request()->post('tgl_mulai');
+        $data->tgl_akhir                = request()->post('tgl_akhir');
         $data->keterangan               = strip_tags(request()->post('keterangan'));
         $data->save();
 
-        return redirect()->route('admin.korupsi.index')->with('success', "Data berhasil ditambahkan!");
+        return redirect()->route('admin.pencegahan.index')->with('success', "Data berhasil ditambahkan!");
     }
 
     /**
@@ -106,10 +102,10 @@ class KorupsiController extends Controller
      */
     public function show($id)
     {
-        $data = Korupsi::findOrFail($id);
+        $data = Pencegahan::findOrFail($id);
         $kecamatan = Kecamatan::orderBy('name')->get();
 
-        return view('admin.korupsi.show', compact('data', 'kecamatan'));
+        return view('admin.pencegahan.show', compact('data', 'kecamatan'));
     }
 
     /**
@@ -120,11 +116,11 @@ class KorupsiController extends Controller
      */
     public function edit($id)
     {
-        $data = Korupsi::findOrFail($id);
+        $data = Pencegahan::findOrFail($id);
         $biodatas = BiodataWNI::orderBy('name')->get();
         $kecamatans = Kecamatan::orderBy('name')->get();
 
-        return view('admin.korupsi.edit', compact('data', 'biodatas', 'kecamatans'));
+        return view('admin.pencegahan.edit', compact('data', 'biodatas', 'kecamatans'));
     }
 
     /**
@@ -136,41 +132,37 @@ class KorupsiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = Korupsi::findOrFail($id);
+        $data = Pencegahan::findOrFail($id);
         request()->validate([
             'tgl'                   => 'required|date',
             'biodata'               => 'required|integer',
             'kecamatan'             => 'required|integer',
-            'locus'                 => 'required|string',
-            'pasal'                 => 'required|string',
-            'penyelidikan'          => 'required|string',
-            'tgl_surat_kejaksaan'   => 'nullable|date',
-            'nomor_surat_kejaksaan' => 'nullable|string',
-            'tgl_surat_polri'       => 'nullable|date',
-            'nomor_surat_polri'     => 'nullable|string',
-            'penuntutan'            => 'required|string',
-            'eksekusi'              => 'required|string',
-            'upaya'                 => 'required|string',
-            'keterangan'            => 'required|string',
+            'nomor_pencegahan'      => 'nullable|string',
+            'tgl_pencegahan'        => 'nullable|date',
+            'locus'                 => 'nullable|string',
+            'pasal'                 => 'nullable|string',
+            'nomor_kepja'           => 'nullable|string',
+            'tgl_kepja'             => 'nullable|date',
+            'tgl_mulai'             => 'nullable|date',
+            'tgl_akhir'             => 'nullable|date',
+            'keterangan'            => 'nullable|string',
         ], $this->customMessages);
 
         $data->tgl                      = request()->post('tgl');
         $data->biodata_id               = strip_tags(request()->post('biodata'));
         $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
+        $data->nomor_pencegahan         = strip_tags(request()->post('nomor_pencegahan'));
+        $data->tgl_pencegahan           = request()->post('tgl_pencegahan');
         $data->locus                    = strip_tags(request()->post('locus'));
         $data->pasal                    = strip_tags(request()->post('pasal'));
-        $data->penyelidikan             = strip_tags(request()->post('penyelidikan'));
-        $data->tgl_surat_kejaksaan      = request()->post('tgl_surat_kejaksaan');
-        $data->nomor_surat_kejaksaan    = strip_tags(request()->post('nomor_surat_kejaksaan'));
-        $data->tgl_surat_polri          = request()->post('tgl_surat_polri');
-        $data->nomor_surat_polri        = strip_tags(request()->post('nomor_surat_polri'));
-        $data->penuntutan               = strip_tags(request()->post('penuntutan'));
-        $data->eksekusi                 = strip_tags(request()->post('eksekusi'));
-        $data->upaya                    = strip_tags(request()->post('upaya'));
+        $data->nomor_kepja              = strip_tags(request()->post('nomor_kepja'));
+        $data->tgl_kepja                = request()->post('tgl_kepja');
+        $data->tgl_mulai                = request()->post('tgl_mulai');
+        $data->tgl_akhir                = request()->post('tgl_akhir');
         $data->keterangan               = strip_tags(request()->post('keterangan'));
         $data->save();
 
-        return redirect()->route('admin.korupsi.index')->with('success', "Data berhasil di edit!");
+        return redirect()->route('admin.pencegahan.index')->with('success', "Data berhasil di edit!");
     }
 
     /**
@@ -181,7 +173,7 @@ class KorupsiController extends Controller
      */
     public function destroy($id)
     {
-        $data = Korupsi::destroy($id);
+        $data = Pencegahan::destroy($id);
 
         return response()->json($data);
     }

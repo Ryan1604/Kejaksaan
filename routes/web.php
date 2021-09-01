@@ -61,6 +61,17 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'active', '
     // Umum
     Route::resource('umum', 'UmumController');
 
+    /* Label Intel */
+
+    // Pencegahan dan Penangkalan
+    Route::resource('pencegahan', 'PencegahanController');
+
+    // Narkotika
+    Route::resource('pengawasan', 'PengawasanController');
+
+    // Umum
+    Route::resource('asing-pidana', 'AsingPidanaController');
+
     /* Reference Data */
 
     // Kecamatan

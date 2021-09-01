@@ -178,5 +178,55 @@ class DatabaseSeeder extends Seeder
                 ],
             ]);
         }
+
+        if (Schema::hasTable('tingga_sementara_w_n_a_s')) {
+            if (DB::table('tingga_sementara_w_n_a_s')->count() > 0) {
+                DB::table('tingga_sementara_w_n_a_s')->truncate();
+            }
+
+            DB::table('tingga_sementara_w_n_a_s')->insert([
+                [
+                    'name' => 'Tenaga Kerja Asing',
+                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Pelajar',
+                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Peneliti',
+                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Keluarga',
+                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Rohaniawan',
+                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ],
+            ]);
+        }
+
+        if (Schema::hasTable('kunjungan_w_n_a_s')) {
+            if (DB::table('kunjungan_w_n_a_s')->count() > 0) {
+                DB::table('kunjungan_w_n_a_s')->truncate();
+            }
+
+            DB::table('kunjungan_w_n_a_s')->insert([
+                [
+                    'name' => 'Usaha',
+                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Sosbud',
+                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Wisata',
+                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ],
+            ]);
+        }
     }
 }

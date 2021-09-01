@@ -14,7 +14,7 @@ class CreateKunjunganWNASTable extends Migration
     public function up()
     {
         Schema::create('kunjungan_w_n_a_s', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->smallIncrements('id');
             $table->string('name');
             $table->timestamps();
         });
