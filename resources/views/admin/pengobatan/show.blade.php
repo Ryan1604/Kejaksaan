@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Detail WNA Yang Terlibat Perkara Tindak Pidana')
+@section('title', 'Detail Pengobatan Tradisional')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('backend/modules/select2/dist/css/select2.min.css') }}">
@@ -12,7 +12,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Detail WNA Yang Terlibat Perkara Tindak Pidana</h1>
+                <h1>Detail Pengobatan Tradisional</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item">
                         <a href="{{ route('admin.dashboard') }}">
@@ -21,9 +21,9 @@
                         </a>
                     </div>
                     <div class="breadcrumb-item">
-                        <a href="{{ route('admin.pencegahan.index') }}">
+                        <a href="{{ route('admin.pengobatan.index') }}">
                             <i class="fa fa-file-pdf"></i>
-                            WNA Yang Terlibat Perkara Tindak Pidana
+                            Pengobatan Tradisional
                         </a>
                     </div>
                     <div class="breadcrumb-item">
@@ -45,40 +45,36 @@
                                     <td>{{ date('d M Y', strtotime($data->tgl)) }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Nama Lengkap</td>
-                                    <td>{{ $data->biodata->name }}</th>
+                                    <td>Kecamatan</td>
+                                    <td>{{ $data->kecamatan->name }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Asal Negara</td>
-                                    <td>{{ $data->biodata->country->name }}</th>
+                                    <td>Nama dan Alamat Klinik Pengobatan</td>
+                                    <td>{{ $data->nama_klinik }} dan {{ $data->alamat }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Locus dan Tempus</td>
-                                    <td>{{ $data->locus }}</th>
+                                    <td>Identitas Lengkap</td>
+                                    <td>{{ $data->identitas }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Tindak Pidana</td>
-                                    <td>{{ $data->tindak_pidana }}</th>
+                                    <td>Jumlah Pembantu</td>
+                                    <td>{{ $data->jumlah_pembantu }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Tahapan</td>
-                                    <td>Tahapan DIK: {{ $data->tahapan_dik }}</th>
+                                    <td>Sumber Informasi dan Media Pengobatan yang Digunakan</td>
+                                    <td>{{ $data->sumber_informasi }}</th>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td>Tahapan PRATUT: {{ $data->tahapan_pratut }}</th>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Tahapan TUT: {{ $data->tahapan_tut }}</th>
+                                    <td>Kegiatan Pengobatan</td>
+                                    <td>Asal Mula Penemuan Pengobatan: {{ $data->asal_mula }}</th>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td>Tahapan Eksekusi: {{ $data->tahapan_eksekusi }}</th>
+                                    <td>Cara Pengobatan: {{ $data->cara }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Lama Pidana Penjara</td>
-                                    <td>{{ $data->lama_pidana }}</th>
+                                    <td>Ijin Dinas Kesehatan</td>
+                                    <td>{{ $data->nomor_ijin }} / {{ date('d M Y', strtotime($data->tgl_ijin)) }}</th>
                                 </tr>
                                 <tr>
                                     <td>Keterangan</td>

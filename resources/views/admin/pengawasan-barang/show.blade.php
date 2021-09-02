@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Detail WNA Yang Terlibat Perkara Tindak Pidana')
+@section('title', 'Detail Pengawasan Barang Cetakan')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('backend/modules/select2/dist/css/select2.min.css') }}">
@@ -12,7 +12,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Detail WNA Yang Terlibat Perkara Tindak Pidana</h1>
+                <h1>Detail Pengawasan Barang Cetakan</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item">
                         <a href="{{ route('admin.dashboard') }}">
@@ -21,9 +21,9 @@
                         </a>
                     </div>
                     <div class="breadcrumb-item">
-                        <a href="{{ route('admin.pencegahan.index') }}">
+                        <a href="{{ route('admin.pengawasan_barang.index') }}">
                             <i class="fa fa-file-pdf"></i>
-                            WNA Yang Terlibat Perkara Tindak Pidana
+                            Pengawasan Barang Cetakan
                         </a>
                     </div>
                     <div class="breadcrumb-item">
@@ -45,40 +45,32 @@
                                     <td>{{ date('d M Y', strtotime($data->tgl)) }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Nama Lengkap</td>
-                                    <td>{{ $data->biodata->name }}</th>
+                                    <td>Kecamatan</td>
+                                    <td>{{ $data->kecamatan->name }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Asal Negara</td>
-                                    <td>{{ $data->biodata->country->name }}</th>
+                                    <td>Bentuk Barang Cetakan</td>
+                                    <td>{{ $data->barang }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Locus dan Tempus</td>
-                                    <td>{{ $data->locus }}</th>
+                                    <td>Tanggal Penerbitan</td>
+                                    <td>{{ date('d M Y', strtotime($data->tgl_penerbitan)) }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Tindak Pidana</td>
-                                    <td>{{ $data->tindak_pidana }}</th>
+                                    <td>Penulis atau Penerbit</td>
+                                    <td>{{ $data->penulis }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Tahapan</td>
-                                    <td>Tahapan DIK: {{ $data->tahapan_dik }}</th>
+                                    <td>Judul dan Isi</td>
+                                    <td>{{ $data->judul }}</th>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td>Tahapan PRATUT: {{ $data->tahapan_pratut }}</th>
+                                    <td>Hasil Penelitian</td>
+                                    <td>{{ $data->hasil }}</th>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td>Tahapan TUT: {{ $data->tahapan_tut }}</th>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Tahapan Eksekusi: {{ $data->tahapan_eksekusi }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Lama Pidana Penjara</td>
-                                    <td>{{ $data->lama_pidana }}</th>
+                                    <td>Tindak Lanjut</td>
+                                    <td>{{ $data->tindak_lanjut }}</th>
                                 </tr>
                                 <tr>
                                     <td>Keterangan</td>

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AsingPidana;
-use App\Models\BiodataWNA;
+use App\Models\Kecamatan;
+use App\Models\PengamananSumberDaya;
 use Illuminate\Http\Request;
 
-class AsingPidanaController extends Controller
+class PengamananSumberDayaController extends Controller
 {
     protected $customMessages = [
         'required'              => ':attribute harus diisi',
@@ -20,16 +20,14 @@ class AsingPidanaController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            return datatables()->of(AsingPidana::with('biodata')
-                ->orderBy('updated_at', 'DESC')
+            return datatables()->of(PengamananSumberDaya::orderBy('created_at', 'DESC')
                 ->get())
-                ->addColumn('biodata', 'admin.asing-pidana.biodata')
-                ->addColumn('action', 'admin.asing-pidana.action')
-                ->rawColumns(['biodata', 'action'])
+                ->addColumn('action', 'admin.pengamanan.action')
+                ->rawColumns(['action'])
                 ->addIndexColumn()
                 ->make(true);
         }
-        return view('admin.asing-pidana.index');
+        return view('admin.pengamanan.index');
     }
 
     /**
@@ -39,9 +37,9 @@ class AsingPidanaController extends Controller
      */
     public function create()
     {
-        $biodata            = BiodataWNA::orderBy('name')->get();
+        $kecamatan            = Kecamatan::orderBy('name')->get();
 
-        return view('admin.asing-pidana.create', compact('biodata'));
+        return view('admin.pengamanan.create', compact('kecamatan'));
     }
 
     /**
@@ -53,10 +51,10 @@ class AsingPidanaController extends Controller
     public function store(Request $request)
     {
         request()->validate([
+            'kecamatan_id'          => 'required|integer',
             'tgl'                   => 'required|date',
-            'biodata_id'            => 'required|integer',
-            'locus'                 => 'nullable|string',
-            'tindak_pidana'         => 'nullable|string',
+            'sumber_informasi'      => 'nullable|string',
+            'isi_informasi'         => 'nullable|string',
             'tahapan_dik'           => 'nullable|string',
             'tahapan_pratut'        => 'nullable|string',
             'tahapan_tut'           => 'nullable|string',
@@ -65,20 +63,21 @@ class AsingPidanaController extends Controller
             'keterangan'            => 'nullable|string',
         ], $this->customMessages);
 
-        $data = new AsingPidana();
+        $data = new PengamananSumberDaya();
+        $data->kecamatan_id             = strip_tags(request()->post('kecamatan_id'));
         $data->tgl                      = request()->post('tgl');
-        $data->biodata_id               = strip_tags(request()->post('biodata_id'));
-        $data->locus                    = strip_tags(request()->post('locus'));
-        $data->tindak_pidana            = strip_tags(request()->post('tindak_pidana'));
-        $data->tahapan_dik              = strip_tags(request()->post('tahapan_dik'));
-        $data->tahapan_pratut           = strip_tags(request()->post('tahapan_pratut'));
-        $data->tahapan_tut              = strip_tags(request()->post('tahapan_tut'));
-        $data->tahapan_eksekusi         = strip_tags(request()->post('tahapan_eksekusi'));
-        $data->lama_pidana              = strip_tags(request()->post('lama_pidana'));
+        $data->sumber_informasi         = strip_tags(request()->post('sumber_informasi'));
+        $data->isi_informasi            = strip_tags(request()->post('isi_informasi'));
+        $data->opsin_lid                = strip_tags(request()->post('opsin_lid'));
+        $data->opsin_pam                = strip_tags(request()->post('opsin_pam'));
+        $data->opsin_gal                = strip_tags(request()->post('opsin_gal'));
+        $data->nomor_surat              = strip_tags(request()->post('nomor_surat'));
+        $data->tgl_surat                = request()->post('tgl_surat');
+        $data->hasil                    = strip_tags(request()->post('hasil'));
         $data->keterangan               = strip_tags(request()->post('keterangan'));
         $data->save();
 
-        return redirect()->route('admin.asing-pidana.index')->with('success', "Data berhasil ditambahkan!");
+        return redirect()->route('admin.pengamanan.index')->with('success', "Data berhasil ditambahkan!");
     }
 
     /**
@@ -89,9 +88,9 @@ class AsingPidanaController extends Controller
      */
     public function show($id)
     {
-        $data               = AsingPidana::findOrFail($id);
+        $data               = PengamananSumberDaya::findOrFail($id);
 
-        return view('admin.asing-pidana.show', compact('data'));
+        return view('admin.pengamanan.show', compact('data'));
     }
 
     /**
@@ -102,10 +101,10 @@ class AsingPidanaController extends Controller
      */
     public function edit($id)
     {
-        $data               = AsingPidana::findOrFail($id);
-        $biodatas           = BiodataWNA::orderBY('name')->get();
+        $data               = PengamananSumberDaya::findOrFail($id);
+        $kecamatans         = Kecamatan::orderBY('name')->get();
 
-        return view('admin.asing-pidana.edit', compact('data', 'biodatas'));
+        return view('admin.pengamanan.edit', compact('data', 'kecamatans'));
     }
 
     /**
@@ -117,12 +116,12 @@ class AsingPidanaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = AsingPidana::findOrFail($id);
+        $data = PengamananSumberDaya::findOrFail($id);
         request()->validate([
+            'kecamatan_id'          => 'required|integer',
             'tgl'                   => 'required|date',
-            'biodata_id'            => 'required|integer',
-            'locus'                 => 'nullable|string',
-            'tindak_pidana'         => 'nullable|string',
+            'sumber_informasi'      => 'nullable|string',
+            'isi_informasi'         => 'nullable|string',
             'tahapan_dik'           => 'nullable|string',
             'tahapan_pratut'        => 'nullable|string',
             'tahapan_tut'           => 'nullable|string',
@@ -131,19 +130,20 @@ class AsingPidanaController extends Controller
             'keterangan'            => 'nullable|string',
         ], $this->customMessages);
 
+        $data->kecamatan_id             = strip_tags(request()->post('kecamatan_id'));
         $data->tgl                      = request()->post('tgl');
-        $data->biodata_id               = strip_tags(request()->post('biodata_id'));
-        $data->locus                    = strip_tags(request()->post('locus'));
-        $data->tindak_pidana            = strip_tags(request()->post('tindak_pidana'));
-        $data->tahapan_dik              = strip_tags(request()->post('tahapan_dik'));
-        $data->tahapan_pratut           = strip_tags(request()->post('tahapan_pratut'));
-        $data->tahapan_tut              = strip_tags(request()->post('tahapan_tut'));
-        $data->tahapan_eksekusi         = strip_tags(request()->post('tahapan_eksekusi'));
-        $data->lama_pidana              = strip_tags(request()->post('lama_pidana'));
+        $data->sumber_informasi         = strip_tags(request()->post('sumber_informasi'));
+        $data->isi_informasi            = strip_tags(request()->post('isi_informasi'));
+        $data->opsin_lid                = strip_tags(request()->post('opsin_lid'));
+        $data->opsin_pam                = strip_tags(request()->post('opsin_pam'));
+        $data->opsin_gal                = strip_tags(request()->post('opsin_gal'));
+        $data->nomor_surat              = strip_tags(request()->post('nomor_surat'));
+        $data->tgl_surat                = request()->post('tgl_surat');
+        $data->hasil                    = strip_tags(request()->post('hasil'));
         $data->keterangan               = strip_tags(request()->post('keterangan'));
         $data->save();
 
-        return redirect()->route('admin.asing-pidana.index')->with('success', "Data berhasil di edit!");
+        return redirect()->route('admin.pengamanan.index')->with('success', "Data berhasil di edit!");
     }
 
     /**
@@ -154,7 +154,7 @@ class AsingPidanaController extends Controller
      */
     public function destroy($id)
     {
-        $data = AsingPidana::destroy($id);
+        $data = PengamananSumberDaya::destroy($id);
 
         return response()->json($data);
     }

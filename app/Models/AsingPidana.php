@@ -10,7 +10,6 @@ class AsingPidana extends Model
         'tgl',
         'biodata_id',
         'locus',
-        'negara_id',
         'tidak_pidana',
         'tahapan_dik',
         'tahapan_pratut',
@@ -22,10 +21,5 @@ class AsingPidana extends Model
     public function biodata()
     {
         return $this->belongsTo('App\Models\BiodataWNA');
-    }
-
-    public function negara()
-    {
-        return $this->belongsTo('App\Models\Negara');
     }
 }

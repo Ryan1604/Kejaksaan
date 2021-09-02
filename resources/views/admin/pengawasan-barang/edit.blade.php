@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Edit WNA Yang Terlibat Perkara Tindak Pidana')
+@section('title', 'Edit Pengawasan Barang Cetakan')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('backend/modules/select2/dist/css/select2.min.css') }}">
@@ -12,7 +12,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Edit WNA Yang Terlibat Perkara Tindak Pidana</h1>
+                <h1>Edit Pengawasan Barang Cetakan</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item">
                         <a href="{{ route('admin.dashboard') }}">
@@ -21,9 +21,9 @@
                         </a>
                     </div>
                     <div class="breadcrumb-item">
-                        <a href="{{ route('admin.pencegahan.index') }}">
+                        <a href="{{ route('admin.pengawasan_barang.index') }}">
                             <i class="fa fa-file-pdf"></i>
-                            WNA Yang Terlibat Perkara Tindak Pidana
+                            Pengawasan Barang Cetakan
                         </a>
                     </div>
                     <div class="breadcrumb-item">
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="section-body">
-                <form method="POST" action="{{ route('admin.asing-pidana.update', $data->id) }}">
+                <form method="POST" action="{{ route('admin.pengawasan_barang.update', $data->id) }}">
                     @csrf
                     @method('PUT')
                     <input type="hidden" id="id" value="{{ $data->id }}">
@@ -41,7 +41,7 @@
                         <div class="col-lg-9">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h4 class="card-title">Edit WNA Yang Terlibat Perkara Tindak Pidana</h4>
+                                    <h4 class="card-title">Edit Pengawasan Barang Cetakan</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="text-danger" id="valid-type">{{ $errors->first('type') }}</div>
@@ -57,62 +57,68 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="biodata_id">Nama Lengkap</label>
-                                                <select class="select2 form-control form-control-sm @error('biodata_id') is-invalid @enderror" name="biodata_id" id="biodata_id">
-                                                    <option value="" selected disabled>-- Pilih Warga Negara Asing --</option>
-                                                    @foreach ($biodatas as $biodata )
-                                                        <option value="{{ $biodata->id }}" {{ old('biodata_id') == $biodata->id || $data->biodata_id == $biodata->id ? 'selected' : '' }}>{{ $biodata->name }}</option>
+                                                <label for="kecamatan_id">Kecamatan</label>
+                                                <select class="select2 form-control form-control-sm @error('kecamatan_id') is-invalid @enderror" name="kecamatan_id" id="kecamatan_id">
+                                                    <option value="" selected disabled>-- Pilih Kecamatan --</option>
+                                                    @foreach ($kecamatans as $kecamatan )
+                                                        <option value="{{ $kecamatan->id }}" {{ old('kecamatan_id') == $kecamatan->id || $data->kecamatan_id == $kecamatan->id ? 'selected' : '' }}>{{ $kecamatan->name }}</option>
                                                     @endforeach
                                                 </select>
-                                                <div class="invalid-feedback" id="valid-biodata_id">{{ $errors->first('biodata_id') }}</div>
+                                                <div class="invalid-feedback" id="valid-kecamatan_id">{{ $errors->first('kecamatan_id') }}</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="locus">Locus dan Tempus <sup class="text-danger">*</sup></label>
-                                                <input type="text" class="form-control form-control-sm @error('locus') is-invalid @enderror" name="locus" id="locus" value="@error('locus'){{ old('locus') }}@else{{ $data->locus }}@enderror" placeholder="Masukkan Locus dan Tempus">
-                                                <div class="invalid-feedback" id="valid-locus">{{ $errors->first('locus') }}</div>
+                                                <label for="barang">Bentuk Barang Cetakan <sup class="text-danger">*</sup></label>
+                                                <input type="text" class="form-control form-control-sm @error('barang') is-invalid @enderror" name="barang" id="barang" value="@error('barang'){{ old('barang') }}@else{{ $data->barang }}@enderror" placeholder="Masukkan Bentuk Barang Cetakan">
+                                                <div class="invalid-feedback" id="valid-barang">{{ $errors->first('barang') }}</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="tindak_pidana">Tindak Pidana <sup class="text-danger">*</sup></label>
-                                                <input type="text" class="form-control form-control-sm @error('tindak_pidana') is-invalid @enderror" name="tindak_pidana" id="tindak_pidana" value="@error('tindak_pidana'){{ old('tindak_pidana') }}@else{{ $data->tindak_pidana }}@enderror" placeholder="Masukkan Tindak Pidana">
-                                                <div class="invalid-feedback" id="valid-tindak_pidana">{{ $errors->first('tindak_pidana') }}</div>
+                                                <label for="tgl_penerbitan">Tanggal Penerbitan <sup class="text-danger">*</sup></label>
+                                                <input type="date" class="form-control form-control-sm @error('tgl_penerbitan') is-invalid @enderror" name="tgl_penerbitan" id="tgl_penerbitan" value="@error('tgl_penerbitan'){{ old('tgl_penerbitan') }}@else{{ $data->tgl_penerbitan }}@enderror">
+                                                <div class="invalid-feedback" id="valid-tgl_penerbitan">{{ $errors->first('tgl_penerbitan') }}</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label>Tahapan</label>
-                                                <div class="row">
-                                                    <div class="col-md-3 col-sm-3">
-                                                        <input type="text" class="form-control form-control-sm @error('tahapan_dik') is-invalid @enderror" name="tahapan_dik" id="tahapan_dik" value="@error('tahapan_dik'){{ old('tahapan_dik') }}@else{{ $data->tahapan_dik }}@enderror" placeholder="Tahapan DIK">   
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-3">
-                                                        <input type="text" class="form-control form-control-sm @error('tahapan_pratut') is-invalid @enderror" name="tahapan_pratut" id="tahapan_pratut" value="@error('tahapan_pratut'){{ old('tahapan_pratut') }}@else{{ $data->tahapan_pratut }}@enderror" placeholder="Tahapan PRATUT"> 
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-3">
-                                                        <input type="text" class="form-control form-control-sm @error('tahapan_tut') is-invalid @enderror" name="tahapan_tut" id="tahapan_tut" value="@error('tahapan_tut'){{ old('tahapan_tut') }}@else{{ $data->tahapan_tut }}@enderror" placeholder="Tahapan TUT">  
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-3">
-                                                        <input type="text" class="form-control form-control-sm @error('tahapan_eksekusi') is-invalid @enderror" name="tahapan_eksekusi" id="tahapan_eksekusi" value="@error('tahapan_eksekusi'){{ old('tahapan_eksekusi') }}@else{{ $data->tahapan_eksekusi }}@enderror" placeholder="Tahapan Eksekusi">
-                                                    </div>
-                                                </div>
+                                                <label for="penulis">Penulis atau Penerbit <sup class="text-danger">*</sup></label>
+                                                <input type="text" class="form-control form-control-sm @error('penulis') is-invalid @enderror" name="penulis" id="penulis" value="@error('penulis'){{ old('penulis') }}@else{{ $data->penulis }}@enderror" placeholder="Masukkan Penulis atau Penerbit">
+                                                <div class="invalid-feedback" id="valid-penulis">{{ $errors->first('penulis') }}</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="lama_pidana">Lama Pidana Penjara <sup class="text-danger">*</sup></label>
-                                                <input type="text" class="form-control form-control-sm @error('lama_pidana') is-invalid @enderror" name="lama_pidana" id="lama_pidana" value="@error('lama_pidana'){{ old('lama_pidana') }}@else{{ $data->lama_pidana }}@enderror" placeholder="Masukkan Lama Pidana Penjara">
-                                                <div class="invalid-feedback" id="valid-lama_pidana">{{ $errors->first('lama_pidana') }}</div>
+                                                <label for="judul">Judul dan Isi <sup class="text-danger">*</sup></label>
+                                                <input type="text" class="form-control form-control-sm @error('judul') is-invalid @enderror" name="judul" id="judul" value="@error('judul'){{ old('judul') }}@else{{ $data->judul }}@enderror" placeholder="Masukkan Judul dan Isi">
+                                                <div class="invalid-feedback" id="valid-judul">{{ $errors->first('judul') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="hasil">Hasil Penelitian <sup class="text-danger">*</sup></label>
+                                                <input type="text" class="form-control form-control-sm @error('hasil') is-invalid @enderror" name="hasil" id="hasil" value="@error('hasil'){{ old('hasil') }}@else{{ $data->hasil }}@enderror" placeholder="Masukkan Hasil Penelitian">
+                                                <div class="invalid-feedback" id="valid-hasil">{{ $errors->first('hasil') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="tindak_lanjut">Tindak Lanjut <sup class="text-danger">*</sup></label>
+                                                <input type="text" class="form-control form-control-sm @error('tindak_lanjut') is-invalid @enderror" name="tindak_lanjut" id="tindak_lanjut" value="@error('tindak_lanjut'){{ old('tindak_lanjut') }}@else{{ $data->tindak_lanjut }}@enderror" placeholder="Masukkan Tindak Lanjut">
+                                                <div class="invalid-feedback" id="valid-tindak_lanjut">{{ $errors->first('tindak_lanjut') }}</div>
                                             </div>
                                         </div>
                                     </div>

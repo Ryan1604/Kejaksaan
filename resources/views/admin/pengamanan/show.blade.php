@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Detail WNA Yang Terlibat Perkara Tindak Pidana')
+@section('title', 'Detail Pengamanan Sumber Daya Kejaksaan')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('backend/modules/select2/dist/css/select2.min.css') }}">
@@ -12,7 +12,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Detail WNA Yang Terlibat Perkara Tindak Pidana</h1>
+                <h1>Detail Pengamanan Sumber Daya Kejaksaan</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item">
                         <a href="{{ route('admin.dashboard') }}">
@@ -23,7 +23,7 @@
                     <div class="breadcrumb-item">
                         <a href="{{ route('admin.pencegahan.index') }}">
                             <i class="fa fa-file-pdf"></i>
-                            WNA Yang Terlibat Perkara Tindak Pidana
+                            Pengamanan Sumber Daya Kejaksaan
                         </a>
                     </div>
                     <div class="breadcrumb-item">
@@ -45,40 +45,36 @@
                                     <td>{{ date('d M Y', strtotime($data->tgl)) }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Nama Lengkap</td>
-                                    <td>{{ $data->biodata->name }}</th>
+                                    <td>Kecamatan</td>
+                                    <td>{{ $data->kecamatan->name }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Asal Negara</td>
-                                    <td>{{ $data->biodata->country->name }}</th>
+                                    <td>Sumber Informasi</td>
+                                    <td>{{ $data->sumber_informasi }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Locus dan Tempus</td>
-                                    <td>{{ $data->locus }}</th>
+                                    <td>Isi Informasi</td>
+                                    <td>{{ $data->isi_informasi }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Tindak Pidana</td>
-                                    <td>{{ $data->tindak_pidana }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Tahapan</td>
-                                    <td>Tahapan DIK: {{ $data->tahapan_dik }}</th>
+                                    <td>Opsin</td>
+                                    <td>LID: {{ $data->opsin_lid }}</th>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td>Tahapan PRATUT: {{ $data->tahapan_pratut }}</th>
+                                    <td>PAM: {{ $data->opsin_pam }}</th>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td>Tahapan TUT: {{ $data->tahapan_tut }}</th>
+                                    <td>GAL: {{ $data->opsin_gal }}</th>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td>Tahapan Eksekusi: {{ $data->tahapan_eksekusi }}</th>
+                                    <td>Surat Perintah</td>
+                                    <td>{{ date('d M Y', strtotime($data->tgl_surat)) }} / {{ $data->nomor_surat }}</th>
                                 </tr>
                                 <tr>
-                                    <td>Lama Pidana Penjara</td>
-                                    <td>{{ $data->lama_pidana }}</th>
+                                    <td>Hasil</td>
+                                    <td>{{ $data->hasil }}</th>
                                 </tr>
                                 <tr>
                                     <td>Keterangan</td>

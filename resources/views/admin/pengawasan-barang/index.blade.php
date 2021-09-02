@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'WNA Yang Terlibat Perkara Tindak Pidana')
+@section('title', 'Pengawasan Barang Cetakan')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('backend/modules/datatables/datatables.min.css') }}">
@@ -10,7 +10,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>WNA Yang Terlibat Perkara Tindak Pidana</h1>
+                <h1>Pengawasan Barang Cetakan</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item">
                         <a href="{{ route('admin.dashboard') }}">
@@ -20,7 +20,7 @@
                     </div>
                     <div class="breadcrumb-item">
                         <i class="fa fa-file-pdf"></i>
-                        WNA Yang Terlibat Perkara Tindak Pidana
+                        Pengawasan Barang Cetakan
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
             <div class="section-body">
                 <div class="card card-primary">  
                     <div class="card-header">
-                        <a class="btn btn-primary ml-auto" href="{{ route('admin.asing-pidana.create') }}">
+                        <a class="btn btn-primary ml-auto" href="{{ route('admin.pengawasan_barang.create') }}">
                             <i class="fas fa-plus-circle"></i>
                             Tambah Data
                         </a>
@@ -50,9 +50,9 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Lengkap</th>
-                                        <th>Tindak Pidana</th>
-                                        <th>Lama Pidana Penjara</th>
+                                        <th>Barang</th>
+                                        <th>Tanggal Penerbitan</th>
+                                        <th>Penulis</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -82,7 +82,7 @@
             $('#ebook-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('admin.asing-pidana.index') }}',
+                ajax: '{{ route('admin.pengawasan_barang.index') }}',
                 columns: [
                     {
                         data: 'DT_RowIndex',
@@ -91,16 +91,16 @@
                         searchable: false
                     },
                     {
-                        data: 'biodata',
-                        name: 'biodata',
+                        data: 'barang',
+                        name: 'barang',
                     },
                     {
-                        data: 'tindak_pidana',
-                        name: 'tindak_pidana'
+                        data: 'tgl_penerbitan',
+                        name: 'tgl_penerbitan'
                     },
                     {
-                        data: 'lama_pidana',
-                        name: 'lama_pidana'
+                        data: 'penulis',
+                        name: 'penulis'
                     },
                     {
                         data: 'action',
@@ -131,7 +131,7 @@
                         case "ok" :
                             $.ajax({
                                 type: "DELETE",
-                                url: '{{ route('admin.asing-pidana.index') }}' + '/' + id,
+                                url: '{{ route('admin.pengawasan_barang.index') }}' + '/' + id,
                                 success: function(data) {
                                     $('#ebook-table').DataTable().draw(false);
                                     $('#ebook-table').DataTable().on('draw', function() {

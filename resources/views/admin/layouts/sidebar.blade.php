@@ -89,6 +89,30 @@
                     <span>WNA Yang Terlibat Perkara Tindak Pidana</span>
                 </a>
             </li>
+            <li class="{{ request()->segment(2) == 'pengamanan' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.pengamanan.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>Pengamanan Sumber Daya Kejaksaan</span>
+                </a>
+            </li>
+            <li class="{{ request()->segment(2) == 'pengawasan_barang' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.pengawasan_barang.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>Pengawasan Barang Cetakan</span>
+                </a>
+            </li>
+            <li class="{{ request()->segment(2) == 'pengawasan_media' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.pengawasan_media.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>Pengawasan Media Komunikasi</span>
+                </a>
+            </li>
+            <li class="{{ request()->segment(2) == 'pengobatan' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.pengobatan.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>Pengobatan Tradiosional</span>
+                </a>
+            </li>
 
             {{-- Reference Data --}}
             <li class="menu-header">Reference Data</li>

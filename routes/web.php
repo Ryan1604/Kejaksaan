@@ -66,11 +66,23 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'active', '
     // Pencegahan dan Penangkalan
     Route::resource('pencegahan', 'PencegahanController');
 
-    // Narkotika
+    // Pengawasan WNA
     Route::resource('pengawasan', 'PengawasanController');
 
-    // Umum
+    // WNA yang terlibat tindak pidana
     Route::resource('asing-pidana', 'AsingPidanaController');
+
+    // Pengamanan Sumber Daya Kejaksaan
+    Route::resource('pengamanan', 'PengamananSumberDayaController');
+
+    // Pengawasan Barang Cetakan
+    Route::resource('pengawasan_barang', 'PengawasanBarangController');
+
+    // Pengawasan Media Komunikasi
+    Route::resource('pengawasan_media', 'PengawasanMediaController');
+
+    // Pengobatan Tradiotional
+    Route::resource('pengobatan', 'PengobatanController');
 
     /* Reference Data */
 
