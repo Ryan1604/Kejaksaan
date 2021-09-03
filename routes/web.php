@@ -99,6 +99,12 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'active', '
     // Pembinaan
     Route::resource('pembinaan', 'PembinaanController');
 
+    // Konflik Sosial
+    Route::resource('konflik', 'KonflikController');
+
+    // Posko
+    Route::resource('posko', 'PoskoController');
+
     /* Reference Data */
 
     // Kecamatan

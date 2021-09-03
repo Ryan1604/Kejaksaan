@@ -143,6 +143,18 @@
                     <span>Pembinaan Masyarakat Taat Hukum</span>
                 </a>
             </li>
+            <li class="{{ request()->segment(2) == 'konflik' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.konflik.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>Pencegahan Konflik Sosial</span>
+                </a>
+            </li>
+            <li class="{{ request()->segment(2) == 'posko' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.posko.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>Posko Perwakilan Kejaksaan</span>
+                </a>
+            </li>
 
             {{-- Reference Data --}}
             <li class="menu-header">Reference Data</li>
