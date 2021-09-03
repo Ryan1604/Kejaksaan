@@ -113,6 +113,36 @@
                     <span>Pengobatan Tradiosional</span>
                 </a>
             </li>
+            <li class="{{ request()->segment(2) == 'kepercayaan' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.kepercayaan.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>Pengawasan Aliran Kepercayaan Masyarakat</span>
+                </a>
+            </li>
+            <li class="{{ request()->segment(2) == 'keagamaan' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.keagamaan.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>Pengawasan Aliran Keagamaan</span>
+                </a>
+            </li>
+            <li class="{{ request()->segment(2) == 'pengawasan_organisasi' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.pengawasan_organisasi.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>Pengawasan Organisasi Kemasyarakatan</span>
+                </a>
+            </li>
+            <li class="{{ request()->segment(2) == 'ketertiban' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.ketertiban.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>Ketertiban dan Ketentraman Umum</span>
+                </a>
+            </li>
+            <li class="{{ request()->segment(2) == 'pembinaan' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.pembinaan.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>Pembinaan Masyarakat Taat Hukum</span>
+                </a>
+            </li>
 
             {{-- Reference Data --}}
             <li class="menu-header">Reference Data</li>

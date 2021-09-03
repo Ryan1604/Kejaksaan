@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePengawasanKepercayaansTable extends Migration
+class CreatePengawasanKeagamaansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePengawasanKepercayaansTable extends Migration
      */
     public function up()
     {
-        Schema::create('pengawasan_kepercayaans', function (Blueprint $table) {
+        Schema::create('pengawasan_keagamaans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedSmallInteger('kecamatan_id');
             $table->date('tgl');
@@ -40,6 +40,6 @@ class CreatePengawasanKepercayaansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pengawasan_kepercayaans');
+        Schema::dropIfExists('pengawasan_keagamaans');
     }
 }

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kecamatan;
-use App\Models\PengawasanKepercayaan;
+use App\Models\PengawasanOrganisasi;
 use Illuminate\Http\Request;
 
-class PengawasanKepercayaanController extends Controller
+class PengawasanOrganisasiController extends Controller
 {
     protected $customMessages = [
         'required'              => ':attribute harus diisi',
@@ -20,14 +20,14 @@ class PengawasanKepercayaanController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            return datatables()->of(PengawasanKepercayaan::orderBy('updated_at', 'DESC')
+            return datatables()->of(PengawasanOrganisasi::orderBy('updated_at', 'DESC')
                 ->get())
-                ->addColumn('action', 'admin.kepercayaan.action')
+                ->addColumn('action', 'admin.pengawasan-organisasi.action')
                 ->rawColumns(['biodata', 'action'])
                 ->addIndexColumn()
                 ->make(true);
         }
-        return view('admin.kepercayaan.index');
+        return view('admin.pengawasan-organisasi.index');
     }
 
     /**
@@ -39,7 +39,7 @@ class PengawasanKepercayaanController extends Controller
     {
         $kecamatan            = Kecamatan::orderBy('name')->get();
 
-        return view('admin.kepercayaan.create', compact('kecamatan'));
+        return view('admin.pengawasan-organisasi.create', compact('kecamatan'));
     }
 
     /**
@@ -54,33 +54,27 @@ class PengawasanKepercayaanController extends Controller
             'kecamatan_id'          => 'required|integer',
             'tgl'                   => 'required|date',
             'nama'                  => 'nullable|string',
-            'pimpinan'              => 'nullable|string',
+            'status'                => 'nullable|string',
+            'akta'                  => 'nullable|date',
             'alamat'                => 'nullable|string',
+            'pengurus'              => 'nullable|string',
             'kegiatan'              => 'nullable|string',
-            'jumlah_pengikut'       => 'nullable|string',
-            'nomor_pendaftaran'     => 'nullable|string',
-            'tgl_pendaftaran'       => 'nullable|string',
-            'nomor_badan'           => 'nullable|string',
-            'tgl_badan'             => 'nullable|date',
             'keterangan'            => 'nullable|string',
         ], $this->customMessages);
 
-        $data = new PengawasanKepercayaan();
+        $data = new PengawasanOrganisasi();
         $data->kecamatan_id             = strip_tags(request()->post('kecamatan_id'));
         $data->tgl                      = request()->post('tgl');
         $data->nama                     = strip_tags(request()->post('nama'));
-        $data->pimpinan                 = strip_tags(request()->post('pimpinan'));
+        $data->status                   = strip_tags(request()->post('status'));
+        $data->akta                     = request()->post('akta');
         $data->alamat                   = strip_tags(request()->post('alamat'));
+        $data->pengurus                 = strip_tags(request()->post('pengurus'));
         $data->kegiatan                 = strip_tags(request()->post('kegiatan'));
-        $data->jumlah_pengikut          = strip_tags(request()->post('jumlah_pengikut'));
-        $data->nomor_pendaftaran        = strip_tags(request()->post('nomor_pendaftaran'));
-        $data->tgl_pendaftaran          = strip_tags(request()->post('tgl_pendaftaran'));
-        $data->nomor_badan              = strip_tags(request()->post('nomor_badan'));
-        $data->tgl_badan                = request()->post('tgl_badan');
         $data->keterangan               = strip_tags(request()->post('keterangan'));
         $data->save();
 
-        return redirect()->route('admin.kepercayaan.index')->with('success', "Data berhasil ditambahkan!");
+        return redirect()->route('admin.pengawasan_organisasi.index')->with('success', "Data berhasil ditambahkan!");
     }
 
     /**
@@ -91,9 +85,9 @@ class PengawasanKepercayaanController extends Controller
      */
     public function show($id)
     {
-        $data               = PengawasanKepercayaan::findOrFail($id);
+        $data               = PengawasanOrganisasi::findOrFail($id);
 
-        return view('admin.kepercayaan.show', compact('data'));
+        return view('admin.pengawasan-organisasi.show', compact('data'));
     }
 
     /**
@@ -104,10 +98,10 @@ class PengawasanKepercayaanController extends Controller
      */
     public function edit($id)
     {
-        $data               = PengawasanKepercayaan::findOrFail($id);
+        $data               = PengawasanOrganisasi::findOrFail($id);
         $kecamatans         = Kecamatan::orderBY('name')->get();
 
-        return view('admin.kepercayaan.edit', compact('data', 'kecamatans'));
+        return view('admin.pengawasan-organisasi.edit', compact('data', 'kecamatans'));
     }
 
     /**
@@ -119,37 +113,32 @@ class PengawasanKepercayaanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = PengawasanKepercayaan::findOrFail($id);
+        $data = PengawasanOrganisasi::findOrFail($id);
         request()->validate([
             'kecamatan_id'          => 'required|integer',
             'tgl'                   => 'required|date',
             'nama'                  => 'nullable|string',
-            'pimpinan'              => 'nullable|string',
+            'status'                => 'nullable|string',
+            'akta'                  => 'nullable|date',
             'alamat'                => 'nullable|string',
+            'pengurus'              => 'nullable|string',
             'kegiatan'              => 'nullable|string',
-            'jumlah_pengikut'       => 'nullable|string',
-            'nomor_pendaftaran'     => 'nullable|string',
-            'tgl_pendaftaran'       => 'nullable|string',
-            'nomor_badan'           => 'nullable|string',
-            'tgl_badan'             => 'nullable|date',
             'keterangan'            => 'nullable|string',
         ], $this->customMessages);
 
         $data->kecamatan_id             = strip_tags(request()->post('kecamatan_id'));
         $data->tgl                      = request()->post('tgl');
         $data->nama                     = strip_tags(request()->post('nama'));
-        $data->pimpinan                 = strip_tags(request()->post('pimpinan'));
+        $data->status                   = strip_tags(request()->post('status'));
+        $data->akta                     = request()->post('akta');
         $data->alamat                   = strip_tags(request()->post('alamat'));
+        $data->pengurus                 = strip_tags(request()->post('pengurus'));
         $data->kegiatan                 = strip_tags(request()->post('kegiatan'));
-        $data->jumlah_pengikut          = strip_tags(request()->post('jumlah_pengikut'));
-        $data->nomor_pendaftaran        = strip_tags(request()->post('nomor_pendaftaran'));
-        $data->tgl_pendaftaran          = strip_tags(request()->post('tgl_pendaftaran'));
-        $data->nomor_badan              = strip_tags(request()->post('nomor_badan'));
-        $data->tgl_badan                = request()->post('tgl_badan');
         $data->keterangan               = strip_tags(request()->post('keterangan'));
         $data->save();
 
-        return redirect()->route('admin.kepercayaan.index')->with('success', "Data berhasil di edit!");
+
+        return redirect()->route('admin.pengawasan_organisasi.index')->with('success', "Data berhasil di edit!");
     }
 
     /**
@@ -160,7 +149,7 @@ class PengawasanKepercayaanController extends Controller
      */
     public function destroy($id)
     {
-        $data = PengawasanKepercayaan::destroy($id);
+        $data = PengawasanOrganisasi::destroy($id);
 
         return response()->json($data);
     }

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kecamatan;
-use App\Models\PengawasanKepercayaan;
+use App\Models\PengawasanKeagamaan;
 use Illuminate\Http\Request;
 
-class PengawasanKepercayaanController extends Controller
+class PengawasanKeagamaanController extends Controller
 {
     protected $customMessages = [
         'required'              => ':attribute harus diisi',
@@ -20,14 +20,14 @@ class PengawasanKepercayaanController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            return datatables()->of(PengawasanKepercayaan::orderBy('updated_at', 'DESC')
+            return datatables()->of(PengawasanKeagamaan::orderBy('updated_at', 'DESC')
                 ->get())
-                ->addColumn('action', 'admin.kepercayaan.action')
+                ->addColumn('action', 'admin.keagamaan.action')
                 ->rawColumns(['biodata', 'action'])
                 ->addIndexColumn()
                 ->make(true);
         }
-        return view('admin.kepercayaan.index');
+        return view('admin.keagamaan.index');
     }
 
     /**
@@ -39,7 +39,7 @@ class PengawasanKepercayaanController extends Controller
     {
         $kecamatan            = Kecamatan::orderBy('name')->get();
 
-        return view('admin.kepercayaan.create', compact('kecamatan'));
+        return view('admin.keagamaan.create', compact('kecamatan'));
     }
 
     /**
@@ -65,7 +65,7 @@ class PengawasanKepercayaanController extends Controller
             'keterangan'            => 'nullable|string',
         ], $this->customMessages);
 
-        $data = new PengawasanKepercayaan();
+        $data = new PengawasanKeagamaan();
         $data->kecamatan_id             = strip_tags(request()->post('kecamatan_id'));
         $data->tgl                      = request()->post('tgl');
         $data->nama                     = strip_tags(request()->post('nama'));
@@ -80,7 +80,7 @@ class PengawasanKepercayaanController extends Controller
         $data->keterangan               = strip_tags(request()->post('keterangan'));
         $data->save();
 
-        return redirect()->route('admin.kepercayaan.index')->with('success', "Data berhasil ditambahkan!");
+        return redirect()->route('admin.keagamaan.index')->with('success', "Data berhasil ditambahkan!");
     }
 
     /**
@@ -91,9 +91,9 @@ class PengawasanKepercayaanController extends Controller
      */
     public function show($id)
     {
-        $data               = PengawasanKepercayaan::findOrFail($id);
+        $data               = PengawasanKeagamaan::findOrFail($id);
 
-        return view('admin.kepercayaan.show', compact('data'));
+        return view('admin.keagamaan.show', compact('data'));
     }
 
     /**
@@ -104,10 +104,10 @@ class PengawasanKepercayaanController extends Controller
      */
     public function edit($id)
     {
-        $data               = PengawasanKepercayaan::findOrFail($id);
+        $data               = PengawasanKeagamaan::findOrFail($id);
         $kecamatans         = Kecamatan::orderBY('name')->get();
 
-        return view('admin.kepercayaan.edit', compact('data', 'kecamatans'));
+        return view('admin.keagamaan.edit', compact('data', 'kecamatans'));
     }
 
     /**
@@ -119,7 +119,7 @@ class PengawasanKepercayaanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = PengawasanKepercayaan::findOrFail($id);
+        $data = PengawasanKeagamaan::findOrFail($id);
         request()->validate([
             'kecamatan_id'          => 'required|integer',
             'tgl'                   => 'required|date',
@@ -149,7 +149,7 @@ class PengawasanKepercayaanController extends Controller
         $data->keterangan               = strip_tags(request()->post('keterangan'));
         $data->save();
 
-        return redirect()->route('admin.kepercayaan.index')->with('success', "Data berhasil di edit!");
+        return redirect()->route('admin.keagamaan.index')->with('success', "Data berhasil di edit!");
     }
 
     /**
@@ -160,7 +160,7 @@ class PengawasanKepercayaanController extends Controller
      */
     public function destroy($id)
     {
-        $data = PengawasanKepercayaan::destroy($id);
+        $data = PengawasanKeagamaan::destroy($id);
 
         return response()->json($data);
     }

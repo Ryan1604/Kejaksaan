@@ -84,6 +84,21 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'active', '
     // Pengobatan Tradiotional
     Route::resource('pengobatan', 'PengobatanController');
 
+    // Pengawasan Aliran Kepercayaan Masyarakat
+    Route::resource('kepercayaan', 'PengawasanKepercayaanController');
+
+    // Pengawasan Aliran Keagamaan
+    Route::resource('keagamaan', 'PengawasanKeagamaanController');
+
+    // Pengawasan Organisasi Kemasyarakatan
+    Route::resource('pengawasan_organisasi', 'PengawasanOrganisasiController');
+
+    // Ketertiban
+    Route::resource('ketertiban', 'KetertibanController');
+
+    // Pembinaan
+    Route::resource('pembinaan', 'PembinaanController');
+
     /* Reference Data */
 
     // Kecamatan
