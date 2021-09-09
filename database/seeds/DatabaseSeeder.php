@@ -50,11 +50,23 @@ class DatabaseSeeder extends Seeder
 
             DB::table('kecamatans')->insert([
                 [
-                    'name' => 'Sumberjaya',
+                    'name' => 'Pagar Alam Utama',
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Rajagaluh',
+                    'name' => 'Pagar Alam Selatan',
+                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Dempo Utara',
+                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Dempo Tengah',
+                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Dempo Selatan',
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ],
             ]);

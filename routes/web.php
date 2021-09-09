@@ -139,4 +139,204 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'active', '
 
     // Kunjungan WNA
     Route::resource('kunjungan', 'KunjunganWNAController');
+
+    /* Lain - Lain */
+
+    // Pengawasan Barcet
+    Route::resource('barcet', 'BarcetController');
+
+    // Import Barcet
+    Route::resource('import', 'ImportController');
+
+    // Pengawasan Sistem pembukuan
+    Route::resource('pembukuan', 'PembukuanController');
+
+    // PAKEM
+    Route::resource('pakem', 'PakemController');
+
+    // Pencegahan Penodaan Agama
+    Route::resource('penodaan', 'PenodaanController');
+
+    // Ketahanan Budaya
+    Route::resource('budaya', 'BudayaController');
+
+    // Pemberdayaan Masyarakat Desa
+    Route::resource('pemberdayaan', 'PemberdayaanController');
+
+    // Pengawasan Ormas
+    Route::resource('ormas', 'OrmasController');
+
+    // Tramtibum
+    Route::resource('tramtibum', 'TramtibumController');
+
+    // Infrastruktur Jalan
+    Route::resource('infrastruktur', 'InfrastrukturController');
+
+    // Infrastruktur Kereta
+    Route::resource('kereta', 'KeretaController');
+
+    // Infrastruktur Bandara
+    Route::resource('bandara', 'BandaraController');
+
+    // Infrastruktur Telekomunikasi
+    Route::resource('telekomunikasi', 'TelekomunikasiController');
+
+    // Infrastruktur Pelabuhan
+    Route::resource('pelabuhan', 'PelabuhanController');
+
+    // Ketenagalistrikan
+    Route::resource('listrik', 'ListrikController');
+
+    // Energi Alternatif
+    Route::resource('energi', 'EnergiController');
+
+    // Minyak dan Gas Bumi
+    Route::resource('minyak', 'MinyakController');
+
+    // IPT
+    Route::resource('ilmu', 'IlmuController');
+
+    // Smelter
+    Route::resource('smelter', 'SmelterController');
+
+    // Infrastruktur Pengolahan Air
+    Route::resource('air', 'AirController');
+
+    // Tanggul
+    Route::resource('tanggul', 'TanggulController');
+
+    // Bendungan
+    Route::resource('bendungan', 'BendunganController');
+
+    // Pertanian
+    Route::resource('pertanian', 'PertanianController');
+
+    // Kelautan
+    Route::resource('kelautan', 'KelautanController');
+
+    // Perumahan
+    Route::resource('perumahan', 'PerumahanController');
+
+    // Pariwisata
+    Route::resource('pariwisata', 'PariwisataController');
+
+    // Kawasan Industri
+    Route::resource('industri', 'IndustriController');
+
+    // Produksi Intelijen
+    Route::resource('produksi', 'ProduksiController');
+
+    // Kawasan Industri
+    Route::resource('pemantauan', 'PemantauanController');
+
+    // Kawasan Industri
+    Route::resource('signal', 'SignalController');
+
+    // Kawasan Industri
+    Route::resource('siber', 'SiberController');
+
+    // Kawasan Industri
+    Route::resource('klandestine', 'KlandestineController');
+
+    // Kawasan Industri
+    Route::resource('sdm', 'SdmController');
+
+    // Kawasan Industri
+    Route::resource('prosedur', 'ProsedurController');
+
+    // Kawasan Industri
+    Route::resource('digital', 'DigitalController');
+
+    // Kawasan Industri
+    Route::resource('berita', 'BeritaController');
+
+    // Kawasan Industri
+    Route::resource('kontra', 'KontraController');
+
+    // Kawasan Industri
+    Route::resource('audit', 'AuditController');
+
+    // Kawasan Industri
+    Route::resource('pengamanan-signal', 'PengamananController');
+
+    // Kawasan Industri
+    Route::resource('sandi', 'SandiController');
+
+    // Kawasan Industri
+    Route::resource('lembaga', 'LembagaKeuanganController');
+
+    // Kawasan Industri
+    Route::resource('keuangan', 'KeuanganNegaraController');
+
+    // Kawasan Industri
+    Route::resource('moneter', 'MoneterController');
+
+    // Kawasan Industri
+    Route::resource('asset', 'AssetController');
+
+    // Kawasan Industri
+    Route::resource('investasi', 'InvestasiController');
+
+    // Kawasan Industri
+    Route::resource('perpajakan', 'PerpajakanController');
+
+    // Kawasan Industri
+    Route::resource('kepabeanan', 'KepabeananController');
+
+    // Kawasan Industri
+    Route::resource('cukai', 'CukaiController');
+
+    // Kawasan Industri
+    Route::resource('perdagangan', 'PerdaganganController');
+
+    // Kawasan Industri
+    Route::resource('perindustrian', 'PerindustrianController');
+
+    // Kawasan Industri
+    Route::resource('ketenagakerjaan', 'KetenagakerjaanController');
+
+    // Kawasan Industri
+    Route::resource('perkebunan', 'PerkebunanController');
+
+    // Kawasan Industri
+    Route::resource('kehutanan', 'KehutananController');
+
+    // Kawasan Industri
+    Route::resource('lingkungan_hidup', 'LingkunganHidupController');
+
+    // Kawasan Industri
+    Route::resource('perikanan', 'PerikananController');
+
+    // Kawasan Industri
+    Route::resource('agraria', 'AgrariaController');
+
+    // Kawasan Industri
+    Route::resource('pancasila', 'PancasilaController');
+
+    // Kawasan Industri
+    Route::resource('persatuan', 'PersatuanController');
+
+    // Kawasan Industri
+    Route::resource('separatis', 'SeparatisController');
+
+    // Kawasan Industri
+    Route::resource('penyelenggaraan', 'PenyelenggaraanController');
+
+    // Kawasan Industri
+    Route::resource('parpol', 'ParpolController');
+
+    // Kawasan Industri
+    Route::resource('terorisme', 'TerorismeController');
+
+    // Kawasan Industri
+    Route::resource('teritorial', 'TeritorialController');
+
+    // Kawasan Industri
+    Route::resource('cyber', 'CyberController');
+
+    // Kawasan Industri
+    Route::resource('pam', 'PamController');
+    
+    // Kawasan Industri
+    Route::resource('perkara', 'PerkaraController');
 });
