@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="section-body">
-                <form method="POST" action="{{ route('admin.biodata.update', $data->id) }}">
+                <form method="POST" action="{{ route('admin.biodata.update', $data->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -49,7 +49,7 @@
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
                                                 <label for="nik">NIK <sup class="text-danger">*</sup></label>
-                                                <input type="number" class="form-control form-control-sm @error('nik') is-invalid @enderror" name="nik" id="nik" value="@error('nik'){{ old('nik') }}@else{{ $data->nik }}@enderror">
+                                                <input type="text" class="form-control form-control-sm @error('nik') is-invalid @enderror" name="nik" id="nik" value="@error('nik'){{ old('nik') }}@else{{ $data->nik }}@enderror" maxlength="16">
                                                 <div class="invalid-feedback" id="valid-nik">{{ $errors->first('nik') }}</div>
                                             </div>
                                         </div>
@@ -252,6 +252,17 @@
                                                 <label for="tanggal_perkawinan">Tanggal Perkawinan <sup class="text-danger">*</sup></label>
                                                 <input type="date" class="form-control form-control-sm @error('tanggal_perkawinan') is-invalid @enderror" name="tanggal_perkawinan" id="tanggal_perkawinan" value="@error('tanggal_perkawinan'){{ old('tanggal_perkawinan') }}@else{{ $data->tanggal_perkawinan }}@enderror">
                                                 <div class="invalid-feedback" id="valid-tanggal_perkawinan">{{ $errors->first('tanggal_perkawinan') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="photo">Foto <sup class="text-danger">max : 2MB</sup></label>
+                                                <input type="file" class="form-control-file @error('photo') is-invalid @enderror" id="photo" name="photo">
+                                                <br>
+                                                <img src="{{ asset('/img/biodata/' . $data->photo) }}" width="200" height="200">
+                                                <div class="invalid-feedback" id="valid-photo">{{ $errors->first('photo') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -492,20 +503,21 @@
                 }
             })
 
+         
             function filePreview2(input) {
                 if(input.files && input.files[0]) {
                     var reader = new FileReader();
                     reader.onload = function(e) {
                         $('img').remove();
-                        $('#thumbnail').after('<img src="' + e.target.result + '" class="img-thumbnail">');
+                        $('#photo').after('<br><img src="' + e.target.result + '" width="200" height="200">');
                     };
                     reader.readAsDataURL(input.files[0]);
                 };
             }
 
-            $('#thumbnail').change(function() {
+            $('#photo').change(function() {
                 filePreview2(this);
-                $('#valid-thumbnail').html('');
+                $('#valid-photo').html('');
             });
 
             $('form').submit(function() {

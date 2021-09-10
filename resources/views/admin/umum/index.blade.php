@@ -113,7 +113,7 @@
             $('body').on('click', '#btn-delete', function(){
                 var id = $(this).val();
                 var ebook = $(this).data('ebook');
-                swal("Whoops!", "Apakah anda yakin?", "warning", {
+                swal("Peringatan!", "Apakah anda yakin?", "warning", {
                     buttons: {
                         cancel: "Tidak!",
                         ok: {
@@ -142,8 +142,8 @@
                                 },
                                 error: function(data) {
                                     swal({
-                                        title: "Hooray!",
-                                        text: "Something goes wrong",
+                                        title: "Maaf!",
+                                        text: "Terjadi kesalahan, Silahkan coba lagi",
                                         icon: "error",
                                         timer: 3000
                                     });

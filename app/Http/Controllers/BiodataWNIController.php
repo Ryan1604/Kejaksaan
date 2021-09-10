@@ -13,11 +13,6 @@ use Illuminate\Http\Request;
 
 class BiodataWNIController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     protected $customMessages = [
         'required'              => ':attribute harus diisi',
         'unique'                => 'This :attribute has already been taken.',
@@ -45,11 +40,6 @@ class BiodataWNIController extends Controller
         return view('admin.wni.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $bangsa = SukuBangsa::orderBy('name')->get();
@@ -71,7 +61,7 @@ class BiodataWNIController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'nik'                   => 'required|integer',
+            'nik'                   => 'required|integer|unique:biodata_w_n_i_s,nik',
             'nama'                  => 'required|string',
             'tempat_lahir'          => 'required|string',
             'tanggal_lahir'         => 'required|date',

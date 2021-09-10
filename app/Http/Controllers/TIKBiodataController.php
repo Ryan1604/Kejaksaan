@@ -11,12 +11,14 @@ use App\Models\SukuBangsa;
 use App\Models\TIKBiodata;
 use App\Models\WargaNegara;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
 
 class TIKBiodataController extends Controller
 {
     protected $customMessages = [
-        'required'              => ':attribute harus diisi',
-        'unique'                => 'This :attribute has already been taken.',
+        'required'              => ':Attribute harus diisi',
+        'unique'                => ':Attribute sudah ada.',
         'integer'               => ':Attribute must be a number.',
         'min'                   => ':Attribute must be at least :min.',
         'max'                   => ':Attribute may not be more than :max characters.',
@@ -63,50 +65,15 @@ class TIKBiodataController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'nik'                   => 'required|integer',
+            'nik'                   => 'required|integer|unique:t_i_k_biodatas,nik',
             'nama'                  => 'required|string',
             'tempat_lahir'          => 'required|string',
             'tanggal_lahir'         => 'required|date',
             'jenis_kelamin'         => 'required|string',
-            'bangsa'                => 'required|integer',
             'kewarganegaraan'       => 'required|integer',
-            'kecamatan'             => 'required|integer',
-            'alamat'                => 'required|string',
-            'phone'                 => 'required|string',
-            'pasport'               => 'required|string',
-            'agama'                 => 'required|integer',
-            'pendidikan'            => 'required|integer',
-            'pekerjaan'             => 'required|integer',
-            'alamat_kantor'         => 'required|string',
-            'perkawinan'            => 'required|integer',
-            'legitimasi_perkawinan' => 'string',
-            'tempat_perkawinan'     => 'string',
-            'tanggal_perkawinan'    => 'date',
-            'riwayat_pekerjaan'     => 'string',
-            'riwayat_pendidikan'    => 'string',
-            'riwayat_kepartaian'    => 'string',
-            'riwayat_ormas'         => 'string',
-            'nama_istri'            => 'string',
-            'nama_anak'             => 'string',
-            'nama_saudara'          => 'string',
-            'nama_ayah_kandung'     => 'string',
-            'alamat_ayah_kandung'   => 'string',
-            'nama_ibu_kandung'      => 'string',
-            'alamat_ibu_kandung'    => 'string',
-            'nama_ayah_mertua'      => 'string',
-            'alamat_ayah_mertua'    => 'string',
-            'nama_ibu_mertua'       => 'string',
-            'alamat_ibu_mertua'     => 'string',
-            'nama_kenalan_pertama'  => 'string',
-            'alamat_kenalan_pertama' => 'string',
-            'nama_kenalan_kedua'    => 'string',
-            'alamat_kenalan_kedua'  => 'string',
-            'nama_kenalan_ketiga'   => 'string',
-            'alamat_kenalan_ketiga' => 'string',
-            'hobi'                  => 'string',
-            'kedudukan'             => 'string',
-            'lain'                  => 'string',
+            'bangsa'                => 'required|integer',
         ], $this->customMessages);
+
 
         $data = new TIKBiodata();
         $data->nik                      = strip_tags(request()->post('nik'));
@@ -152,6 +119,19 @@ class TIKBiodataController extends Controller
         $data->hobi                     = strip_tags(request()->post('hobi'));
         $data->kedudukan                = strip_tags(request()->post('kedudukan'));
         $data->lain                     = strip_tags(request()->post('lain'));
+
+        if (request()->hasFile('photo')) {
+            $image = request()->file('photo');
+            $imageName = request()->post('nama') . '.' . $image->getClientOriginalExtension();
+            $imagePath = public_path('img/biodata');
+
+            $imageGenerate = Image::make($image->path());
+            $imageGenerate->resize(300, 480)->save($imagePath . '/' . $imageName);
+
+            $data->photo = $imageName;
+        } else {
+            $data->photo = 'default.jpg';
+        }
         $data->save();
 
         return redirect()->route('admin.biodata.index')->with('success', "Data berhasil ditambahkan!");
@@ -302,6 +282,23 @@ class TIKBiodataController extends Controller
         $data->hobi                     = strip_tags(request()->post('hobi'));
         $data->kedudukan                = strip_tags(request()->post('kedudukan'));
         $data->lain                     = strip_tags(request()->post('lain'));
+
+        if (request()->hasFile('photo')) {
+            if ($data->photo <> 'default.jpg') {
+                $fileName = public_path() . '/img/biodata/' . $data->photo;
+                File::delete($fileName);
+            }
+
+            $image = request()->file('photo');
+            $imageName = request()->post('nama') . '.' . $image->getClientOriginalExtension();
+            $imagePath = public_path('img/biodata');
+
+            $imageGenerate = Image::make($image->path());
+            $imageGenerate->resize(300, 480)->save($imagePath . '/' . $imageName);
+
+
+            $data->photo = $imageName;
+        }
         $data->save();
 
         return redirect()->route('admin.biodata.index')->with('success', "Data berhasil di edit!");
@@ -315,8 +312,16 @@ class TIKBiodataController extends Controller
      */
     public function destroy($id)
     {
-        $data = TIKBiodata::destroy($id);
 
-        return response()->json($data);
+        $item = TIKBiodata::findOrFail($id);
+
+        if ($item->photo <> 'default.jpg') {
+            $fileName2 = public_path() . '/img/biodata/' . $item->photo;
+            File::delete($fileName2);
+        }
+
+        $itemDelete = $item->delete();
+
+        return response()->json($itemDelete);
     }
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Kecamatan;
 use App\Models\TIKMedia;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
 
 class TIKMediaController extends Controller
 {
@@ -89,6 +91,18 @@ class TIKMediaController extends Controller
         $data->tindakan_kominfo         = strip_tags(request()->post('tindakan_kominfo'));
         $data->tindakan_pengadilan      = strip_tags(request()->post('tindakan_pengadilan'));
         $data->keterangan               = strip_tags(request()->post('keterangan'));
+        if (request()->hasFile('photo')) {
+            $image = request()->file('photo');
+            $imageName = request()->post('nama') . '.' . $image->getClientOriginalExtension();
+            $imagePath = public_path('img/media');
+
+            $imageGenerate = Image::make($image->path());
+            $imageGenerate->resize(300, 480)->save($imagePath . '/' . $imageName);
+
+            $data->photo = $imageName;
+        } else {
+            $data->photo = 'default.jpg';
+        }
         $data->save();
 
         return redirect()->route('admin.media.index')->with('success', "Data berhasil ditambahkan!");
@@ -175,6 +189,22 @@ class TIKMediaController extends Controller
         $data->tindakan_kominfo         = strip_tags(request()->post('tindakan_kominfo'));
         $data->tindakan_pengadilan      = strip_tags(request()->post('tindakan_pengadilan'));
         $data->keterangan               = strip_tags(request()->post('keterangan'));
+        if (request()->hasFile('photo')) {
+            if ($data->photo <> 'default.jpg') {
+                $fileName = public_path() . '/img/media/' . $data->photo;
+                File::delete($fileName);
+            }
+
+            $image = request()->file('photo');
+            $imageName = request()->post('nama') . '.' . $image->getClientOriginalExtension();
+            $imagePath = public_path('img/media');
+
+            $imageGenerate = Image::make($image->path());
+            $imageGenerate->resize(300, 480)->save($imagePath . '/' . $imageName);
+
+
+            $data->photo = $imageName;
+        }
         $data->save();
 
 
@@ -189,8 +219,15 @@ class TIKMediaController extends Controller
      */
     public function destroy($id)
     {
-        $data = TIKMedia::destroy($id);
+        $item = TIKMedia::findOrFail($id);
 
-        return response()->json($data);
+        if ($item->photo <> 'default.jpg') {
+            $fileName2 = public_path() . '/img/media/' . $item->photo;
+            File::delete($fileName2);
+        }
+
+        $itemDelete = $item->delete();
+
+        return response()->json($itemDelete);
     }
 }

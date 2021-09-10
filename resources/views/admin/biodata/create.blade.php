@@ -38,6 +38,7 @@
                             <div class="card card-primary">
                                 <div class="card-header">
                                     <h4 class="card-title">Identitas</h4>
+
                                 </div>
                                 <div class="card-body">
                                     <div class="text-danger" id="valid-type">{{ $errors->first('type') }}</div>
@@ -45,7 +46,7 @@
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
                                                 <label for="nik">NIK <sup class="text-danger">*</sup></label>
-                                                <input type="number" class="form-control form-control-sm @error('nik') is-invalid @enderror" name="nik" id="nik" value="{{ old('nik') }}" placeholder="Masukkan NIK">
+                                                <input type="text" class="form-control form-control-sm @error('nik') is-invalid @enderror" name="nik" id="nik" value="{{ old('nik') }}" placeholder="Masukkan NIK" maxlength="16">
                                                 <div class="invalid-feedback" id="valid-nik">{{ $errors->first('nik') }}</div>
                                             </div>
                                         </div>
@@ -248,6 +249,15 @@
                                                 <label for="tanggal_perkawinan">Tanggal Perkawinan <sup class="text-danger">*</sup></label>
                                                 <input type="date" class="form-control form-control-sm @error('tanggal_perkawinan') is-invalid @enderror" name="tanggal_perkawinan" id="tanggal_perkawinan" value="{{ old('tanggal_perkawinan') }}">
                                                 <div class="invalid-feedback" id="valid-tanggal_perkawinan">{{ $errors->first('tanggal_perkawinan') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="photo">Foto <sup class="text-danger">*</sup></label>
+                                                <input type="file" class="form-control form-control-sm @error('photo') is-invalid @enderror" name="photo" id="photo" value="{{ old('photo') }}">
+                                                <div class="invalid-feedback" id="valid-photo">{{ $errors->first('photo') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -468,6 +478,21 @@
                 $(this).removeClass('is-invalid');
             });
 
+            function filePreview2(input) {
+                if(input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#photo + img').remove();
+                        $('#photo').after('<br><img src="' + e.target.result + '" class="img-thumbnail">');
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                };
+            }
+
+            $('#photo').change(function() {
+                filePreview2(this);
+                $('#valid-photo').html('');
+            });
             $('form').submit(function() {
                 $('#btn-submit').html('<i class="fas fa-cog fa-spin"></i> Saving...').attr("disabled", true);
             });

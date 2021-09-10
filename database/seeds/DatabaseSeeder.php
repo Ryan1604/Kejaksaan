@@ -134,7 +134,11 @@ class DatabaseSeeder extends Seeder
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ],
                 [
-                    'name' => 'Belum',
+                    'name' => 'Belum Kawin',
+                    'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ],
+                [
+                    'name' => 'Cerai',
                     'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ],
             ]);

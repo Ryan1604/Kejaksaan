@@ -30,6 +30,7 @@ class CreateTIKOrganisasisTable extends Migration
             $table->string('kegiatan_kedalam')->nullable();
             $table->string('kegiatan_keluar')->nullable();
             $table->string('kegiatan')->nullable();
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

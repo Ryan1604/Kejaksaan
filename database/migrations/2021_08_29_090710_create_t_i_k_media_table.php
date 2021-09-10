@@ -35,6 +35,7 @@ class CreateTIKMediaTable extends Migration
             $table->string('tindakan_kominfo')->nullable();
             $table->string('tindakan_pengadilan')->nullable();
             $table->string('keterangan')->nullable();
+            $table->string('photo')->nullable();
             $table->timestamps();
 
             $table->foreign('kecamatan_id')->references('id')->on('kecamatans')->onDelete('cascade');

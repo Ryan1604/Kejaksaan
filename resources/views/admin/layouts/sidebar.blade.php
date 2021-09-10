@@ -11,22 +11,15 @@
             </a>
         </div>
         <ul class="sidebar-menu">
-            <li class="{{ request()->path() == 'admin/dashboard' ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin.dashboard') }}">
-                    <i class="fas fa-home"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
             {{-- Data --}}
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Tabel</span></a>
                 <ul class="dropdown-menu">
                   <li class="{{ request()->segment(2) == 'kecamatan' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.kecamatan.index') }}">Kecamatan</a></li>
+                  <li class="{{ request()->segment(2) == 'kelurahan' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.kelurahan.index') }}">Kelurahan</a></li>
                   <li class="{{ request()->segment(2) == 'agama' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.agama.index') }}">Agama</a></li>
-                  <li class="{{ request()->segment(2) == 'warga-negara' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.warga-negara.index') }}">Warga Negara</a></li>
                   <li class="{{ request()->segment(2) == 'pendidikan' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.pendidikan.index') }}">Pendidikan</a></li>
-                  <li class="{{ request()->segment(2) == 'status-perkawinan' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.status-perkawinan.index') }}">Status Perkawinan</a></li>
-                  <li class="{{ request()->segment(2) == 'legalitas-perkawinan' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.legalitas-perkawinan.index') }}">Legalitas Perkawinan</a></li>
+                  <li class="{{ request()->segment(2) == 'legalitas-perkawinan' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.legalitas-perkawinan.index') }}">Legimitasi Perkawinan</a></li>
                   <li class="{{ request()->segment(2) == 'pekerjaan' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.pekerjaan.index') }}">Pekerjaan</a></li>
                   <li class="{{ request()->segment(2) == 'suku-bangsa' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.suku-bangsa.index') }}">Suku Bangsa</a></li>
                   <li class="{{ request()->segment(2) == 'negara' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.negara.index') }}">Negara</a></li>
@@ -37,7 +30,6 @@
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Master</span></a>
                 <ul class="dropdown-menu">
-                  <li class="{{ request()->segment(2) == 'kelurahan' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.kelurahan.index') }}">Kelurahan</a></li>
                   <li class="{{ request()->segment(2) == 'wni' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.wni.index') }}">Biodata Terpidana WNI</a></li>
                   <li class="{{ request()->segment(2) == 'wna' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.wna.index') }}">Biodata Terpidana WNA</a></li>
                 </ul>

@@ -34,6 +34,7 @@ class CreateTIKBiodatasTable extends Migration
             $table->string('legitimasi_perkawinan')->nullable();
             $table->string('tempat_perkawinan')->nullable();
             $table->date('tanggal_perkawinan')->nullable();
+            $table->string('photo')->nullable();
             $table->string('riwayat_pekerjaan')->nullable();
             $table->string('riwayat_pendidikan')->nullable();
             $table->string('riwayat_kepartaian')->nullable();

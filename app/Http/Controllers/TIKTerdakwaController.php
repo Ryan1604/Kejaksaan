@@ -11,6 +11,8 @@ use App\Models\SukuBangsa;
 use App\Models\TIKTerdakwa;
 use App\Models\WargaNegara;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
 
 class TIKTerdakwaController extends Controller
 {
@@ -120,6 +122,18 @@ class TIKTerdakwaController extends Controller
         $data->nama_orangtua            = strip_tags(request()->post('nama_orangtua'));
         $data->nama_kawan               = strip_tags(request()->post('nama_kawan'));
         $data->lain                     = strip_tags(request()->post('lain'));
+        if (request()->hasFile('photo')) {
+            $image = request()->file('photo');
+            $imageName = request()->post('nama') . '.' . $image->getClientOriginalExtension();
+            $imagePath = public_path('img/terdakwa');
+
+            $imageGenerate = Image::make($image->path());
+            $imageGenerate->resize(300, 480)->save($imagePath . '/' . $imageName);
+
+            $data->photo = $imageName;
+        } else {
+            $data->photo = 'default.jpg';
+        }
         $data->save();
 
         return redirect()->route('admin.terdakwa.index')->with('success', "Data berhasil ditambahkan!");
@@ -238,6 +252,22 @@ class TIKTerdakwaController extends Controller
         $data->nama_orangtua            = strip_tags(request()->post('nama_orangtua'));
         $data->nama_kawan               = strip_tags(request()->post('nama_kawan'));
         $data->lain                     = strip_tags(request()->post('lain'));
+        if (request()->hasFile('photo')) {
+            if ($data->photo <> 'default.jpg') {
+                $fileName = public_path() . '/img/terdakwa/' . $data->photo;
+                File::delete($fileName);
+            }
+
+            $image = request()->file('photo');
+            $imageName = request()->post('nama') . '.' . $image->getClientOriginalExtension();
+            $imagePath = public_path('img/terdakwa');
+
+            $imageGenerate = Image::make($image->path());
+            $imageGenerate->resize(300, 480)->save($imagePath . '/' . $imageName);
+
+
+            $data->photo = $imageName;
+        }
         $data->save();
 
         return redirect()->route('admin.terdakwa.index')->with('success', "Data berhasil di edit!");
@@ -251,8 +281,15 @@ class TIKTerdakwaController extends Controller
      */
     public function destroy($id)
     {
-        $data = TIKTerdakwa::destroy($id);
+        $item = TIKTerdakwa::findOrFail($id);
 
-        return response()->json($data);
+        if ($item->photo <> 'default.jpg') {
+            $fileName2 = public_path() . '/img/terdakwa/' . $item->photo;
+            File::delete($fileName2);
+        }
+
+        $itemDelete = $item->delete();
+
+        return response()->json($itemDelete);
     }
 }

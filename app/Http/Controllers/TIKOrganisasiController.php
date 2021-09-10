@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\TIKOrganisasi;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
 
 class TIKOrganisasiController extends Controller
 {
@@ -75,6 +77,18 @@ class TIKOrganisasiController extends Controller
         $data->kegiatan_kedalam         = strip_tags(request()->post('kegiatan_kedalam'));
         $data->kegiatan_keluar          = strip_tags(request()->post('kegiatan_keluar'));
         $data->kegiatan                 = strip_tags(request()->post('kegiatan'));
+        if (request()->hasFile('photo')) {
+            $image = request()->file('photo');
+            $imageName = request()->post('nama') . '.' . $image->getClientOriginalExtension();
+            $imagePath = public_path('img/organisasi');
+
+            $imageGenerate = Image::make($image->path());
+            $imageGenerate->resize(300, 480)->save($imagePath . '/' . $imageName);
+
+            $data->photo = $imageName;
+        } else {
+            $data->photo = 'default.jpg';
+        }
         $data->save();
 
         return redirect()->route('admin.organisasi.index')->with('success', "Data berhasil ditambahkan!");
@@ -149,6 +163,22 @@ class TIKOrganisasiController extends Controller
         $data->kegiatan_kedalam         = strip_tags(request()->post('kegiatan_kedalam'));
         $data->kegiatan_keluar          = strip_tags(request()->post('kegiatan_keluar'));
         $data->kegiatan                 = strip_tags(request()->post('kegiatan'));
+        if (request()->hasFile('photo')) {
+            if ($data->photo <> 'default.jpg') {
+                $fileName = public_path() . '/img/organisasi/' . $data->photo;
+                File::delete($fileName);
+            }
+
+            $image = request()->file('photo');
+            $imageName = request()->post('nama') . '.' . $image->getClientOriginalExtension();
+            $imagePath = public_path('img/organisasi');
+
+            $imageGenerate = Image::make($image->path());
+            $imageGenerate->resize(300, 480)->save($imagePath . '/' . $imageName);
+
+
+            $data->photo = $imageName;
+        }
         $data->save();
 
         return redirect()->route('admin.organisasi.index')->with('success', "Data berhasil di edit!");
@@ -162,8 +192,15 @@ class TIKOrganisasiController extends Controller
      */
     public function destroy($id)
     {
-        $data = TIKOrganisasi::destroy($id);
+        $item = TIKOrganisasi::findOrFail($id);
 
-        return response()->json($data);
+        if ($item->photo <> 'default.jpg') {
+            $fileName2 = public_path() . '/img/organisasi/' . $item->photo;
+            File::delete($fileName2);
+        }
+
+        $itemDelete = $item->delete();
+
+        return response()->json($itemDelete);
     }
 }

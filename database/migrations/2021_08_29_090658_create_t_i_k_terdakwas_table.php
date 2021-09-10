@@ -32,6 +32,7 @@ class CreateTIKTerdakwasTable extends Migration
             $table->unsignedSmallInteger('perkawinan_id');
             $table->string('kepartaian')->nullable();
             $table->unsignedSmallInteger('pendidikan_id');
+            $table->string('photo')->nullable();
             $table->string('kasus')->nullable();
             $table->string('background')->nullable();
             $table->string('no_skpp')->nullable();

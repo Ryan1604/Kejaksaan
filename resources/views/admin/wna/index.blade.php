@@ -208,8 +208,8 @@
                     success: function(data) {
                         if (state == "save") {
                             swal({
-                                title: "Good Job!",
-                                text: "Data was successfully added",
+                                title: "Berhasil!",
+                                text: "Data berhasil ditambahkan",
                                 icon: "success",
                                 timer: 3000
                             });
@@ -220,8 +220,8 @@
                             });
                         } else {
                             swal({
-                                title: "Good Job!",
-                                text: "Data was successfully updated",
+                                title: "Berhasil!",
+                                text: "Data berhasil di ubah",
                                 icon: "success",
                                 timer: 3000
                             });
@@ -282,15 +282,15 @@
                         } catch {
                             if (state == "save") {
                                 swal({
-                                    title: "Hooray!",
-                                    text: "Unknown error, reload the page",
+                                    title: "Maaf!",
+                                    text: "Terjadi kesalahan, Silahkan coba lagi",
                                     icon: "error",
                                     timer: 3000
                                 });
                             } else {
                                 swal({
-                                    title: "Hooray!",
-                                    text: "Something goes wrong",
+                                    title: "Maaf!",
+                                    text: "Terjadi kesalahan, Silahkan coba lagi",
                                     icon: "error",
                                     timer: 3000
                                 });
@@ -317,8 +317,8 @@
                     $('#btn-save').html('<i class="fas fa-check"></i> Edit');
                 }).fail(function() {
                     swal({
-                        title: "Hooray!",
-                        text: "Failed to get data",
+                        title: "Maaf!",
+                        text: "Gagal mengambil Data",
                         icon: "error",
                         timer: 3000
                     });
@@ -328,7 +328,7 @@
             // Delete company
             $('body').on('click', '#btn-delete', function(){
                 var id = $(this).val();
-                swal("Whoops!", "Apakah anda yakin?", "warning", {
+                swal("Peringatan!", "Apakah anda yakin?", "warning", {
                     buttons: {
                         cancel: "Tidak",
                         ok: {
@@ -349,16 +349,16 @@
                                     });
 
                                     swal({
-                                        title: "Well Done!",
-                                        text: "Data was successfully deleted",
+                                        title: "Berhasil!",
+                                        text: "Data berhasil dihapus",
                                         icon: "success",
                                         timer: 3000
                                     });
                                 },
                                 error: function(data) {
                                     swal({
-                                        title: "Hooray!",
-                                        text: "Something goes wrong",
+                                        title: "Maaf!",
+                                        text: "Terjadi kesalahan, Silahkan coba lagi",
                                         icon: "error",
                                         timer: 3000
                                     });

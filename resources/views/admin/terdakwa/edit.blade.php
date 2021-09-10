@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="section-body">
-                <form method="POST" action="{{ route('admin.terdakwa.update', $data->id) }}">
+                <form method="POST" action="{{ route('admin.terdakwa.update', $data->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -237,6 +237,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="photo">Foto <sup class="text-danger">max : 2MB</sup></label>
+                                                <input type="file" class="form-control-file @error('photo') is-invalid @enderror" id="photo" name="photo">
+                                                <br>
+                                                <img src="{{ asset('/img/terdakwa/' . $data->photo) }}" width="200" height="200">
+                                                <div class="invalid-feedback" id="valid-photo">{{ $errors->first('photo') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -395,15 +406,15 @@
                     var reader = new FileReader();
                     reader.onload = function(e) {
                         $('img').remove();
-                        $('#thumbnail').after('<img src="' + e.target.result + '" class="img-thumbnail">');
+                        $('#photo').after('<br><img src="' + e.target.result + '" width="200" height="200">');
                     };
                     reader.readAsDataURL(input.files[0]);
                 };
             }
 
-            $('#thumbnail').change(function() {
+            $('#photo').change(function() {
                 filePreview2(this);
-                $('#valid-thumbnail').html('');
+                $('#valid-photo').html('');
             });
 
             $('form').submit(function() {

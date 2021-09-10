@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="section-body">
-                <form method="POST" action="{{ route('admin.terdakwa.store') }}">
+                <form method="POST" action="{{ route('admin.terdakwa.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-lg-4">
@@ -233,6 +233,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="photo">Foto <sup class="text-danger">*</sup></label>
+                                                <input type="file" class="form-control form-control-sm @error('photo') is-invalid @enderror" name="photo" id="photo" value="{{ old('photo') }}">
+                                                <div class="invalid-feedback" id="valid-photo">{{ $errors->first('photo') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -365,6 +374,22 @@
 
             $('.select2').on('select2:selecting', function() {
                 $(this).removeClass('is-invalid');
+            });
+
+            function filePreview2(input) {
+                if(input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#photo + img').remove();
+                        $('#photo').after('<br><img src="' + e.target.result + '" class="img-thumbnail">');
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                };
+            }
+
+            $('#photo').change(function() {
+                filePreview2(this);
+                $('#valid-photo').html('');
             });
 
             $('form').submit(function() {

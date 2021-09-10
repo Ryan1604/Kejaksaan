@@ -45,7 +45,7 @@
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
                                                 <label for="nik">NIK <sup class="text-danger">*</sup></label>
-                                                <input type="number" class="form-control form-control-sm @error('nik') is-invalid @enderror" name="nik" id="nik" value="{{ old('nik') }}" placeholder="Masukkan NIK">
+                                                <input type="text" class="form-control form-control-sm @error('nik') is-invalid @enderror" name="nik" id="nik" value="{{ old('nik') }}" placeholder="Masukkan NIK" maxlength="16">
                                                 <div class="invalid-feedback" id="valid-nik">{{ $errors->first('nik') }}</div>
                                             </div>
                                         </div>
