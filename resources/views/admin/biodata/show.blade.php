@@ -1,274 +1,253 @@
-@extends('admin.layouts.master')
-@section('title', 'Detail Kartu TIK Biodata')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('css')
-    <link rel="stylesheet" href="{{ asset('backend/modules/select2/dist/css/select2.min.css') }}">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
-@endsection
+<head>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.css" />
+    <style>
+        @page {
+            size: A4;
+        }
+        
+        div {
+            font-size: 12px;
+        }
+    </style>
 
-@section('content')
-    <!-- Modal -->
- 
-    <div class="main-content">
-        <section class="section">
-            <div class="section-header">
-                <h1>Detail Kartu TIK Biodata</h1>
-                <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item">
-                        <a href="{{ route('admin.dashboard') }}">
-                            <i class="fa fa-home"></i>
-                            Dashboard
-                        </a>
+    <title>Biodata</title>
+</head>
+
+<body class="A4">
+    <section class="sheet padding-10mm">
+        <u><div>KEJAKSAAN</span=><span>......................................... </span></u>
+        <br><br>
+
+        <h5 class="text-center">KARTU TIK BIODATA</h5>
+        <h6 class="text-center">
+            Nomor : .. ........ I .. ....... I ............/ ....-"...
+        </h6>
+
+        <div class="container fs-6 text-sm py-3">
+            <div class="row">
+                <div class="col-12">1. IDENTITAS</div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-4">a. Nomor Induk Kependudukan</div>
+                <div class="col-1">:</div>
+                <div class="col-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-4">b. Nama Lengkap</div>
+                <div class="col-1">:</div>
+                <div class="col-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-4">c. Tempat/Tgl. Lahir/Umur</div>
+                <div class="col-1">:</div>
+                <div class="col-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-4">e. Bangsa/Suku</div>
+                <div class="col-1">:</div>
+                <div class="col-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-4">f. Kewarganegaraan</div>
+                <div class="col-1">:</div>
+                <div class="col-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-4">h. Nonior Telepon,/HP</div>
+                <div class="col-1">:</div>
+                <div class="col-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-4">i. Nomor Passport</div>
+                <div class="col-1">:</div>
+                <div class="col-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-4">j. Agama/Kepercayaan</div>
+                <div class="col-1">:</div>
+                <div class="col-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-4">k. Pendidikan</div>
+                <div class="col-1">:</div>
+                <div class="col-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-4">l. Pekerjaan</div>
+                <div class="col-1">:</div>
+                <div class="col-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-4">m. Alamat Kantor</div>
+                <div class="col-1">:</div>
+                <div class="col-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-4">n. Status Perkawinan</div>
+                <div class="col-1">:</div>
+                <div class="col-6">KAWIN / TIDK KAWIN</div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-4">o. legitimasi Perkawinan</div>
+                <div class="col-1">:</div>
+                <div class="col-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-4">h. Nonior Telepon,/HP</div>
+                <div class="col-1">:</div>
+                <div class="col-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-4">p. Tempat dan Tgl. Perkawinari</div>
+                <div class="col-1">:</div>
+                <div class="col-6"></div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-12">2. BIOGRAFI INTELIJEN:</div>
+            </div>
+            <div class="row">
+                <div class="col-11 px-5">a. Riwayat Hidup singkat:</div>
+                <div class="row px-5">
+                    <div class="col-5 px-4">1. Pekerjaan</div>
+                    <div class="col-1">:</div>
+                    <div class="col-5"></div>
+                </div>
+                <div class="row px-5">
+                    <div class="col-5 px-4">2. Pendidikan</div>
+                    <div class="col-1">:</div>
+                    <div class="col-5"></div>
+                </div>
+                <div class="row px-5">
+                    <div class="col-5 px-4">3. Kepartaian</div>
+                    <div class="col-1">:</div>
+                    <div class="col-5"></div>
+                </div>
+                <div class="row px-5">
+                    <div class="col-5 px-4">4. Ormas lainnya</div>
+                    <div class="col-1">:</div>
+                    <div class="col-5"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-11 px-5">b. Keluarga</div>
+                <div class="row px-5">
+                    <div class="col-5 px-4">1 Nama Isteri/Suami</div>
+                    <div class="col-1">:</div>
+                    <div class="col-5"></div>
+                </div>
+                <div class="row px-5">
+                    <div class="col-5 px-4">2. Nama anak-anak</div>
+                    <div class="col-1">:</div>
+                    <div class="col-5"></div>
+                </div>
+                <div class="row px-5">
+                    <div class="col-5 px-4">3. Nama Saudara kandung</div>
+                    <div class="col-1">:</div>
+                    <div class="col-5"></div>
+                </div>
+                <div class="row px-5">
+                    <div class="col-5 px-4">4. Nama Ayah Kandung</div>
+                    <div class="col-1">:</div>
+                    <div class="col-5"></div>
+                    <div class="row">
+                        <div class="col-5 px-5">Alamat</div>
+                        <div class="col-1 px-4">:</div>
+                        <div class="col-4 px-4"></div>
                     </div>
-                    <div class="breadcrumb-item">
-                        <a href="{{ route('admin.wni.index') }}">
-                            <i class="fa fa-file-pdf"></i>
-                            Kartu TIK Biodata
-                        </a>
+                    <div class="row">
+                        <div class="col-5 px-5">Nama Ibu Kandung</div>
+                        <div class="col-1 px-4">:</div>
+                        <div class="col-4 px-4"></div>
                     </div>
-                    <div class="breadcrumb-item">
-                        <i class="fa fa-edit"></i>
-                        Detail
+                    <div class="row">
+                        <div class="col-5 px-5">Alamat</div>
+                        <div class="col-1 px-4">:</div>
+                        <div class="col-4 px-4"></div>
+                    </div>
+                </div>
+                <div class="row px-5">
+                    <div class="col-5 px-4">5. Nama Ayah Mertua</div>
+                    <div class="col-1">:</div>
+                    <div class="col-5"></div>
+                    <div class="row">
+                        <div class="col-5 px-5">Alamat</div>
+                        <div class="col-1 px-4">:</div>
+                        <div class="col-4 px-4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5 px-5">Nama Ibu Mertua</div>
+                        <div class="col-1 px-4">:</div>
+                        <div class="col-4 px-4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-5 px-5">Alamat</div>
+                        <div class="col-1 px-4">:</div>
+                        <div class="col-4 px-4"></div>
                     </div>
                 </div>
             </div>
-            <div class="section-body">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h4 class="card-title">Identitas</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-md">
-                                <tr>
-                                    <td>NIK</td>
-                                    <td class="text-center">{{ $data->nik }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Nama</td>
-                                    <td class="text-center">{{ $data->nama}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Tempat / Tanggal Lahir / Umur</td>
-                                    <td class="text-center">{{ $data->tempat_lahir }} / {{ date('d M Y', strtotime($data->tanggal_lahir)) }} / {{ $age }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Jenis Kelamin</td>
-                                    <td class="text-center">{{ $data->jenis_kelamin == 'P' ? 'Perempuan' : 'Laki-laki' }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Bangsa / Suku</td>
-                                    <td class="text-center">{{ $data->bangsa->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Kewarganegaraan</td>
-                                    <td class="text-center">{{ $data->kewarganegaraan->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Kecamatan</td>
-                                    <td class="text-center">{{ $data->kecamatan->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Alamat</td>
-                                    <td class="text-center">{{ $data->alamat }}</td>
-                                </tr>
-                                <tr>
-                                    <td>No Handphone</td>
-                                    <td class="text-center">{{ $data->phone }}</td>
-                                </tr>
-                                <tr>
-                                    <td>No Pasport</td>
-                                    <td class="text-center">{{ $data->pasport }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Agama</td>
-                                    <td class="text-center">{{ $data->agama->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Pendidikan</td>
-                                    <td class="text-center">{{ $data->pendidikan->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Pekerjaan</td>
-                                    <td class="text-center">{{ $data->pekerjaan->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Alamat Kantor</td>
-                                    <td class="text-center">{{ $data->alamat_kantor }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Status Perkawinan</td>
-                                    <td class="text-center">{{ $data->perkawinan->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Legitimasi Perkawinan</td>
-                                    <td class="text-center">{{ $data->legitimasi_perkawinan }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Tempat dan Tanggal Perkawinan</td>
-                                    <td class="text-center">{{ $data->tempat_perkawinan }}, {{ date('d M Y', strtotime($data->tanggal_perkawinan)) }}</td>
-                                </tr>
-                            </table>
-                          </div>
-                    </div>
+            <div class="row">
+                <div class="col-11 px-5">c. Referensi/ Kenalan</div>
+                <div class="row px-5">
+                    <div class="col-5 px-4">(nama dan alamat)</div>
+                    <div class="col-1">:</div>
+                    <div class="col-1">1.</div>
+                    <div class="col-5"></div>
                 </div>
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h4 class="card-title">Biodata Intelijen</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-md">
-                                <tr>
-                                    <td>Riwayat Hidup Singkap</td>
-                                    <td>Pekerjaan: {{ $data->riwayat_pekerjaan }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Pendidikan: {{ $data->riwayat_pendidikan}}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Kepartaian: {{ $data->riwayat_kepartaian }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Ormas Lainnya: {{ $data->riwayat_ormas }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Keluarga</td>
-                                    <td>1. Nama Istri / Suami: {{ $data->nama_istri }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>2. Nama anak-anak: {{ $data->nama_anak }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>3. Nama Saudara Kandung: {{ $data->nama_saudara }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>4. Nama Ayah Kandung: {{ $data->nama_ayah_kandung }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Alamat: {{ $data->alamat_ayah_kandung }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Nama Ibu Kandung: {{ $data->nama_ibu_kandung }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Alamat: {{ $data->alamat_ibu_kandung }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>5. Nama Ayah Mertua: {{ $data->nama_ayah_mertua }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Alamat: {{ $data->alamat_ayah_mertua }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Nama Ibu Mertua: {{ $data->nama_ibu_mertua }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Alamat: {{ $data->alamat_ibu_mertua }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Referensi / Kenalan (nama dan alamat)</td>
-                                    <td>1. {{ $data->nama_kenalan_pertama }} dan {{ $data->alamat_kenalan_pertama }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>2. {{ $data->nama_kenalan_kedua }} dan {{ $data->alamat_kenalan_kedua }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>3. {{ $data->nama_kenalan_ketiga }} dan {{ $data->alamat_kenalan_ketiga }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Hobbi / Kegemaran</td>
-                                    <td>{{ $data->hobi }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Kedudukan di Masyarakat</td>
-                                    <td>{{ $data->kedudukan }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Lain-lain</td>
-                                    <td>{{ $data->lain }}</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+                <div class="row px-5">
+                    <div class="col-5 px-4"></div>
+                    <div class="col-1">:</div>
+                    <div class="col-1">2</div>
+                    <div class="col-5"></div>
+                </div>
+                <div class="row px-5">
+                    <div class="col-5 px-4"></div>
+                    <div class="col-1">:</div>
+                    <div class="col-1">3</div>
+                    <div class="col-5"></div>
                 </div>
             </div>
-        </section>
-    </div>
-@endsection
 
-@section('js')
-    <script src="{{ asset('backend/modules/select2/dist/js/select2.full.min.js') }}"></script>
-    <script src="{{ asset('backend/modules/summernote/summernote-bs4.js') }}"></script>
-    <script src="{{ asset('backend/js/jquery.mask.min.js') }}"></script>
-    <script src="{{ asset('backend/modules/sweetalert/sweetalert.min.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            // Setup AJAX CSRF
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+            <div class="row">
+                <div class="col-5 px-5">d. Hobi/Kegemaran</div>
+                <div class="col-1 ">:</div>
+                <div class="col-4 px-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-5">e. Kedudukan Dimasyarakat</div>
+                <div class="col-1">:</div>
+                <div class="col-4 px-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-5">f. Lain-lain</div>
+                <div class="col-1">:</div>
+                <div class="col-4 px-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-5 px-5">
+                    Otentikasi <br /> (Stampel dan Paraf)
+                </div>
+            </div>
+            <div class="row py-3">
+                <div class="col-12">3. PAS PHOTO</div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <img src="" class="rounded" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
 
-            $('.select2').on('select2:selecting', function() {
-                $(this).removeClass('is-invalid');
-            });
 
-            // Open Modal to Add new Author
-            $('#btn-add').click(function(e) {
-                e.preventDefault();
-                $('#formModal').modal('show');
-                $('.modal-title').html('Add Author');
-                $('#author-form').trigger('reset');
-                $('#btn-save').html('<i class="fas fa-check"></i> Save Changes');
-                $('#author-form').find('.form-control').removeClass('is-invalid is-valid');
-                $('#btn-save').val('save').removeAttr('disabled');
-            });
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
 
-            $('body').on('keyup', '#title, #category_id, #content, #thumbnail', function() {
-                var test = $(this).val();
-                if (test == '') {
-                    $(this).removeClass('is-valid is-invalid');
-                } else {
-                    $(this).removeClass('is-invalid').addClass('is-valid');
-                }
-            })
-
-            function filePreview2(input) {
-                if(input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('img').remove();
-                        $('#thumbnail').after('<img src="' + e.target.result + '" class="img-thumbnail">');
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                };
-            }
-
-            $('#thumbnail').change(function() {
-                filePreview2(this);
-                $('#valid-thumbnail').html('');
-            });
-
-            $('form').submit(function() {
-                $('#btn-submit').html('<i class="fas fa-cog fa-spin"></i> Saving...').attr("disabled", true);
-            });
-        })
-    </script>
-@endsection
+</html>

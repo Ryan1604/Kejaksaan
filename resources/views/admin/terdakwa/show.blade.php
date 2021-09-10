@@ -1,225 +1,226 @@
-@extends('admin.layouts.master')
-@section('title', 'Detail Kartu TIK Biodata')
 
-@section('css')
-    <link rel="stylesheet" href="{{ asset('backend/modules/select2/dist/css/select2.min.css') }}">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
-@endsection
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-    <!-- Modal -->
- 
-    <div class="main-content">
-        <section class="section">
-            <div class="section-header">
-                <h1>Detail Kartu TIK Biodata</h1>
-                <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item">
-                        <a href="{{ route('admin.dashboard') }}">
-                            <i class="fa fa-home"></i>
-                            Dashboard
-                        </a>
+<head>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.css" />
+    <style>
+        @page {
+            size: A4;
+        }
+        
+        div {
+            font-size: 14px;
+        }
+    </style>
+
+    <title> TERSANGKA /TERDAK:WA/TERPIDANA</title>
+</head>
+
+<body class="A4">
+    <section class="sheet padding-10mm">
+        <u><span>KEJAKSAAN</span=><span>......................................... </span></u> <br />
+
+        <div class="cont py-3">
+            <h5 class="text-center"><u>KARTU TIK  TERSANGKA /TERDAK:WA/TERPIDANA</u></h5>
+            <h6 class="text-center">
+                Nomor : .. ........ I .. ....... I ............/ ....-"...
+            </h6>
+        </div>
+
+        <div class="container fs-6 text-sm py-1 px-5 mx-1">
+            <div class="row">
+                <div class="col-12">I. IDENTITAS</div>
+                <div class="row col-12">
+                    <div class="row">
+                        <div class="col-6 px-4">1. &emsp; Nama Lengkap</div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
                     </div>
-                    <div class="breadcrumb-item">
-                        <a href="{{ route('admin.wni.index') }}">
-                            <i class="fa fa-file-pdf"></i>
-                            Kartu TIK Biodata
-                        </a>
+                    <div class="row">
+                        <div class="col-6 px-4">2. &emsp; Nama samaran/pangglal</div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
                     </div>
-                    <div class="breadcrumb-item">
-                        <i class="fa fa-edit"></i>
-                        Detail
+                    <div class="row">
+                        <div class="col-6 px-4">3. &emsp; Tenpat/Tgllahir/Urrnx</div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">4. &emsp; Jenis Kelamin</div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">5. &emsp; Bangsa/Suku</div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">6. &emsp; Kewarganegaraan</div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">7. &emsp; Alamat/TempatTinggal</div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">8. &emsp; Nomor Telepon/HP </div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">9. &emsp; Nomor Passport</div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">10. &emsp; Agama/Kepercayaan
+                        </div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">11. &emsp; Pekerjaan</div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">12. &emsp;Alarnat Kantor</div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">13. &emsp; Status Perkawinan</div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">14. &emsp; Pekerjaan
+                        </div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">10. &emsp; Pendidikan
+                        </div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-12">II. RTWAYAT PERKARA:</div>
+                <div class="row col-12">
+                    <div class="row">
+                        <div class="col-6 px-4">1. &emsp; Kasus/masalah yang terjadi</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-5">a &emsp; Kasus posisi secara singkat/ pasal yang dilanggar</div>
+                        <div class="col-1">:</div>
+                        <div class="col-5"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-5">b &emsp;Latar belakang & akibat- akibat peristiwa/kerugian</div>
+                        <div class="col-1">:</div>
+                        <div class="col-5"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-5">c&emsp;SP3/SK</div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">
+                            <div class="row">
+                                <div class="col-1">No</div>
+                                <div class="col-5"></div>
+                                <div class="col-1">tgl</div>
+                                <div class="col-5"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-5">d &emsp; Futusan pengadilan</div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">
+                            <div class="row">
+                                <div class="col-1">PN</div>
+                                <div class="col-5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1">PT</div>
+                                <div class="col-5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1">MA</div>
+                                <div class="col-5"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 px-4">
+                            2. &emsp; Nama orang tuar/alamat
+
+                        </div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">
+                            3. &emsp; Nama kawan yang dikenal
+
+                        </div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">4. &emsp;Lain-lain
+                        </div>
+                        <div class="col-1">:</div>
+                        <div class="col-6"></div>
                     </div>
                 </div>
             </div>
-            <div class="section-body">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h4 class="card-title">Identitas</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-md">
-                                <tr>
-                                    <td>Nama Lengkap</td>
-                                    <td class="text-center">{{ $data->nama}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Nama Samaran / Panggilan</td>
-                                    <td class="text-center">{{ $data->panggilan}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Tempat / Tanggal Lahir / Umur</td>
-                                    <td class="text-center">{{ $data->tempat_lahir }} / {{ date('d M Y', strtotime($data->tanggal_lahir)) }} / {{ $age }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Jenis Kelamin</td>
-                                    <td class="text-center">{{ $data->jenis_kelamin == 'P' ? 'Perempuan' : 'Laki-laki' }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Bangsa / Suku</td>
-                                    <td class="text-center">{{ $data->bangsa->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Kewarganegaraan</td>
-                                    <td class="text-center">{{ $data->kewarganegaraan->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Kecamatan</td>
-                                    <td class="text-center">{{ $data->kecamatan->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Alamat</td>
-                                    <td class="text-center">{{ $data->alamat }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Nomor Telepon  / HP</td>
-                                    <td class="text-center">{{ $data->phone }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Nomor Pasport</td>
-                                    <td class="text-center">{{ $data->pasport }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Agama / Kepercayaan</td>
-                                    <td class="text-center">{{ $data->agama->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Pekerjaan</td>
-                                    <td class="text-center">{{ $data->pekerjaan->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Alamat Kantor</td>
-                                    <td class="text-center">{{ $data->alamat_kantor }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Status Perkawinan</td>
-                                    <td class="text-center">{{ $data->perkawinan->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Kepartaian</td>
-                                    <td class="text-center">{{ $data->kepartaian }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Pendidikan</td>
-                                    <td class="text-center">{{ $data->pendidikan->name }}</td>
-                                </tr>
-                            </table>
-                          </div>
+            <div class="row py-5">
+                <div class="col-sm-3">
+                    <p class="card-title">OTENTIKASI <br /> (Stampel dan Paraf)</p>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-title">SIDIK JARIl</p>
+                        </div>
                     </div>
                 </div>
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h4 class="card-title">Riwayat Perkara</h4>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-title">TANDA TANGAN</p>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-md">
-                                <tr>
-                                    <td>Kejahatan / pelanggaran yang dilakukan: </td>
-                                </tr>
-                                <tr>
-                                    <td>Kasus posisi secara singkat/pasal yang dilanggar: </td>
-                                    <td>{{ $data->kasus}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Latar belakang & akibat-akibat peristiwa/kerugian</td>
-                                    <td>{{ $data->background }}</td>
-                                </tr>
-                                <tr>
-                                    <td>SP3/SKPP</td>
-                                    <td>No: {{ $data->no_skpp }} Tanggal: {{ $data->tgl_skpp }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Putusan Pengadilan</td>
-                                    <td>PN: {{ $data->putusan_pengadilan_pn }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>PT: {{ $data->putusan_pengadilan_pt }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>MA: {{ $data->putusan_pengadilan_ma }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Nama orang tua/alamat</td>
-                                    <td>{{ $data->nama_orangtua }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Nama kawan yang dikenal</td>
-                                    <td>{{ $data->nama_kawan }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Lain-lain</td>
-                                    <td>{{ $data->lain }}</td>
-                                </tr>
-                            </table>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-title">PAS PHOTO 4x6</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
-@endsection
+        </div>
+        </div>
+    </section>
 
-@section('js')
-    <script src="{{ asset('backend/modules/select2/dist/js/select2.full.min.js') }}"></script>
-    <script src="{{ asset('backend/modules/summernote/summernote-bs4.js') }}"></script>
-    <script src="{{ asset('backend/js/jquery.mask.min.js') }}"></script>
-    <script src="{{ asset('backend/modules/sweetalert/sweetalert.min.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            // Setup AJAX CSRF
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
 
-            $('.select2').on('select2:selecting', function() {
-                $(this).removeClass('is-invalid');
-            });
+</html>
 
-            // Open Modal to Add new Author
-            $('#btn-add').click(function(e) {
-                e.preventDefault();
-                $('#formModal').modal('show');
-                $('.modal-title').html('Add Author');
-                $('#author-form').trigger('reset');
-                $('#btn-save').html('<i class="fas fa-check"></i> Save Changes');
-                $('#author-form').find('.form-control').removeClass('is-invalid is-valid');
-                $('#btn-save').val('save').removeAttr('disabled');
-            });
-
-            $('body').on('keyup', '#title, #category_id, #content, #thumbnail', function() {
-                var test = $(this).val();
-                if (test == '') {
-                    $(this).removeClass('is-valid is-invalid');
-                } else {
-                    $(this).removeClass('is-invalid').addClass('is-valid');
-                }
-            })
-
-            function filePreview2(input) {
-                if(input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('img').remove();
-                        $('#thumbnail').after('<img src="' + e.target.result + '" class="img-thumbnail">');
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                };
-            }
-
-            $('#thumbnail').change(function() {
-                filePreview2(this);
-                $('#valid-thumbnail').html('');
-            });
-
-            $('form').submit(function() {
-                $('#btn-submit').html('<i class="fas fa-cog fa-spin"></i> Saving...').attr("disabled", true);
-            });
-        })
-    </script>
-@endsection
+</html>

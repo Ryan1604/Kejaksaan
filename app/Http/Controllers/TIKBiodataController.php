@@ -13,6 +13,7 @@ use App\Models\WargaNegara;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\File;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class TIKBiodataController extends Controller
 {
@@ -323,5 +324,10 @@ class TIKBiodataController extends Controller
         $itemDelete = $item->delete();
 
         return response()->json($itemDelete);
+    }
+
+    public function download()
+    {
+        return view('admin.biodata.download');
     }
 }

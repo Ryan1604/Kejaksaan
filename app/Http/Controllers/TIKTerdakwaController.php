@@ -292,4 +292,9 @@ class TIKTerdakwaController extends Controller
 
         return response()->json($itemDelete);
     }
+
+    public function download()
+    {
+        return view('admin.terdakwa.download');
+    }
 }

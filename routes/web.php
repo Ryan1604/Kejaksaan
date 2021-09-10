@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Barryvdh\DomPDF\Facade as PDF;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 Route::get('/', 'Auth\LoginController@adminLogin')->name('adminLogin');
-
 
 // ROUTE FOR ADMIN ONLY
 Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'active', 'check.session'])->group(function () {
@@ -275,7 +275,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'active', '
     Route::resource('asset', 'AssetController');
 
     // Kawasan Industri
-    Route::resource('investasi', 'InvestasiController');
+    Route::resource('investasi', 'InventasiController');
 
     // Kawasan Industri
     Route::resource('perpajakan', 'PerpajakanController');
@@ -336,7 +336,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'active', '
 
     // Kawasan Industri
     Route::resource('pam', 'PamController');
-    
+
     // Kawasan Industri
     Route::resource('perkara', 'PerkaraController');
 });

@@ -223,4 +223,9 @@ class TIKBarangController extends Controller
 
         return response()->json($itemDelete);
     }
+
+    public function download()
+    {
+        return view('admin.barang.download');
+    }
 }

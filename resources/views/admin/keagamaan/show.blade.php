@@ -1,151 +1,107 @@
-@extends('admin.layouts.master')
-@section('title', 'Detail Pengawasan Aliran Keagamaan')
 
-@section('css')
-    <link rel="stylesheet" href="{{ asset('backend/modules/select2/dist/css/select2.min.css') }}">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
-@endsection
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-    <!-- Modal -->
- 
-    <div class="main-content">
-        <section class="section">
-            <div class="section-header">
-                <h1>Detail Pengawasan Aliran Keagamaan</h1>
-                <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item">
-                        <a href="{{ route('admin.dashboard') }}">
-                            <i class="fa fa-home"></i>
-                            Dashboard
-                        </a>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.css" />
+    <style>
+        @page {
+            size: A4 landscape;
+        }
+        
+        table,
+        div,
+        span {
+            font-size: 12px;
+        }
+    </style>
+
+    <title>Labul Intel</title>
+</head>
+
+<body class="A4 landscape">
+    <section class="sheet padding-10mm">
+        <u><span>KEJAKSAAN......................................... </span></u>
+        <br />
+        <br />
+        <h6 class="text-center py-3">
+            LAPORAN BULANAN <br /> PENGAWASAN ALIRAN KEAGAMAAN<br /> BULAN ...........TAHUN.......
+        </h6>
+        <br />
+
+        <div class="tabel-responsive">
+            <table class="table table-sm table-bordered">
+                <thead class="table">
+                    <tr class="text-center text-wrap" style="width: 8rem">
+                        <th>No</th>
+                        <th>NAMA DAN ALIRAN KEAGAMAAN</th>
+                        <th>NAMA PIMPINAN DAN /A ATAU KETUA ORGANISASI</th>
+                        <th>ALAMAT</th>
+                        <th>JUMLAH PENGIKUT</th>
+                        <th>KEGIATAN</th>
+                        <th>NOMOR DAN TANGGAL PENDAFTARAN PADA KANTOR KESBANGPOL</th>
+                        <th>NOMOR DAN TANGGAL PENDAFTARAN BADAN HUKUM</th>
+                        <th>KETERANGAN</th>
+                    </tr>
+                    <tr height="5px" class="text-center">
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr height="40px">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="container">
+            <div class="tabel-responsive">
+                <table class="table table-sm table-borderless float-right">
+                    <div class="row">
+                        <div class="col-md-4 offset-md-8 text-center py-5 mb-5">
+                            ..........,............................... <br /> KASUBDIT ALIRAN KEPERCAYAAN MASYARAKAT <br /> DAN ALIRAN KEAGAMAAN SERTA PENYALAHGUNAAN <br /> DAN PENODAAN AGAMA, ASISTEN INTELIJEN, KASI INTEL,
+                        </div>
                     </div>
-                    <div class="breadcrumb-item">
-                        <a href="{{ route('admin.kepercayaan.index') }}">
-                            <i class="fa fa-file-pdf"></i>
-                            Pengawasan Aliran Keagamaan
-                        </a>
+                    <div class="row">
+                        <div class="col-md-4 offset-md-8 text-center">
+                            <u> Nama Pejabat</u>
+                        </div>
                     </div>
-                    <div class="breadcrumb-item">
-                        <i class="fa fa-edit"></i>
-                        Detail
+                    <div class="row">
+                        <div class="col-md-4 offset-md-8 text-center">Pangkat/NIP</div>
                     </div>
-                </div>
+                </table>
             </div>
-            <div class="section-body">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h4 class="card-title">Detail</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-md">
-                                <tr>
-                                    <td>Tanggal</td>
-                                    <td>{{ date('d M Y', strtotime($data->tgl)) }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Kecamatan</td>
-                                    <td>{{ $data->kecamatan->name }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Nama Aliran Kepercayaan</td>
-                                    <td>{{ $data->nama }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Nama Pimpinan</td>
-                                    <td>{{ $data->pimpinan }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Alamat</td>
-                                    <td>{{ $data->alamat }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Kegiatan</td>
-                                    <td>{{ $data->kegiatan }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Jumlah Pengikut</td>
-                                    <td>{{ $data->jumlah_pengikut }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Nomor dan Tanggal Pendaftaran Pada Kantor KESBANGPOL</td>
-                                    <td>{{ $data->nomor_pendaftaran }} / {{ date('d M Y', strtotime($data->tgl_pendaftaran)) }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Nomor dan Tanggal Pendaftaran Pada Badan Hukum</td>
-                                    <td>{{ $data->nomor_badan }} / {{ date('d M Y', strtotime($data->tgl_badan)) }}</th>
-                                </tr>
-                                <tr>
-                                    <td>Keterangan</td>
-                                    <td>{{ $data->keterangan }}</th>
-                                </tr>
-                            </table>
-                          </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-@endsection
+        </div>
+    </section>
 
-@section('js')
-    <script src="{{ asset('backend/modules/select2/dist/js/select2.full.min.js') }}"></script>
-    <script src="{{ asset('backend/modules/summernote/summernote-bs4.js') }}"></script>
-    <script src="{{ asset('backend/js/jquery.mask.min.js') }}"></script>
-    <script src="{{ asset('backend/modules/sweetalert/sweetalert.min.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            // Setup AJAX CSRF
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+    <!-- Optional JavaScript; choose one of the two! -->
 
-            $('.select2').on('select2:selecting', function() {
-                $(this).removeClass('is-invalid');
-            });
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js " integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj " crossorigin="anonymous "></script>
+</body>
 
-            // Open Modal to Add new Author
-            $('#btn-add').click(function(e) {
-                e.preventDefault();
-                $('#formModal').modal('show');
-                $('.modal-title').html('Add Author');
-                $('#author-form').trigger('reset');
-                $('#btn-save').html('<i class="fas fa-check"></i> Save Changes');
-                $('#author-form').find('.form-control').removeClass('is-invalid is-valid');
-                $('#btn-save').val('save').removeAttr('disabled');
-            });
-
-            $('body').on('keyup', '#title, #category_id, #content, #thumbnail', function() {
-                var test = $(this).val();
-                if (test == '') {
-                    $(this).removeClass('is-valid is-invalid');
-                } else {
-                    $(this).removeClass('is-invalid').addClass('is-valid');
-                }
-            })
-
-            function filePreview2(input) {
-                if(input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('img').remove();
-                        $('#thumbnail').after('<img src="' + e.target.result + '" class="img-thumbnail">');
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                };
-            }
-
-            $('#thumbnail').change(function() {
-                filePreview2(this);
-                $('#valid-thumbnail').html('');
-            });
-
-            $('form').submit(function() {
-                $('#btn-submit').html('<i class="fas fa-cog fa-spin"></i> Saving...').attr("disabled", true);
-            });
-        })
-    </script>
-@endsection
+</html>

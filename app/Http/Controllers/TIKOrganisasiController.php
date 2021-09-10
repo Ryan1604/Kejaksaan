@@ -203,4 +203,9 @@ class TIKOrganisasiController extends Controller
 
         return response()->json($itemDelete);
     }
+
+    public function download()
+    {
+        return view('admin.organisasi.download');
+    }
 }

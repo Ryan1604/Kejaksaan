@@ -1,167 +1,71 @@
-@extends('admin.layouts.master')
-@section('title', 'Detail Tindak Pidana Narkotika')
 
-@section('css')
-    <link rel="stylesheet" href="{{ asset('backend/modules/select2/dist/css/select2.min.css') }}">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
-@endsection
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-    <!-- Modal -->
- 
-    <div class="main-content">
-        <section class="section">
-            <div class="section-header">
-                <h1>Detail Tindak Pidana Narkotika</h1>
-                <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item">
-                        <a href="{{ route('admin.dashboard') }}">
-                            <i class="fa fa-home"></i>
-                            Dashboard
-                        </a>
-                    </div>
-                    <div class="breadcrumb-item">
-                        <a href="{{ route('admin.narkotika.index') }}">
-                            <i class="fa fa-file-pdf"></i>
-                            Tindak Pidana Narkotika
-                        </a>
-                    </div>
-                    <div class="breadcrumb-item">
-                        <i class="fa fa-edit"></i>
-                        Detail
-                    </div>
-                </div>
-            </div>
-            <div class="section-body">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h4 class="card-title">Detail</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-md">
-                                <tr>
-                                    <td>Tanggal</td>
-                                    <td>{{ date('d M Y', strtotime($data->tgl)) }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Identitas Terdakwa</td>
-                                    <td>{{ $data->biodata->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Kecamatan</td>
-                                    <td>{{ $data->kecamatan->name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Locus dan Tempus</td>
-                                    <td>{{ $data->locus }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Pasal yang dilanggar</td>
-                                    <td>{{ $data->pasal }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Pra Penuntutan</td>
-                                    <td>
-                                        <?php
-                                            if ($data->tgl_surat_pra_penuntutan == NULL) {
-                                                echo '-';
-                                            } else {
-                                                echo date('d M Y', strtotime($data->tgl_surat_pra_penuntutan)) . ' / ' . $data->nomor_surat_pra_penuntutan;
-                                            }
-                                        ?> 
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td>Penuntutan</td>
-                                    <td>
-                                        <?php
-                                            if ($data->tgl_surat_penuntutan == NULL) {
-                                                echo '-';
-                                            } else {
-                                                echo date('d M Y', strtotime($data->tgl_surat_penuntutan)) . ' / ' . $data->nomor_surat_penuntutan;
-                                            }
-                                        ?> 
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td>Eksekusi</td>
-                                    <td>{{ $data->eksekusi }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Upaya Hukum</td>
-                                    <td>{{ $data->upaya }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Keterangan</td>
-                                    <td>{{ $data->keterangan }}</td>
-                                </tr>
-                            </table>
-                          </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-@endsection
+<head>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.css" />
+    <style>
+        @page {
+            size: A4 landscape;
+        }
+    </style>
 
-@section('js')
-    <script src="{{ asset('backend/modules/select2/dist/js/select2.full.min.js') }}"></script>
-    <script src="{{ asset('backend/modules/summernote/summernote-bs4.js') }}"></script>
-    <script src="{{ asset('backend/js/jquery.mask.min.js') }}"></script>
-    <script src="{{ asset('backend/modules/sweetalert/sweetalert.min.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            // Setup AJAX CSRF
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+    <title>PIDANA NARKOTIKA</title>
+</head>
 
-            $('.select2').on('select2:selecting', function() {
-                $(this).removeClass('is-invalid');
-            });
+<body class="A4 landscape">
+    <section class="sheet padding-10mm">
+        <p>KEJAKSAAN NEGERI PAGAR ALAM</p>
 
-            // Open Modal to Add new Author
-            $('#btn-add').click(function(e) {
-                e.preventDefault();
-                $('#formModal').modal('show');
-                $('.modal-title').html('Add Author');
-                $('#author-form').trigger('reset');
-                $('#btn-save').html('<i class="fas fa-check"></i> Save Changes');
-                $('#author-form').find('.form-control').removeClass('is-invalid is-valid');
-                $('#btn-save').val('save').removeAttr('disabled');
-            });
+        <h4 class="text-center">LAPORAN PERKARA TINDAK PIDANA NARKOTIKA</h4>
+        <h5 class="text-center">Bulan.......Tahun .......</h5>
+        <br />
+        <div class="table-responsive">
+            <table class="table table-sm table-bordered" id="report">
+                <thead class="table">
+                    <tr height="50px" class="text-center text-wrap" style="width: 8rem">
+                        <th scope="col">No</th>
+                        <th scope="col">IDENTITAS TERDAKWA</th>
+                        <th scope="col">PASAL YANG DILANGGAR</th>
+                        <th scope="col">PRA PENUNTUTAN</th>
+                        <th scope="col">PENUNTUTAN</th>
+                        <th scope="col">EKSEKUSI</th>
+                        <th scope="col">UPAYA HUKUM</th>
+                        <th scope="col">KETERANGAN</th>
+                    </tr>
+                    <tr height="5px" class="fs-6 text-center">
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                    </tr>
+                </thead>
+                {{-- <!-- @foreach($data as $item) --> --}}
+                <tbody>
+                    <tr height="40px">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                {{-- <!-- @endforeach --> --}}
+            </table>
+        </div>
+    </section>
 
-            $('body').on('keyup', '#title, #category_id, #content, #thumbnail', function() {
-                var test = $(this).val();
-                if (test == '') {
-                    $(this).removeClass('is-valid is-invalid');
-                } else {
-                    $(this).removeClass('is-invalid').addClass('is-valid');
-                }
-            })
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
 
-            function filePreview2(input) {
-                if(input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('img').remove();
-                        $('#thumbnail').after('<img src="' + e.target.result + '" class="img-thumbnail">');
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                };
-            }
-
-            $('#thumbnail').change(function() {
-                filePreview2(this);
-                $('#valid-thumbnail').html('');
-            });
-
-            $('form').submit(function() {
-                $('#btn-submit').html('<i class="fas fa-cog fa-spin"></i> Saving...').attr("disabled", true);
-            });
-        })
-    </script>
-@endsection
+</html>
