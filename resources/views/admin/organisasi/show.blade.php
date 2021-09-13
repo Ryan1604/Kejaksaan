@@ -21,12 +21,12 @@
 
 <body class="A4">
     <section class="sheet padding-10mm">
-        <u><span>KEJAKSAAN</span=><span>......................................... </span></u> <br />
+        <u><span>KEJAKSAAN PAGAR ALAM</span></u> <br />
 
         <div class="cont py-3">
             <h5 class="text-center"><u>KARTU TIK ORGANISASI</u></h5>
             <h6 class="text-center">
-                Nomor : .. ........ I .. ....... I ............/ ....-"...
+                Nomor : {{ $data->nomor }}
             </h6>
         </div>
 
@@ -35,91 +35,91 @@
                 <div class="col-12">I. IDENTITAS</div>
                 <div class="row col-12">
                     <div class="row">
-                        <div class="col-7 px-4">1. &emsp; Nama Organisasi
+                        <div class="col-6 px-4">1. &emsp; Nama Organisasi</div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">{{ $data->nama }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">2. &emsp; Akte Pendirian/ buku pendaftaran
                         </div>
                         <div class="col-1">:</div>
-                        <div class="col-5"></div>
+                        <div class="col-5">{{ $data->akte }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-7 px-4">2. &emsp; Ate Pendirian/ buku pendaftaran
+                        <div class="col-6 px-4">3. &emsp; Kedudukan / status
                         </div>
                         <div class="col-1">:</div>
-                        <div class="col-5"></div>
+                        <div class="col-5">{{ $data->status }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-7 px-4">3. &emsp; Berdiri sejak</div>
+                        <div class="col-6 px-4">4. &emsp; Berdiri sejak</div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">{{ $data->berdiri }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">5. &emsp; Domisili hukum / alamat</div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">{{ $data->alamat }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">6. &emsp; Nomor Telepon</div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">{{ $data->phone }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">7. &emsp;Website/ E-mail</div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">{{ $data->web }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-4">8. &emsp; Pengurus</div>
                         <div class="col-1">:</div>
                         <div class="col-5"></div>
                     </div>
                     <div class="row">
-                        <div class="col-7 px-4">4. &emsp; Domisili hukum / alamat</div>
+                        <div class="col-6 px-5">- &emsp; Nama </div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">{{ $data->nama_pengurus }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-5">- &emsp;Kedudukan</div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">{{ $data->kedudukan_pengurus }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-5">- &emsp;Periode tahun</div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">{{ $data->periode_pengurus }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-5">- &emsp; Alamat</div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">{{ $data->alamat_pengurus }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 px-5">- &emsp; Nomor Telepon/HP</div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">{{ $data->hp_pengurus }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">9. &emsp; Ruang lingkup kegiatan organisasi</div>
                         <div class="col-1">:</div>
                         <div class="col-5"></div>
                     </div>
                     <div class="row">
-                        <div class="col-7 px-4">5. &emsp; Nomor Telepon</div>
+                        <div class="col-6 px-5">a. &emsp;Ke dalam</div>
                         <div class="col-1">:</div>
-                        <div class="col-5"></div>
+                        <div class="col-5">{{ $data->kegiatan_kedalam }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-7 px-4">6. &emsp;Website/ E-mail</div>
+                        <div class="col-6 px-5">b. &emsp;Ke Luar</div>
                         <div class="col-1">:</div>
-                        <div class="col-5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7 px-4">7. &emsp; Penanggung jawab media komunikasi</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7 px-4">8. &emsp; Pengurus</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7 px-5">- &emsp; Nama </div>
-                        <div class="col-1">:</div>
-                        <div class="col-5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7 px-5">- &emsp;Kedudukan</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7 px-5">- &emsp;Periode tahun</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7 px-5">- &emsp; Alamat</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7 px-5">- &emsp; Nomor Telepon/HP</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7 px-4">9. &emsp; Ruang lingkup kegiatan organisasi</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7 px-5">a. &emsp;Ke dalam</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7 px-5">b. &emsp;Ke Luar</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5"></div>
+                        <div class="col-5">{{ $data->kegiatan_keluar }}</div>
                     </div><br><br>
                     <div class="row">
                         <p>II. KEGIATAN ORGANISASI PENGURUS ORGANISASI YANG BERKAITAN DENGAN / PELANGGARAN HUKUM :
                         </p>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{ $data->kegiatan }}</textarea>
                     </div>
                     <br />
                 </div>

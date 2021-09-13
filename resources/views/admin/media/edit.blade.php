@@ -48,6 +48,15 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
+                                                <label for="nomor">Nomor <sup class="text-danger">*</sup></label>
+                                                <input type="text" class="form-control form-control-sm @error('nomor') is-invalid @enderror" name="nomor" id="nomor" value="@error('nomor'){{ old('nomor') }}@else{{ $data->nomor }}@enderror" maxlength="16">
+                                                <div class="invalid-feedback" id="valid-nomor">{{ $errors->first('nomor') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group">
                                                 <label for="nama">Nama Media Komunikasi<sup class="text-danger">*</sup></label>
                                                 <input type="text" class="form-control form-control-sm @error('nama') is-invalid @enderror" name="nama" id="nama" value="@error('nama'){{ old('nama') }}@else{{ $data->nama }}@enderror" placeholder="Masukkan Nama Media Komunikasi">
                                                 <div class="invalid-feedback" id="valid-nama">{{ $errors->first('nama') }}</div>
@@ -151,9 +160,20 @@
                                                 <select class="select2 form-control form-control-sm @error('kecamatan') is-invalid @enderror" name="kecamatan" id="kecamatan">
                                                     <option value="" selected disabled>-- Pilih Kecamatan --</option>
                                                     @foreach ($kecamatans as $kecamatan )
-                                                        <option value="{{ $kecamatan->id }}" {{ old('kecamatan') == $kecamatan->id || $data->kecamatan_id == $kecamatan->id ? 'selected' : '' }}>{{ $kecamatan->name }}</option>
+                                                        <option value="{{ $kecamatan->name }}" {{ old('kecamatan') == $kecamatan->name || $data->kecamatan == $kecamatan->name ? 'selected' : '' }}>{{ $kecamatan->name }}</option>
                                                     @endforeach
+                                                    <option value="Lainnya">Lainnya</option>
                                                 </select>
+                                                <div class="invalid-feedback" id="valid-kecamatan">{{ $errors->first('kecamatan') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="kecamatan">Kecamatan <sup class="text-danger">*</sup></label>
+                                                <input type="text" class="form-control form-control-sm @error('kecamatan') is-invalid @enderror" name="kecamatan_" id="kecamatan_" value="@error('kecamatan'){{ old('kecamatan') }}@else{{ $data->kecamatan }}@enderror" readonly>
+                                                <small>Kosongkan jika tidak diperlukan</small>
                                                 <div class="invalid-feedback" id="valid-kecamatan">{{ $errors->first('kecamatan') }}</div>
                                             </div>
                                         </div>
@@ -317,6 +337,15 @@
                     reader.readAsDataURL(input.files[0]);
                 };
             }
+
+            $('body').on('change', '#kecamatan', function() {
+                var value = $(this).val();
+                if (value == 'Lainnya') {
+                    $("#kecamatan_").attr("readonly", false); 
+                } else {
+                    $("#kecamatan_").attr("readonly", true); 
+                }
+            })
 
             $('#photo').change(function() {
                 filePreview2(this);

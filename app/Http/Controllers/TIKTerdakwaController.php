@@ -65,6 +65,7 @@ class TIKTerdakwaController extends Controller
     public function store(Request $request)
     {
         request()->validate([
+            'nomor'                 => 'required|string',
             'nama'                  => 'required|string',
             'panggilan'             => 'required|string',
             'tempat_lahir'          => 'required|string',
@@ -72,7 +73,7 @@ class TIKTerdakwaController extends Controller
             'jenis_kelamin'         => 'required|string',
             'bangsa'                => 'required|integer',
             'kewarganegaraan'       => 'required|integer',
-            'kecamatan'             => 'required|integer',
+            'kecamatan'             => 'string',
             'alamat'                => 'required|string',
             'phone'                 => 'required|string',
             'pasport'               => 'required|string',
@@ -94,7 +95,14 @@ class TIKTerdakwaController extends Controller
             'lain'                  => 'string',
         ], $this->customMessages);
 
+        if (request()->post('kecamatan') == 'Lainnya') {
+            $kecamatan = request()->post('kecamatan_');
+        } else {
+            $kecamatan = request()->post('kecamatan');
+        }
+
         $data = new TIKTerdakwa();
+        $data->nomor                    = strip_tags(request()->post('nomor'));
         $data->nama                     = strip_tags(request()->post('nama'));
         $data->panggilan                = strip_tags(request()->post('panggilan'));
         $data->tempat_lahir             = strip_tags(request()->post('tempat_lahir'));
@@ -102,7 +110,7 @@ class TIKTerdakwaController extends Controller
         $data->jenis_kelamin            = request()->post('jenis_kelamin');
         $data->bangsa_id                = strip_tags(request()->post('bangsa'));
         $data->kewarganegaraan_id       = strip_tags(request()->post('kewarganegaraan'));
-        $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
+        $data->kecamatan                = $kecamatan;
         $data->alamat                   = strip_tags(request()->post('alamat'));
         $data->phone                    = strip_tags(request()->post('phone'));
         $data->pasport                  = strip_tags(request()->post('pasport'));
@@ -196,6 +204,7 @@ class TIKTerdakwaController extends Controller
     {
         $data = TIKTerdakwa::findOrFail($id);
         request()->validate([
+            'nomor'                 => 'required|string',
             'nama'                  => 'required|string',
             'panggilan'             => 'required|string',
             'tempat_lahir'          => 'required|string',
@@ -203,7 +212,7 @@ class TIKTerdakwaController extends Controller
             'jenis_kelamin'         => 'required|string',
             'bangsa'                => 'required|integer',
             'kewarganegaraan'       => 'required|integer',
-            'kecamatan'             => 'required|integer',
+            'kecamatan'             => 'string',
             'alamat'                => 'required|string',
             'phone'                 => 'required|string',
             'pasport'               => 'required|string',
@@ -225,6 +234,13 @@ class TIKTerdakwaController extends Controller
             'lain'                  => 'string',
         ], $this->customMessages);
 
+        if (request()->post('kecamatan') == 'Lainnya') {
+            $kecamatan = request()->post('kecamatan_');
+        } else {
+            $kecamatan = request()->post('kecamatan');
+        }
+
+        $data->nomor                    = strip_tags(request()->post('nomor'));
         $data->nama                     = strip_tags(request()->post('nama'));
         $data->panggilan                = strip_tags(request()->post('panggilan'));
         $data->tempat_lahir             = strip_tags(request()->post('tempat_lahir'));
@@ -232,7 +248,7 @@ class TIKTerdakwaController extends Controller
         $data->jenis_kelamin            = request()->post('jenis_kelamin');
         $data->bangsa_id                = strip_tags(request()->post('bangsa'));
         $data->kewarganegaraan_id       = strip_tags(request()->post('kewarganegaraan'));
-        $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
+        $data->kecamatan                = $kecamatan;
         $data->alamat                   = strip_tags(request()->post('alamat'));
         $data->phone                    = strip_tags(request()->post('phone'));
         $data->pasport                  = strip_tags(request()->post('pasport'));

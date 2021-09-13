@@ -27,11 +27,11 @@
 
 <body class="A4 landscape">
     <section class="sheet padding-10mm">
-        <u><span>KEJAKSAAN......................................... </span></u>
+        <u><span>KEJAKSAAN PAGAR ALAM </span></u>
         <br />
         <br />
         <h6 class="text-center py-3">
-            LAPORAN BULANAN <br /> PENGAMANAN SUMBER DAYA ORGANISASI KEJAKSAAN DAN <br /> PENGAMANAN PENANGANAN PERKARA<br /> BULAN ...........TAHUN.......
+            LAPORAN BULANAN <br /> PENGAMANAN SUMBER DAYA ORGANISASI KEJAKSAAN DAN <br /> PENGAMANAN PENANGANAN PERKARA<br /> BULAN {{ $month }} TAHUN {{ $year }}
         </h6>
         <br />
 
@@ -44,7 +44,7 @@
                         <th>ISI INFORMASI</th>
                         <th>OPSIN LID, PAM, GAL</th>
                         <th>NO TGL SURAT PERINTAH</th>
-                        <th>HA KEGIATAN</th>
+                        <th>HASIL KEGIATAN</th>
                         <th>KETERANGAN</th>
                     </tr>
                     <tr height="5px" class="text-center">
@@ -57,17 +57,29 @@
                         <td>7</td>
                     </tr>
                 </thead>
+                @foreach ( $data as  $item)
                 <tbody>
                     <tr height="40px">
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ $item->sumber_informasi }}</td>
+                        <td>{{ $item->isi_informasi }}</td>
+                        <td>
+                            @if ($item->opsin_lid != NULL)
+                                {{ $item->opsin_lid }}
+                            @endif
+                            @if ($item->opsin_pam != NULL)
+                                {{ $item->opsin_pam }}
+                            @endif
+                            @if ($item->opsin_gal != NULL)
+                                {{ $item->opsin_gal }}
+                            @endif
+                        </td>
+                        <td>{{ $item->nomor_surat }} / {{ $item->tgl_surat }}</td>
+                        <td>{{ $item->hasil }}</td>
+                        <td>{{ $item->keterangan }}</td>
                     </tr>
                 </tbody>
+                @endforeach
             </table>
         </div>
 
@@ -76,16 +88,16 @@
                 <table class="table table-sm table-borderless">
                     <div class="row">
                         <div class="col-md-4 offset-md-8 text-center py-5 mb-5">
-                            KASUBDIT / ASINTEL / KASI INTEL / KACABJARI.............
+                            {{ $jabatan }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 offset-md-8 text-center">
-                            <u> Nama Pejabat</u>
+                            <u> {{ $nama }}</u>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 offset-md-8 text-center">Pangkat/NIP</div>
+                        <div class="col-md-4 offset-md-8 text-center">{{ $nip }}</div>
                     </div>
                 </table>
             </div>

@@ -65,7 +65,7 @@ class NarkotikaController extends Controller
             'tgl'                       => 'required|date',
             'biodata'                   => 'required|integer',
             'kecamatan'                 => 'required|integer',
-            'locus'                     => 'required|string',
+            'locus'                     => 'required|date',
             'pasal'                     => 'required|string',
             'tgl_surat_pra_penuntutan'  => 'nullable|date',
             'nomor_surat_pra_penuntutan' => 'nullable|string',
@@ -80,7 +80,7 @@ class NarkotikaController extends Controller
         $data->tgl                          = request()->post('tgl');
         $data->biodata_id                   = strip_tags(request()->post('biodata'));
         $data->kecamatan_id                 = strip_tags(request()->post('kecamatan'));
-        $data->locus                        = strip_tags(request()->post('locus'));
+        $data->locus                        = request()->post('locus');
         $data->pasal                        = strip_tags(request()->post('pasal'));
         $data->tgl_surat_pra_penuntutan     = request()->post('tgl_surat_pra_penuntutan');
         $data->nomor_surat_pra_penuntutan   = strip_tags(request()->post('nomor_surat_pra_penuntutan'));
@@ -176,5 +176,21 @@ class NarkotikaController extends Controller
         $data = Narkotika::destroy($id);
 
         return response()->json($data);
+    }
+
+    public function filter()
+    {
+        return view('admin.narkotika.filter');
+    }
+
+    public function download(Request $request)
+    {
+        $month = request()->post('bulan');
+        $year = request()->post('tahun');
+        $data = Narkotika::with('biodata')->whereYear('tgl', '=', $year)
+            ->whereMonth('tgl', '=', $month)
+            ->get();
+
+        return view('admin.narkotika.show', compact('data', 'month', 'year'));
     }
 }

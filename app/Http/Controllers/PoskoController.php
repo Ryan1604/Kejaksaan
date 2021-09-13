@@ -141,4 +141,23 @@ class PoskoController extends Controller
 
         return response()->json($data);
     }
+    public function filter()
+    {
+        return view('admin.posko.filter');
+    }
+
+    public function download(Request $request)
+    {
+        $month          = request()->post('bulan');
+        $year           = request()->post('tahun');
+        $jabatan        = request()->post('jabatan');
+        $nama           = request()->post('nama');
+        $nip            = request()->post('nip');
+        $year           = request()->post('tahun');
+        $data = Posko::whereYear('tgl', '=', $year)
+            ->whereMonth('tgl', '=', $month)
+            ->get();
+
+        return view('admin.posko.show', compact('data', 'month', 'year', 'jabatan', 'nama', 'nip'));
+    }
 }

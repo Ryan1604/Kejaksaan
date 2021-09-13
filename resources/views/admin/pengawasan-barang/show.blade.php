@@ -27,11 +27,11 @@
 
 <body class="A4 landscape">
     <section class="sheet padding-10mm">
-        <u><span>KEJAKSAAN......................................... </span></u>
+        <u><span>KEJAKSAAN PAGAR ALAM </span></u>
         <br />
         <br />
         <h6 class="text-center py-3">
-            LAPORAN BULANAN <br /> PENGAWASAN BARANG CETAKAN<br /> BULAN ...........TAHUN.......
+            LAPORAN BULANAN <br /> PENGAWASAN BARANG CETAKAN<br /> BULAN {{ $month }} TAHUN {{ $year }}
         </h6>
         <br />
 
@@ -45,7 +45,7 @@
                         <th>PENULIS DAN / ATAU PENERBIT</th>
                         <th>JUDUL DAN ISI</th>
                         <th>HASIL PENELITIAN</th>
-                        <th>TINDALANJUT</th>
+                        <th>TINDAK LANJUT</th>
                         <th>KETERANGAN</th>
                     </tr>
                     <tr height="5px" class="text-center">
@@ -59,18 +59,20 @@
                         <td>8</td>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr height="40px">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
+                @foreach ($data as $item )
+                    <tbody>
+                        <tr height="40px">
+                            <td></td>
+                            <td>{{ $item->barang }}</td>
+                            <td>{{ $item->tgl_penerbitan }}</td>
+                            <td>{{ $item->penulis }}</td>
+                            <td>{{ $item->judul }}</td>
+                            <td>{{ $item->hasil }}</td>
+                            <td>{{ $item->tindak_lanjut }}</td>
+                            <td>{{ $item->keterangan }}</td>
+                        </tr>
+                    </tbody>
+                @endforeach
             </table>
         </div>
 
@@ -79,16 +81,16 @@
                 <table class="table table-sm table-borderless">
                     <div class="row">
                         <div class="col-md-4 offset-md-8 text-center py-5 mb-5">
-                            KASUBDIT / ASINTEL / KASI INTEL
+                            {{ $jabatan }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 offset-md-8 text-center">
-                            <u> Nama Pejabat</u>
+                            <u> {{ $nama }}</u>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 offset-md-8 text-center">Pangkat/NIP</div>
+                        <div class="col-md-4 offset-md-8 text-center">{{ $nip }}</div>
                     </div>
                 </table>
             </div>

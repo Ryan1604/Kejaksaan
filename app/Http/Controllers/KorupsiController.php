@@ -65,7 +65,7 @@ class KorupsiController extends Controller
             'tgl'                   => 'required|date',
             'biodata'               => 'required|integer',
             'kecamatan'             => 'required|integer',
-            'locus'                 => 'required|string',
+            'locus'                 => 'required|date',
             'pasal'                 => 'required|string',
             'penyelidikan'          => 'required|string',
             'tgl_surat_kejaksaan'   => 'nullable|date',
@@ -82,7 +82,7 @@ class KorupsiController extends Controller
         $data->tgl                      = request()->post('tgl');
         $data->biodata_id               = strip_tags(request()->post('biodata'));
         $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
-        $data->locus                    = strip_tags(request()->post('locus'));
+        $data->locus                    = request()->post('locus');
         $data->pasal                    = strip_tags(request()->post('pasal'));
         $data->penyelidikan             = strip_tags(request()->post('penyelidikan'));
         $data->tgl_surat_kejaksaan      = request()->post('tgl_surat_kejaksaan');
@@ -141,7 +141,7 @@ class KorupsiController extends Controller
             'tgl'                   => 'required|date',
             'biodata'               => 'required|integer',
             'kecamatan'             => 'required|integer',
-            'locus'                 => 'required|string',
+            'locus'                 => 'required|date',
             'pasal'                 => 'required|string',
             'penyelidikan'          => 'required|string',
             'tgl_surat_kejaksaan'   => 'nullable|date',
@@ -157,7 +157,7 @@ class KorupsiController extends Controller
         $data->tgl                      = request()->post('tgl');
         $data->biodata_id               = strip_tags(request()->post('biodata'));
         $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
-        $data->locus                    = strip_tags(request()->post('locus'));
+        $data->locus                    = request()->post('locus');
         $data->pasal                    = strip_tags(request()->post('pasal'));
         $data->penyelidikan             = strip_tags(request()->post('penyelidikan'));
         $data->tgl_surat_kejaksaan      = request()->post('tgl_surat_kejaksaan');
@@ -184,5 +184,21 @@ class KorupsiController extends Controller
         $data = Korupsi::destroy($id);
 
         return response()->json($data);
+    }
+
+    public function filter()
+    {
+        return view('admin.korupsi.filter');
+    }
+
+    public function download(Request $request)
+    {
+        $month = request()->post('bulan');
+        $year = request()->post('tahun');
+        $data = Korupsi::with('biodata')->whereYear('tgl', '=', $year)
+            ->whereMonth('tgl', '=', $month)
+            ->get();
+
+        return view('admin.korupsi.show', compact('data', 'month', 'year'));
     }
 }

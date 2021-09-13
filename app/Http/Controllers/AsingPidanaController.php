@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AsingPidana;
 use App\Models\BiodataWNA;
+use App\Models\Kecamatan;
 use Illuminate\Http\Request;
 
 class AsingPidanaController extends Controller
@@ -39,9 +40,10 @@ class AsingPidanaController extends Controller
      */
     public function create()
     {
-        $biodata            = BiodataWNA::orderBy('name')->get();
+        $biodata            = BiodataWNA::with('country')->orderBy('name')->get();
+        $kecamatan          = Kecamatan::orderBy('name')->get();
 
-        return view('admin.asing-pidana.create', compact('biodata'));
+        return view('admin.asing-pidana.create', compact('biodata', 'kecamatan'));
     }
 
     /**
@@ -55,7 +57,8 @@ class AsingPidanaController extends Controller
         request()->validate([
             'tgl'                   => 'required|date',
             'biodata_id'            => 'required|integer',
-            'locus'                 => 'nullable|string',
+            'kecamatan'             => 'nullable|integer',
+            'locus'                 => 'nullable|date',
             'tindak_pidana'         => 'nullable|string',
             'tahapan_dik'           => 'nullable|string',
             'tahapan_pratut'        => 'nullable|string',
@@ -68,6 +71,7 @@ class AsingPidanaController extends Controller
         $data = new AsingPidana();
         $data->tgl                      = request()->post('tgl');
         $data->biodata_id               = strip_tags(request()->post('biodata_id'));
+        $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
         $data->locus                    = strip_tags(request()->post('locus'));
         $data->tindak_pidana            = strip_tags(request()->post('tindak_pidana'));
         $data->tahapan_dik              = strip_tags(request()->post('tahapan_dik'));
@@ -104,8 +108,9 @@ class AsingPidanaController extends Controller
     {
         $data               = AsingPidana::findOrFail($id);
         $biodatas           = BiodataWNA::orderBY('name')->get();
+        $kecamatans         = Kecamatan::orderBY('name')->get();
 
-        return view('admin.asing-pidana.edit', compact('data', 'biodatas'));
+        return view('admin.asing-pidana.edit', compact('data', 'biodatas', 'kecamatans'));
     }
 
     /**
@@ -121,7 +126,8 @@ class AsingPidanaController extends Controller
         request()->validate([
             'tgl'                   => 'required|date',
             'biodata_id'            => 'required|integer',
-            'locus'                 => 'nullable|string',
+            'kecamatan'             => 'nullable|integer',
+            'locus'                 => 'nullable|date',
             'tindak_pidana'         => 'nullable|string',
             'tahapan_dik'           => 'nullable|string',
             'tahapan_pratut'        => 'nullable|string',
@@ -133,6 +139,7 @@ class AsingPidanaController extends Controller
 
         $data->tgl                      = request()->post('tgl');
         $data->biodata_id               = strip_tags(request()->post('biodata_id'));
+        $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
         $data->locus                    = strip_tags(request()->post('locus'));
         $data->tindak_pidana            = strip_tags(request()->post('tindak_pidana'));
         $data->tahapan_dik              = strip_tags(request()->post('tahapan_dik'));
@@ -157,5 +164,25 @@ class AsingPidanaController extends Controller
         $data = AsingPidana::destroy($id);
 
         return response()->json($data);
+    }
+
+    public function filter()
+    {
+        return view('admin.asing-pidana.filter');
+    }
+
+    public function download(Request $request)
+    {
+        $month          = request()->post('bulan');
+        $year           = request()->post('tahun');
+        $jabatan        = request()->post('jabatan');
+        $nama           = request()->post('nama');
+        $nip            = request()->post('nip');
+        $year           = request()->post('tahun');
+        $data = AsingPidana::with('biodata')->whereYear('tgl', '=', $year)
+            ->whereMonth('tgl', '=', $month)
+            ->get();
+
+        return view('admin.asing-pidana.show', compact('data', 'month', 'year', 'jabatan', 'nama', 'nip'));
     }
 }

@@ -15,6 +15,7 @@ class CreateTIKOrganisasisTable extends Migration
     {
         Schema::create('t_i_k_organisasis', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nomor');
             $table->string('nama');
             $table->string('akte');
             $table->string('status');

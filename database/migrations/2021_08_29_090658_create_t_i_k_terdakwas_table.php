@@ -15,6 +15,7 @@ class CreateTIKTerdakwasTable extends Migration
     {
         Schema::create('t_i_k_terdakwas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nomor');
             $table->string('nama');
             $table->string('panggilan');
             $table->string('tempat_lahir');
@@ -22,7 +23,7 @@ class CreateTIKTerdakwasTable extends Migration
             $table->string('jenis_kelamin');
             $table->unsignedSmallInteger('bangsa_id');
             $table->unsignedSmallInteger('kewarganegaraan_id');
-            $table->unsignedSmallInteger('kecamatan_id');
+            $table->string('kecamatan');
             $table->string('alamat');
             $table->string('phone');
             $table->string('pasport');
@@ -47,7 +48,6 @@ class CreateTIKTerdakwasTable extends Migration
 
             $table->foreign('bangsa_id')->references('id')->on('suku_bangsas')->onDelete('cascade');
             $table->foreign('kewarganegaraan_id')->references('id')->on('warga_negaras')->onDelete('cascade');
-            $table->foreign('kecamatan_id')->references('id')->on('kecamatans')->onDelete('cascade');
             $table->foreign('agama_id')->references('id')->on('agamas')->onDelete('cascade');
             $table->foreign('pendidikan_id')->references('id')->on('pendidikans')->onDelete('cascade');
             $table->foreign('pekerjaan_id')->references('id')->on('pekerjaans')->onDelete('cascade');

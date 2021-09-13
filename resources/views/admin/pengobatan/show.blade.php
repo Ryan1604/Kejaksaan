@@ -27,11 +27,11 @@
 
 <body class="A4 landscape">
     <section class="sheet padding-10mm">
-        <u><span>KEJAKSAAN......................................... </span></u>
+        <u><span>KEJAKSAAN PAGAR ALAM </span></u>
         <br />
         <br />
         <h6 class="text-center py-3">
-            LAPORAN BULANAN <br /> PENGOBATAN TRADISIONAL<br /> BULAN ...........TAHUN.......
+            LAPORAN BULANAN <br /> PENGOBATAN TRADISIONAL<br /> BULAN {{ $month }} TAHUN {{ $year }}
         </h6>
         <br />
 
@@ -41,7 +41,7 @@
                     <tr class="text-center text-wrap" style="width: 8rem">
                         <th rowspan="2">No</th>
                         <th rowspan="2">NAMA DAN ALAMAT KLIK PENGOBATAN</th>
-                        <th rowspan="2">IDENTITAS LENGKAS</th>
+                        <th rowspan="2">IDENTITAS LENGKAP</th>
                         <th rowspan="2">JUMLAH PEMBANTU</th>
                         <th rowspan="2">
                             SUMBER INFORMASI DAN MEDIA PENGOBATAN YANG DIGUNAKAN
@@ -66,19 +66,21 @@
                         <td>9</td>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr height="40px">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
+                @foreach ($data as $item )
+                    <tbody>
+                        <tr height="40px">
+                            <td></td>
+                            <td>{{ $item->nama_klinik }}, {{ $item->alamat }}</td>
+                            <td>{{ $item->identitas }}</td>
+                            <td>{{ $item->jumlah_pembantu }}</td>
+                            <td>{{ $item->sumber_informasi }}</td>
+                            <td>{{ $item->asal_mula }}</td>
+                            <td>{{ $item->cara }}</td>
+                            <td>{{ $item->nomor_ijin }} / {{ $item->tgl_ijin }}</td>
+                            <td>{{ $item->keterangan }}</td>
+                        </tr>
+                    </tbody>
+                @endforeach
             </table>
         </div>
 
@@ -87,16 +89,16 @@
                 <table class="table table-sm table-borderless float-right">
                     <div class="row">
                         <div class="col-md-4 offset-md-8 text-center py-5 mb-5">
-                            ..........,............................... <br /> KASUBDITWASMEDMAS,BARCET, ALIRAN KEAGAMAAN DAN ALIRAN MASYARAKAT, ASISTEN INTELIJEN,KASI INTEL,
+                            {{ $jabatan }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 offset-md-8 text-center">
-                            <u> Nama Pejabat</u>
+                            <u> {{ $nama }}</u>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 offset-md-8 text-center">Pangkat/NIP</div>
+                        <div class="col-md-4 offset-md-8 text-center">{{ $nip }}</div>
                     </div>
                 </table>
             </div>

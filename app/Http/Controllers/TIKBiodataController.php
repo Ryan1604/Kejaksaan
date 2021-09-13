@@ -75,8 +75,14 @@ class TIKBiodataController extends Controller
             'bangsa'                => 'required|integer',
         ], $this->customMessages);
 
+        if (request()->post('kecamatan') == 'Lainnya') {
+            $kecamatan = request()->post('kecamatan_');
+        } else {
+            $kecamatan = request()->post('kecamatan');
+        }
 
         $data = new TIKBiodata();
+        $data->nomor                    = strip_tags(request()->post('nomor'));
         $data->nik                      = strip_tags(request()->post('nik'));
         $data->nama                     = strip_tags(request()->post('nama'));
         $data->tempat_lahir             = strip_tags(request()->post('tempat_lahir'));
@@ -84,7 +90,7 @@ class TIKBiodataController extends Controller
         $data->jenis_kelamin            = request()->post('jenis_kelamin');
         $data->bangsa_id                = strip_tags(request()->post('bangsa'));
         $data->kewarganegaraan_id       = strip_tags(request()->post('kewarganegaraan'));
-        $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
+        $data->kecamatan                = $kecamatan;
         $data->alamat                   = strip_tags(request()->post('alamat'));
         $data->phone                    = strip_tags(request()->post('phone'));
         $data->pasport                  = strip_tags(request()->post('pasport'));
@@ -195,6 +201,7 @@ class TIKBiodataController extends Controller
     {
         $data = TIKBiodata::findOrFail($id);
         request()->validate([
+            'nomor'                 => 'required|string',
             'nik'                   => 'required|integer',
             'nama'                  => 'required|string',
             'tempat_lahir'          => 'required|string',
@@ -202,7 +209,7 @@ class TIKBiodataController extends Controller
             'jenis_kelamin'         => 'required|string',
             'bangsa'                => 'required|integer',
             'kewarganegaraan'       => 'required|integer',
-            'kecamatan'             => 'required|integer',
+            'kecamatan'             => 'string',
             'alamat'                => 'required|string',
             'phone'                 => 'required|string',
             'pasport'               => 'required|string',
@@ -240,6 +247,13 @@ class TIKBiodataController extends Controller
             'lain'                  => 'string',
         ], $this->customMessages);
 
+        if (request()->post('kecamatan') == 'Lainnya') {
+            $kecamatan = request()->post('kecamatan_');
+        } else {
+            $kecamatan = request()->post('kecamatan');
+        }
+
+        $data->nomor                    = strip_tags(request()->post('nomor'));
         $data->nik                      = strip_tags(request()->post('nik'));
         $data->nama                     = strip_tags(request()->post('nama'));
         $data->tempat_lahir             = strip_tags(request()->post('tempat_lahir'));
@@ -247,7 +261,7 @@ class TIKBiodataController extends Controller
         $data->jenis_kelamin            = request()->post('jenis_kelamin');
         $data->bangsa_id                = strip_tags(request()->post('bangsa'));
         $data->kewarganegaraan_id       = strip_tags(request()->post('kewarganegaraan'));
-        $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
+        $data->kecamatan                = $kecamatan;
         $data->alamat                   = strip_tags(request()->post('alamat'));
         $data->phone                    = strip_tags(request()->post('phone'));
         $data->pasport                  = strip_tags(request()->post('pasport'));

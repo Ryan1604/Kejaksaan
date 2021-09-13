@@ -48,6 +48,7 @@ class TIKBarangController extends Controller
     public function store(Request $request)
     {
         request()->validate([
+            'nomor'                 => 'required|string',
             'nama'                  => 'required|string',
             'penerbit'              => 'required|string',
             'pengarang'             => 'required|string',
@@ -58,7 +59,7 @@ class TIKBarangController extends Controller
             'alamat_penerbit'       => 'required|string',
             'alamat_percetakan'     => 'required|string',
             'jumlah_oplah'          => 'required|string',
-            'kecamatan'             => 'required|integer',
+            'kecamatan'             => 'string',
             'kasus'                 => 'string',
             'background'            => 'string',
             'tindakan'              => 'string',
@@ -68,7 +69,14 @@ class TIKBarangController extends Controller
             'keterangan'            => 'string',
         ], $this->customMessages);
 
+        if (request()->post('kecamatan') == 'Lainnya') {
+            $kecamatan = request()->post('kecamatan_');
+        } else {
+            $kecamatan = request()->post('kecamatan');
+        }
+
         $data = new TIKBarang();
+        $data->nomor                    = strip_tags(request()->post('nomor'));
         $data->nama                     = strip_tags(request()->post('nama'));
         $data->penerbit                 = strip_tags(request()->post('penerbit'));
         $data->pengarang                = request()->post('pengarang');
@@ -79,7 +87,7 @@ class TIKBarangController extends Controller
         $data->alamat_penerbit          = strip_tags(request()->post('alamat_penerbit'));
         $data->alamat_percetakan        = strip_tags(request()->post('alamat_percetakan'));
         $data->jumlah_oplah             = strip_tags(request()->post('jumlah_oplah'));
-        $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
+        $data->kecamatan                = $kecamatan;
         $data->kasus                    = strip_tags(request()->post('kasus'));
         $data->background               = request()->post('background');
         $data->tindakan                 = strip_tags(request()->post('tindakan'));
@@ -154,7 +162,7 @@ class TIKBarangController extends Controller
             'alamat_penerbit'       => 'required|string',
             'alamat_percetakan'     => 'required|string',
             'jumlah_oplah'          => 'required|string',
-            'kecamatan'             => 'required|integer',
+            'kecamatan'             => 'string',
             'kasus'                 => 'string',
             'background'            => 'string',
             'tindakan'              => 'string',
@@ -163,6 +171,12 @@ class TIKBarangController extends Controller
             'tindakan_pengadilan'   => 'string',
             'keterangan'            => 'string',
         ], $this->customMessages);
+
+        if (request()->post('kecamatan') == 'Lainnya') {
+            $kecamatan = request()->post('kecamatan_');
+        } else {
+            $kecamatan = request()->post('kecamatan');
+        }
 
         $data->nama                     = strip_tags(request()->post('nama'));
         $data->penerbit                 = strip_tags(request()->post('penerbit'));
@@ -174,7 +188,7 @@ class TIKBarangController extends Controller
         $data->alamat_penerbit          = strip_tags(request()->post('alamat_penerbit'));
         $data->alamat_percetakan        = strip_tags(request()->post('alamat_percetakan'));
         $data->jumlah_oplah             = strip_tags(request()->post('jumlah_oplah'));
-        $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
+        $data->kecamatan                = $kecamatan;
         $data->kasus                    = strip_tags(request()->post('kasus'));
         $data->background               = request()->post('background');
         $data->tindakan                 = strip_tags(request()->post('tindakan'));

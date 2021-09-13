@@ -152,4 +152,24 @@ class PengawasanBarangController extends Controller
 
         return response()->json($data);
     }
+
+    public function filter()
+    {
+        return view('admin.pengawasan-barang.filter');
+    }
+
+    public function download(Request $request)
+    {
+        $month          = request()->post('bulan');
+        $year           = request()->post('tahun');
+        $jabatan        = request()->post('jabatan');
+        $nama           = request()->post('nama');
+        $nip            = request()->post('nip');
+        $year           = request()->post('tahun');
+        $data = PengawasanBarang::whereYear('tgl', '=', $year)
+            ->whereMonth('tgl', '=', $month)
+            ->get();
+
+        return view('admin.pengawasan-barang.show', compact('data', 'month', 'year', 'jabatan', 'nama', 'nip'));
+    }
 }

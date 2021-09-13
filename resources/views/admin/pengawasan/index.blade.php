@@ -39,6 +39,10 @@
             <div class="section-body">
                 <div class="card card-primary">  
                     <div class="card-header">
+                        <a class="btn btn-primary" href="{{ route('admin.pengawasan.filter') }}">
+                            <i class="fas fa-print"></i>
+                            Download
+                        </a>
                         <a class="btn btn-primary ml-auto" href="{{ route('admin.pengawasan.create') }}">
                             <i class="fas fa-plus-circle"></i>
                             Tambah Data
@@ -51,7 +55,6 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Asal Negara/Kebangsaan</th>
-                                        <th>Kunjungan</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -92,11 +95,6 @@
                     {
                         data: 'negara',
                         name: 'negara',
-                    },
-                    
-                    {
-                        data: 'kunjungan',
-                        name: 'kunjungan'
                     },
                     {
                         data: 'action',

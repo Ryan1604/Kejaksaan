@@ -67,15 +67,6 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="locus">Locus dan Tempus <sup class="text-danger">*</sup></label>
-                                                <input type="text" class="form-control form-control-sm @error('locus') is-invalid @enderror" name="locus" id="locus" value="{{ old('locus') }}" placeholder="Masukkan Locus dan Tempus">
-                                                <div class="invalid-feedback" id="valid-locus">{{ $errors->first('locus') }}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="form-group">
                                                 <label for="orang_asing">Orang Asing Penduduk <sup class="text-danger">*</sup></label>
                                                 <input type="text" class="form-control form-control-sm @error('orang_asing') is-invalid @enderror" name="orang_asing" id="orang_asing" value="{{ old('orang_asing') }}" placeholder="Masukkan Orang Asing Penduduk">
                                                 <div class="invalid-feedback" id="valid-orang_asing">{{ $errors->first('orang_asing') }}</div>
@@ -85,23 +76,24 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="tinggal_sementara_id">Tinggal Sementara</label>
-                                                <select class="select2 form-control form-control-sm @error('tinggal_sementara_id') is-invalid @enderror" name="tinggal_sementara_id" id="tinggal_sementara_id">
-                                                    <option value="" selected disabled>-- Pilih Tinggal Sementara --</option>
-                                                        @foreach ($tinggalSementara as $data)
-                                                            <option value="{{ $data->id }}" {{ old('tinggal_sementara_id') == $data->id ? 'selected' : '' }}>{{ $data->name }}</option>
-                                                        @endforeach
-                                                </select>
-                                                <div class="invalid-feedback" id="valid-tinggal_sementara_id">{{ $errors->first('tinggal_sementara_id') }}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="form-group">
-                                                <label for="ket_sementara">Keterangan Tinggal Sementara <sup class="text-danger">*</sup></label>
-                                                <input type="text" class="form-control form-control-sm @error('ket_sementara') is-invalid @enderror" name="ket_sementara" id="ket_sementara" value="{{ old('ket_sementara') }}" placeholder="Masukkan Keterangan Tinggal Sementara">
-                                                <div class="invalid-feedback" id="valid-ket_sementara">{{ $errors->first('ket_sementara') }}</div>
+                                                <label>Tinggal Sementara</label>
+                                                <div class="row">
+                                                    <div class="col-md-2 col-sm-2">
+                                                        <input type="text" class="form-control form-control-sm @error('tk') is-invalid @enderror" name="tk" id="tk" value="{{ old('tk') }}" placeholder="Tenaga Kerja">   
+                                                    </div>
+                                                    <div class="col-md-2 col-sm-2">
+                                                        <input type="text" class="form-control form-control-sm @error('mhs') is-invalid @enderror" name="mhs" id="mhs" value="{{ old('mhs') }}" placeholder="Mahasiswa"> 
+                                                    </div>
+                                                    <div class="col-md-2 col-sm-2">
+                                                        <input type="text" class="form-control form-control-sm @error('peneliti') is-invalid @enderror" name="peneliti" id="peneliti" value="{{ old('peneliti') }}" placeholder="Peneliti">  
+                                                    </div>
+                                                    <div class="col-md-2 col-sm-2">
+                                                        <input type="text" class="form-control form-control-sm @error('keluarga') is-invalid @enderror" name="keluarga" id="keluarga" value="{{ old('keluarga') }}" placeholder="Keluarga">
+                                                    </div>
+                                                    <div class="col-md-2 col-sm-2">
+                                                        <input type="text" class="form-control form-control-sm @error('rohaniawan') is-invalid @enderror" name="rohaniawan" id="rohaniawan" value="{{ old('rohaniawan') }}" placeholder="Rohaniawan">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -117,27 +109,21 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="kunjungan_id">Kunjungan</label>
-                                                <select class="select2 form-control form-control-sm @error('kunjungan_id') is-invalid @enderror" name="kunjungan_id" id="kunjungan_id">
-                                                    <option value="" selected disabled>-- Pilih Kunjungan --</option>
-                                                        @foreach ($kunjungan as $data)
-                                                            <option value="{{ $data->id }}" {{ old('kunjungan_id') == $data->id ? 'selected' : '' }}>{{ $data->name }}</option>
-                                                        @endforeach
-                                                </select>
-                                                <div class="invalid-feedback" id="valid-kunjungan_id">{{ $errors->first('kunjungan_id') }}</div>
+                                                <label>Kunjungan</label>
+                                                <div class="row">
+                                                    <div class="col-md-4 col-sm-4">
+                                                        <input type="text" class="form-control form-control-sm @error('usaha') is-invalid @enderror" name="usaha" id="usaha" value="{{ old('usaha') }}" placeholder="Usaha">   
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-4">
+                                                        <input type="text" class="form-control form-control-sm @error('sosbud') is-invalid @enderror" name="sosbud" id="sosbud" value="{{ old('sosbud') }}" placeholder="Sosial Budaya"> 
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-4">
+                                                        <input type="text" class="form-control form-control-sm @error('wisata') is-invalid @enderror" name="wisata" id="wisata" value="{{ old('wisata') }}" placeholder="Wisata">  
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="form-group">
-                                                <label for="ket_kunjungan">Keterangan Kunjungan <sup class="text-danger">*</sup></label>
-                                                <input type="text" class="form-control form-control-sm @error('ket_kunjungan') is-invalid @enderror" name="ket_kunjungan" id="ket_kunjungan" value="{{ old('ket_kunjungan') }}" placeholder="Masukkan Keterangan Kunjungan">
-                                                <div class="invalid-feedback" id="valid-ket_kunjungan">{{ $errors->first('ket_kunjungan') }}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">

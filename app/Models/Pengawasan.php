@@ -9,28 +9,20 @@ class Pengawasan extends Model
     protected $fillable = [
         'tgl',
         'negara_id',
-        'locus',
         'orang_asing',
-        'tinggal_sementara_id',
-        'ket_sementara',
+        'tk',
+        'mhs',
+        'peneliti',
+        'keluarga',
         'pendatang_ilegal',
-        'kunjungan_id',
-        'ket_kunjungan',
+        'usaha',
+        'sosbud',
+        'wisata',
         'keterangan',
     ];
 
     public function negara()
     {
         return $this->belongsTo('App\Models\Negara');
-    }
-
-    public function tinggalSementara()
-    {
-        return $this->belongsTo('App\Models\TinggaSementaraWNA');
-    }
-
-    public function kunjungan()
-    {
-        return $this->belongsTo('App\Models\KunjunganWNA');
     }
 }

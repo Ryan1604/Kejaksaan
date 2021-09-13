@@ -152,4 +152,24 @@ class PengawasanMediaController extends Controller
 
         return response()->json($data);
     }
+
+    public function filter()
+    {
+        return view('admin.pengawasan-media.filter');
+    }
+
+    public function download(Request $request)
+    {
+        $month          = request()->post('bulan');
+        $year           = request()->post('tahun');
+        $jabatan        = request()->post('jabatan');
+        $nama           = request()->post('nama');
+        $nip            = request()->post('nip');
+        $year           = request()->post('tahun');
+        $data = PengawasanMedia::whereYear('tgl', '=', $year)
+            ->whereMonth('tgl', '=', $month)
+            ->get();
+
+        return view('admin.pengawasan-media.show', compact('data', 'month', 'year', 'jabatan', 'nama', 'nip'));
+    }
 }

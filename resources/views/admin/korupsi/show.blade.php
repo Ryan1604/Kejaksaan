@@ -19,7 +19,7 @@
         <p>KEJAKSAAN NEGERI PAGAR ALAM</p>
 
         <h4 class="text-center">LAPORAN PERKARA TINDAK PIDANA KORUPSI</h4>
-        <h5 class="text-center">Bulan.......Tahun .......</h5>
+        <h5 class="text-center">Bulan {{ $month }} Tahun {{ $year }}</h5>
         <br />
 
         <div class="table-responsive">
@@ -53,21 +53,22 @@
                         <td>10</td>
                     </tr>
                 </thead>
-                {{-- <!-- @foreach($data as $item) --> --}}
-                <tbody>
-                    <tr height="40px">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
+                @foreach($data as $item)
+                    <tbody>
+                        <tr height="50px">
+                            <td></td>
+                            <td>{{ $item->biodata->name }}</td>
+                            <td>{{ $item->pasal }}</td>
+                            <td>{{ $item->penyelidikan }}</td>
+                            <td>{{ $item->tgl_surat_kejaksaan }}/{{ $item->nomor_surat_kejaksaan }}</td>
+                            <td>{{ $item->tgl_surat_polri }}/{{ $item->nomor_surat_polri }}</td>
+                            <td>{{ $item->penuntutan }}</td>
+                            <td>{{ $item->eksekusi }}</td>
+                            <td>{{ $item->upaya }}</td>
+                            <td>{{ $item->keterangan }}</td>
+                        </tr>
+                    </tbody>
+                @endforeach
             </table>
         </div>
     </section>

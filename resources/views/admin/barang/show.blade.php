@@ -21,12 +21,12 @@
 
 <body class="A4">
     <section class="sheet padding-10mm">
-        <u><span>KEJAKSAAN</span=><span>......................................... </span></u> <br />
+        <u><span>KEJAKSAAN PAGAR ALAM</span></u> <br />
 
         <div class="cont py-3">
             <h5 class="text-center"><u>KARTU TIK BARANG CETAKAN</u></h5>
             <h6 class="text-center">
-                Nomor : .. ........ I .. ....... I ............/ ....-"...
+                Nomor : {{ $data->nomor }}
             </h6>
         </div>
 
@@ -37,62 +37,56 @@
                     <div class="row">
                         <div class="col-6 px-4">1. &emsp; Nama barang cetakan</div>
                         <div class="col-1">:</div>
-                        <div class="col-"></div>
+                        <div class="col-5">{{ $data->nama }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">2. &emsp; Penerbit</div>
+                        <div class="col-6 px-4">2. &emsp;Penerbit</div>
                         <div class="col-1">:</div>
-                        <div class="col-5"></div>
+                        <div class="col-5">{{ $data->penerbit }}</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-4">3. &emsp; Pengarang</div>
                         <div class="col-1">:</div>
-                        <div class="col-5"></div>
+                        <div class="col-5">{{ $data->pengarang }}</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-4">4. &emsp; Waktu peredaran</div>
                         <div class="col-1">:</div>
-                        <div class="col-5"></div>
+                        <div class="col-5">{{ $data->waktu }}</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-4">5. &emsp; Daerah peredaran</div>
                         <div class="col-1">:</div>
-                        <div class="col-5"></div>
+                        <div class="col-5">{{ $data->daerah }}</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-4">6. &emsp; Pencetak</div>
                         <div class="col-1">:</div>
-                        <div class="col-5"></div>
+                        <div class="col-5">{{ $data->pencetak }}</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-4">7. &emsp; Nama Pimpinan Redaksi</div>
                         <div class="col-1">:</div>
-                        <div class="col-5"></div>
+                        <div class="col-5">{{ $data->nama_pimpinan }}</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-4">8. &emsp; Alamat penerbit</div>
                         <div class="col-1">:</div>
                         <div class="col-5">
-                            <div class="row">
-                                <div class="col-7"></div>
-                                <div class="col-5">(Telp/Website/Email)</div>
-                            </div>
+                            {{ $data->alamat_penerbit }}
                         </div>
                     </div>
                     <div class=" row ">
                         <div class="col-6 px-4 ">9. &emsp; Alamat percetakan</div>
                         <div class="col-1 ">:</div>
                         <div class="col-5">
-                            <div class="row">
-                                <div class="col-7"></div>
-                                <div class="col-5">(Telp/Website/Email)</div>
-                            </div>
+                            {{ $data->alamat_percetakan }}
                         </div>
                     </div>
                     <div class="row ">
-                        <div class="col-6 px-4 ">10. &emsp; Jumlah Oplah</div>
-                        <div class="col-1 ">:</div>
-                        <div class="col-5 "></div>
+                        <div class="col-6 px-4">10. &emsp;Jumlah Oplah</div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">{{ $data->jumlah_oplah }}</div>
                     </div>
                     <br />
                 </div>
@@ -104,55 +98,47 @@
                     <div class="row ">
                         <div class="col-6 px-4 ">1. &emsp; Kasus/masalah yang terjadi</div>
                         <div class="col-1 ">:</div>
-                        <div class="col-5 "></div>
+                        <div class="col-5 ">{{ $data->kasus }}</div>
                     </div>
                     <div class="row ">
                         <div class="col-6 px-4 ">
                             2. &emsp; Latar belakang dan akibatnnya
                         </div>
                         <div class="col-1 ">:</div>
-                        <div class="col-5 "></div>
+                        <div class="col-5 ">{{ $data->background }}</div>
                     </div>
                     <div class="row ">
                         <div class="col-6 px-4 ">
                             3. &emsp; Tindakan yang dilakukan oleh
                         </div>
                         <div class="col-1 ">:</div>
-                        <div class="col-5 "></div>
+                        <div class="col-5"></div>
                     </div>
                     <div class="row ">
                         <div class="col-6 px-5 ">
                             &emsp; a. Kejaksaan
                         </div>
-                        <div class="col-1 ">:</div>
-                        <div class="col-5 "></div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">{{ $data->tindakan_kejaksaan }}</div>
                     </div>
                     <div class="row ">
                         <div class="col-6 px-5 ">
                             &emsp; b. Kepolisian
                         </div>
-                        <div class="col-1 ">:</div>
-                        <div class="col-5 "></div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">{{ $data->tindakan_kepolisian }}</div>
                     </div>
                     <div class="row ">
                         <div class="col-6 px-5 ">
-                            &emsp; c. Kominfo/diskominfo
+                            &emsp;c. Pengadilan
                         </div>
-                        <div class="col-1 ">:</div>
-                        <div class="col-5 "></div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">{{ $data->tindakan_pengadilan }}</div>
                     </div>
                     <div class="row ">
-                        <div class="col-6 px-5 ">
-                            &emsp;d. Pengadilan
-
-                        </div>
-                        <div class="col-1 ">:</div>
-                        <div class="col-5 "></div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-6 px-4 ">4. &emsp; Keterangan lain-lain</div>
-                        <div class="col-1 ">:</div>
-                        <div class="col-5 "></div>
+                        <div class="col-6 px-4">4. &emsp; Keterangan lain-lain</div>
+                        <div class="col-1">:</div>
+                        <div class="col-5">{{ $data->keterangan }}</div>
                     </div>
                 </div>
             </div>

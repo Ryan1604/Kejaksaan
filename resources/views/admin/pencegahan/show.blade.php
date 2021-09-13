@@ -17,9 +17,9 @@
 
 <body class="A4 landscape">
     <section class="sheet padding-10mm">
-        <u><span>KEJAKSAAN</span=><span>......................................... </span></u> <br />
+        <u><span>KEJAKSAAN PAGAR ALAM</span></u> <br />
         <br>
-        <h5 class="text-center py-3">LAPORAN BULANAN <br> PENCEGAHAN DAN PENANGKALAN <br> BULAN ...........TAHUN.......
+        <h5 class="text-center py-3">LAPORAN BULANAN <br> PENCEGAHAN DAN PENANGKALAN <br> BULAN {{ $month }} TAHUN {{ $year }}
         </h5><br>
 
 
@@ -50,32 +50,33 @@
                         <td>8</td>
                     </tr>
                 </thead>
-                {{-- <!-- @foreach($data as $item) --> --}}
+                @foreach($data as $item)
                 <tbody>
                     <tr height="40px">
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ $item->biodata->name }}</td>
+                        <td>{{ $item->nomor_pencegahan }} / {{ $item->tgl_pencegahan }}</td>
+                        <td>{{ $item->pasal }}</td>
+                        <td>{{ $item->nomor_kepja }} / {{ $item->tgl_kepja }} </td>
+                        <td>{{ $item->tgl_mulai }}</td>
+                        <td>{{ $item->tgl_akhir }}</td>
+                        <td>{{ $item->keterangan }}</td>
                     </tr>
                 </tbody>
+                @endforeach
             </table>
         </div>
 
         <div class="container float-right">
             <div class="row ">
-                <div class="col-md-4 offset-md-7 py-5 mb-5">DIREKTUR/ASINTEL/KEJARI/KACABJARI.............</div>
+                <div class="col-md-6 offset-md-7 py-5 mb-5 text-center">{{ $jabatan }}</div>
             </div>
             <div class="row">
-                <div class="col-md-4 offset-md-8 ">Nama Pejabat</div>
+                <div class="col-md-4 offset-md-8 text-center">{{ $nama }}</div>
             </div>
             <div class="row">
 
-                <div class="col-md-4 offset-md-8 ">Pangkat/NIP</div>
+                <div class="col-md-4 offset-md-8 text-center">{{ $nip }}</div>
             </div>
         </div>
 

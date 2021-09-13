@@ -67,7 +67,15 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="kecamatan">Kecamatan</label>
+                                                <label>Kecamatan</label>
+                                                <input type="text" class="form-control form-control-sm" id="x" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="kecamatan">Locus</label>
                                                 <select class="select2 form-control form-control-sm @error('kecamatan') is-invalid @enderror" name="kecamatan" id="kecamatan">
                                                     <option value="" selected disabled>-- Pilih Kecamatan --</option>
                                                         @foreach ($kecamatan as $data)
@@ -81,8 +89,8 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="locus">Locus dan Tempus <sup class="text-danger">*</sup></label>
-                                                <input type="text" class="form-control form-control-sm @error('locus') is-invalid @enderror" name="locus" id="locus" value="{{ old('locus') }}" placeholder="Masukkan Locus dan Tempus">
+                                                <label for="locus">Tempus <sup class="text-danger">*</sup></label>
+                                                <input type="date" class="form-control form-control-sm @error('locus') is-invalid @enderror" name="locus" id="locus" value="{{ old('locus') }}" placeholder="Masukkan Locus dan Tempus">
                                                 <div class="invalid-feedback" id="valid-locus">{{ $errors->first('locus') }}</div>
                                             </div>
                                         </div>
@@ -197,6 +205,24 @@
             $('.select2').on('select2:selecting', function() {
                 $(this).removeClass('is-invalid');
             });
+
+            $('body').on('change', '#biodata', function() {
+                var id = $(this).val();
+                ajaxurl = '{{ route("admin.wni.search", "id") }}'
+                $.ajax({
+                    type: 'GET',
+                    url: ajaxurl,
+                    data: {
+                        id: id,
+                    },
+                    success: function(data) {
+                        $('#x').val(data[0].kecamatan.name);
+                    },
+                    error: function(data) {
+                        console.log(data)
+                    }
+                });
+            })
 
             $('form').submit(function() {
                 $('#btn-submit').html('<i class="fas fa-cog fa-spin"></i> Saving...').attr("disabled", true);

@@ -15,6 +15,7 @@ class CreateTIKMediaTable extends Migration
     {
         Schema::create('t_i_k_media', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nomor');
             $table->string('nama');
             $table->string('npwp');
             $table->string('jenis');
@@ -26,7 +27,7 @@ class CreateTIKMediaTable extends Migration
             $table->date('waktu');
             $table->string('daerah');
             $table->string('jumlah');
-            $table->unsignedSmallInteger('kecamatan_id');
+            $table->string('kecamatan');
             $table->string('kasus')->nullable();
             $table->string('background')->nullable();
             $table->string('tindakan')->nullable();
@@ -37,8 +38,6 @@ class CreateTIKMediaTable extends Migration
             $table->string('keterangan')->nullable();
             $table->string('photo')->nullable();
             $table->timestamps();
-
-            $table->foreign('kecamatan_id')->references('id')->on('kecamatans')->onDelete('cascade');
         });
     }
 

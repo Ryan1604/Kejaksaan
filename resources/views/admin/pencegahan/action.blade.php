@@ -1,7 +1,7 @@
 <div class="form-button-action">
-    <a href="{{ route('admin.pencegahan.show', $id) }}" data-toggle="tooltip" class="btn btn-sm btn-icon btn-info" data-original-title="Edit">
+    {{-- <a href="{{ route('admin.pencegahan.show', $id) }}" data-toggle="tooltip" class="btn btn-sm btn-icon btn-info" data-original-title="Edit">
         <i class="fa fa-print"></i>
-    </a>
+    </a> --}}
     <a href="{{ route('admin.pencegahan.edit', $id) }}" data-toggle="tooltip" class="btn btn-sm btn-icon btn-warning" data-original-title="Edit">
         <i class="fa fa-edit"></i>
     </a>

@@ -205,4 +205,12 @@ class BiodataWNIController extends Controller
 
         return response()->json($data);
     }
+
+    public function search()
+    {
+        $id = $_GET['id'];
+        $data = BiodataWNI::with('kecamatan')->where('id', $id)->get();
+
+        return $data;
+    }
 }

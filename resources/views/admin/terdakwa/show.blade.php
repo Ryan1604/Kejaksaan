@@ -21,12 +21,12 @@
 
 <body class="A4">
     <section class="sheet padding-10mm">
-        <u><span>KEJAKSAAN</span=><span>......................................... </span></u> <br />
+        <u><span>KEJAKSAAN PAGAR ALAM</span></u> <br />
 
         <div class="cont py-3">
             <h5 class="text-center"><u>KARTU TIK  TERSANGKA /TERDAK:WA/TERPIDANA</u></h5>
             <h6 class="text-center">
-                Nomor : .. ........ I .. ....... I ............/ ....-"...
+                Nomor : {{ $data->nomor }}
             </h6>
         </div>
 
@@ -37,80 +37,80 @@
                     <div class="row">
                         <div class="col-6 px-4">1. &emsp; Nama Lengkap</div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->nama }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">2. &emsp; Nama samaran/pangglal</div>
+                        <div class="col-6 px-4">2. &emsp; Nama samaran/panggilan</div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->panggilan }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">3. &emsp; Tenpat/Tgllahir/Urrnx</div>
+                        <div class="col-6 px-4">3. &emsp; Tempat/Tgl lahir/Umur</div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->tempat_lahir }} / {{ $data->tanggal_lahir }} / {{ $age }} tahun</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-4">4. &emsp; Jenis Kelamin</div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->jenis_kelamin }}</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-4">5. &emsp; Bangsa/Suku</div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->bangsa->name }}</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-4">6. &emsp; Kewarganegaraan</div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->kewarganegaraan->name }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">7. &emsp; Alamat/TempatTinggal</div>
+                        <div class="col-6 px-4">7. &emsp; Alamat/Tempat Tinggal</div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->alamat }}</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-4">8. &emsp; Nomor Telepon/HP </div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->phone }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">9. &emsp; Nomor Passport</div>
+                        <div class="col-6 px-4">9. &emsp; Nomor Pasport</div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->pasport }}</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-4">10. &emsp; Agama/Kepercayaan
                         </div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->agama->name }}</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-4">11. &emsp; Pekerjaan</div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->pekerjaan->name }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">12. &emsp;Alarnat Kantor</div>
+                        <div class="col-6 px-4">12. &emsp;Alamat Kantor</div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->alamat_kantor }}</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-4">13. &emsp; Status Perkawinan</div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->perkawinan->name }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">14. &emsp; Pekerjaan
+                        <div class="col-6 px-4">14. &emsp; Kepartaian
                         </div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->kepartaian }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">10. &emsp; Pendidikan
+                        <div class="col-6 px-4">15. &emsp; Pendidikan
                         </div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->pendidikan->name }}</div>
                     </div>
                     <br />
                 </div>
@@ -125,22 +125,22 @@
                     <div class="row">
                         <div class="col-6 px-5">a &emsp; Kasus posisi secara singkat/ pasal yang dilanggar</div>
                         <div class="col-1">:</div>
-                        <div class="col-5"></div>
+                        <div class="col-5">{{ $data->kasus }}</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-5">b &emsp;Latar belakang & akibat- akibat peristiwa/kerugian</div>
                         <div class="col-1">:</div>
-                        <div class="col-5"></div>
+                        <div class="col-5">{{ $data->background }}</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-5">c&emsp;SP3/SK</div>
                         <div class="col-1">:</div>
                         <div class="col-5">
                             <div class="row">
-                                <div class="col-1">No</div>
-                                <div class="col-5"></div>
-                                <div class="col-1">tgl</div>
-                                <div class="col-5"></div>
+                                <div class="col-1">No. </div>
+                                <div class="col-4">{{ $data->no_skpp}}</div>
+                                <div class="col-1">Tgl</div>
+                                <div class="col-5">{{ $data->tgl_skpp }}</div>
                             </div>
                         </div>
                     </div>
@@ -150,40 +150,39 @@
                         <div class="col-5">
                             <div class="row">
                                 <div class="col-1">PN</div>
-                                <div class="col-5"></div>
+                                <div class="col-5">{{ $data->putusan_pengadilan_pn }}</div>
                             </div>
                             <div class="row">
                                 <div class="col-1">PT</div>
-                                <div class="col-5"></div>
+                                <div class="col-5">{{ $data->putusan_pengadilan_pt }}</div>
                             </div>
                             <div class="row">
                                 <div class="col-1">MA</div>
-                                <div class="col-5"></div>
+                                <div class="col-5">{{ $data->putusan_pengadilan_ma }}</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-6 px-4">
-                            2. &emsp; Nama orang tuar/alamat
+                            2. &emsp; Nama orang tua/alamat
 
                         </div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->nama_orangtua }}</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-4">
                             3. &emsp; Nama kawan yang dikenal
-
                         </div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->nama_kawan }}</div>
                     </div>
                     <div class="row">
                         <div class="col-6 px-4">4. &emsp;Lain-lain
                         </div>
                         <div class="col-1">:</div>
-                        <div class="col-6"></div>
+                        <div class="col-5">{{ $data->lain }}</div>
                     </div>
                 </div>
             </div>
@@ -208,7 +207,7 @@
                 <div class="col-sm-3">
                     <div class="card">
                         <div class="card-body">
-                            <p class="card-title">PAS PHOTO 4x6</p>
+                            <img src="{{ asset('img/terdakwa/Ryan Aprianto.jpeg') }}" alt="" width="100" height="150">
                         </div>
                     </div>
                 </div>

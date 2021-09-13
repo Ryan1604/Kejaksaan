@@ -44,6 +44,7 @@ class TIKOrganisasiController extends Controller
     public function store(Request $request)
     {
         request()->validate([
+            'nomor'                 => 'required|string',
             'nama'                  => 'required|string',
             'akte'                  => 'required|string',
             'status'                => 'required|string',
@@ -62,6 +63,7 @@ class TIKOrganisasiController extends Controller
         ], $this->customMessages);
 
         $data = new TIKOrganisasi();
+        $data->nomor                    = strip_tags(request()->post('nomor'));
         $data->nama                     = strip_tags(request()->post('nama'));
         $data->akte                     = strip_tags(request()->post('akte'));
         $data->status                   = strip_tags(request()->post('status'));
@@ -131,6 +133,7 @@ class TIKOrganisasiController extends Controller
     {
         $data = TIKOrganisasi::findOrFail($id);
         request()->validate([
+            'nomor'                 => 'required|string',
             'nama'                  => 'required|string',
             'akte'                  => 'required|string',
             'status'                => 'required|string',
@@ -148,6 +151,7 @@ class TIKOrganisasiController extends Controller
             'kegiatan'              => 'string',
         ], $this->customMessages);
 
+        $data->nomor                    = strip_tags(request()->post('nomor'));
         $data->nama                     = strip_tags(request()->post('nama'));
         $data->akte                     = strip_tags(request()->post('akte'));
         $data->status                   = strip_tags(request()->post('status'));

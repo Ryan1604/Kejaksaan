@@ -27,11 +27,11 @@
 
 <body class="A4 landscape">
     <section class="sheet padding-10mm">
-        <u><span>KEJAKSAAN......................................... </span></u>
+        <u><span>KEJAKSAAN PAGAR ALAM </span></u>
         <br />
         <br />
         <h6 class="text-center py-3">
-            LAPORAN BULANAN <br /> PENGAWASAN MEDIA KOMUNIKASI <br /> BULAN ...........TAHUN.......
+            LAPORAN BULANAN <br /> PENGAWASAN MEDIA KOMUNIKASI <br /> BULAN {{ $month }} TAHUN {{ $year }}
         </h6>
         <br />
 
@@ -59,19 +59,20 @@
                         <td>8</td>
                     </tr>
                 </thead>
-                {{-- <!-- @foreach($data as $item) --> --}}
+                @foreach($data as $item)
                 <tbody>
                     <tr height="40px">
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ $item->jenis_media }}</td>
+                        <td>{{ $item->tgl_publikasi }}</td>
+                        <td>{{ $item->pimpinan }}</td>
+                        <td>{{ $item->konten }}</td>
+                        <td>{{ $item->hasil }}</td>
+                        <td>{{ $item->tindak_lanjut }}</td>
+                        <td>{{ $item->keterangan }}</td>
                     </tr>
                 </tbody>
+                @endforeach
             </table>
         </div>
 
@@ -80,16 +81,16 @@
                 <table class="table table-sm table-borderless">
                     <div class="row">
                         <div class="col-md-4 offset-md-8 text-center py-5 mb-5">
-                            KASUBDIT / ASINTEL / KASI INTEL
+                            {{ $jabatan }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 offset-md-8 text-center">
-                            <u> Nama Pejabat</u>
+                            <u> {{ $nama }}</u>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 offset-md-8 text-center">Pangkat/NIP</div>
+                        <div class="col-md-4 offset-md-8 text-center">{{ $nip }}</div>
                     </div>
                 </table>
             </div>

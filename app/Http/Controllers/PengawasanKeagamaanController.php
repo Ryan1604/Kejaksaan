@@ -164,4 +164,24 @@ class PengawasanKeagamaanController extends Controller
 
         return response()->json($data);
     }
+
+    public function filter()
+    {
+        return view('admin.keagamaan.filter');
+    }
+
+    public function download(Request $request)
+    {
+        $month          = request()->post('bulan');
+        $year           = request()->post('tahun');
+        $jabatan        = request()->post('jabatan');
+        $nama           = request()->post('nama');
+        $nip            = request()->post('nip');
+        $year           = request()->post('tahun');
+        $data = PengawasanKeagamaan::whereYear('tgl', '=', $year)
+            ->whereMonth('tgl', '=', $month)
+            ->get();
+
+        return view('admin.keagamaan.show', compact('data', 'month', 'year', 'jabatan', 'nama', 'nip'));
+    }
 }

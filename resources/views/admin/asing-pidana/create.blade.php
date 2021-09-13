@@ -57,7 +57,7 @@
                                                 <select class="select2 form-control form-control-sm @error('biodata_id') is-invalid @enderror" name="biodata_id" id="biodata_id">
                                                     <option value="" selected disabled>-- Pilih Warga Negara Asing --</option>
                                                         @foreach ($biodata as $data)
-                                                            <option value="{{ $data->id }}" {{ old('biodata_id') == $data->id ? 'selected' : '' }}>{{ $data->name }}</option>
+                                                            <option value="{{ $data->id }}" {{ old('biodata_id') == $data->id ? 'selected' : '' }}>{{ $data->name }} - {{ $data->country->name }}</option>
                                                         @endforeach
                                                 </select>
                                                 <div class="invalid-feedback" id="valid-biodata_id">{{ $errors->first('biodata_id') }}</div>
@@ -67,8 +67,22 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="locus">Locus dan Tempus <sup class="text-danger">*</sup></label>
-                                                <input type="text" class="form-control form-control-sm @error('locus') is-invalid @enderror" name="locus" id="locus" value="{{ old('locus') }}" placeholder="Masukkan Locus dan Tempus">
+                                                <label for="kecamatan">Locus</label>
+                                                <select class="select2 form-control form-control-sm @error('kecamatan') is-invalid @enderror" name="kecamatan" id="kecamatan">
+                                                    <option value="" selected disabled>-- Pilih Locus --</option>
+                                                        @foreach ($kecamatan as $data)
+                                                            <option value="{{ $data->id }}" {{ old('kecamatan') == $data->id ? 'selected' : '' }}>{{ $data->name }}</option>
+                                                        @endforeach
+                                                </select>
+                                                <div class="invalid-feedback" id="valid-kecamatan">{{ $errors->first('kecamatan') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="locus">Tempus <sup class="text-danger">*</sup></label>
+                                                <input type="date" class="form-control form-control-sm @error('locus') is-invalid @enderror" name="locus" id="locus" value="{{ old('locus') }}" placeholder="Masukkan Tempus">
                                                 <div class="invalid-feedback" id="valid-locus">{{ $errors->first('locus') }}</div>
                                             </div>
                                         </div>

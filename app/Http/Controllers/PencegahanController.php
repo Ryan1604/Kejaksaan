@@ -67,7 +67,7 @@ class PencegahanController extends Controller
             'kecamatan'             => 'required|integer',
             'nomor_pencegahan'      => 'nullable|string',
             'tgl_pencegahan'        => 'nullable|date',
-            'locus'                 => 'nullable|string',
+            'locus'                 => 'nullable|date',
             'pasal'                 => 'nullable|string',
             'nomor_kepja'           => 'nullable|string',
             'tgl_kepja'             => 'nullable|date',
@@ -82,7 +82,7 @@ class PencegahanController extends Controller
         $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
         $data->nomor_pencegahan         = strip_tags(request()->post('nomor_pencegahan'));
         $data->tgl_pencegahan           = request()->post('tgl_pencegahan');
-        $data->locus                    = strip_tags(request()->post('locus'));
+        $data->locus                    = request()->post('locus');
         $data->pasal                    = strip_tags(request()->post('pasal'));
         $data->nomor_kepja              = strip_tags(request()->post('nomor_kepja'));
         $data->tgl_kepja                = request()->post('tgl_kepja');
@@ -139,7 +139,7 @@ class PencegahanController extends Controller
             'kecamatan'             => 'required|integer',
             'nomor_pencegahan'      => 'nullable|string',
             'tgl_pencegahan'        => 'nullable|date',
-            'locus'                 => 'nullable|string',
+            'locus'                 => 'nullable|date',
             'pasal'                 => 'nullable|string',
             'nomor_kepja'           => 'nullable|string',
             'tgl_kepja'             => 'nullable|date',
@@ -153,7 +153,7 @@ class PencegahanController extends Controller
         $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
         $data->nomor_pencegahan         = strip_tags(request()->post('nomor_pencegahan'));
         $data->tgl_pencegahan           = request()->post('tgl_pencegahan');
-        $data->locus                    = strip_tags(request()->post('locus'));
+        $data->locus                    = request()->post('locus');
         $data->pasal                    = strip_tags(request()->post('pasal'));
         $data->nomor_kepja              = strip_tags(request()->post('nomor_kepja'));
         $data->tgl_kepja                = request()->post('tgl_kepja');
@@ -176,5 +176,25 @@ class PencegahanController extends Controller
         $data = Pencegahan::destroy($id);
 
         return response()->json($data);
+    }
+
+    public function filter()
+    {
+        return view('admin.pencegahan.filter');
+    }
+
+    public function download(Request $request)
+    {
+        $month          = request()->post('bulan');
+        $year           = request()->post('tahun');
+        $jabatan        = request()->post('jabatan');
+        $nama           = request()->post('nama');
+        $nip            = request()->post('nip');
+        $year           = request()->post('tahun');
+        $data = Pencegahan::with('biodata')->whereYear('tgl', '=', $year)
+            ->whereMonth('tgl', '=', $month)
+            ->get();
+
+        return view('admin.pencegahan.show', compact('data', 'month', 'year', 'jabatan', 'nama', 'nip'));
     }
 }

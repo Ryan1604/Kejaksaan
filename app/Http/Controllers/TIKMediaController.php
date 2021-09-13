@@ -48,6 +48,7 @@ class TIKMediaController extends Controller
     public function store(Request $request)
     {
         request()->validate([
+            'nomor'                 => 'required|string',
             'nama'                  => 'required|string',
             'npwp'                  => 'required|string',
             'jenis'                 => 'required|string',
@@ -59,7 +60,7 @@ class TIKMediaController extends Controller
             'waktu'                 => 'required|date',
             'daerah'                => 'required|string',
             'jumlah'                => 'required|string',
-            'kecamatan'             => 'required|integer',
+            'kecamatan'             => 'string',
             'kasus'                 => 'string',
             'background'            => 'string',
             'tindakan'              => 'string',
@@ -70,7 +71,14 @@ class TIKMediaController extends Controller
             'keterangan'            => 'string',
         ], $this->customMessages);
 
+        if (request()->post('kecamatan') == 'Lainnya') {
+            $kecamatan = request()->post('kecamatan_');
+        } else {
+            $kecamatan = request()->post('kecamatan');
+        }
+
         $data = new TIKMedia();
+        $data->nomor                    = strip_tags(request()->post('nomor'));
         $data->nama                     = strip_tags(request()->post('nama'));
         $data->npwp                     = strip_tags(request()->post('npwp'));
         $data->jenis                    = strip_tags(request()->post('jenis'));
@@ -82,7 +90,7 @@ class TIKMediaController extends Controller
         $data->waktu                    = request()->post('waktu');
         $data->daerah                   = strip_tags(request()->post('daerah'));
         $data->jumlah                   = strip_tags(request()->post('jumlah'));
-        $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
+        $data->kecamatan                = $kecamatan;
         $data->kasus                    = strip_tags(request()->post('kasus'));
         $data->background               = request()->post('background');
         $data->tindakan                 = strip_tags(request()->post('tindakan'));
@@ -147,6 +155,7 @@ class TIKMediaController extends Controller
     {
         $data = TIKMedia::findOrFail($id);
         request()->validate([
+            'nomor'                 => 'required|string',
             'nama'                  => 'required|string',
             'npwp'                  => 'required|string',
             'jenis'                 => 'required|string',
@@ -158,7 +167,7 @@ class TIKMediaController extends Controller
             'waktu'                 => 'required|date',
             'daerah'                => 'required|string',
             'jumlah'                => 'required|string',
-            'kecamatan'             => 'required|integer',
+            'kecamatan'             => 'string',
             'kasus'                 => 'string',
             'background'            => 'string',
             'tindakan'              => 'string',
@@ -169,6 +178,13 @@ class TIKMediaController extends Controller
             'keterangan'            => 'string',
         ], $this->customMessages);
 
+        if (request()->post('kecamatan') == 'Lainnya') {
+            $kecamatan = request()->post('kecamatan_');
+        } else {
+            $kecamatan = request()->post('kecamatan');
+        }
+
+        $data->nomor                    = strip_tags(request()->post('nomor'));
         $data->nama                     = strip_tags(request()->post('nama'));
         $data->npwp                     = strip_tags(request()->post('npwp'));
         $data->jenis                    = strip_tags(request()->post('jenis'));
@@ -180,7 +196,7 @@ class TIKMediaController extends Controller
         $data->waktu                    = request()->post('waktu');
         $data->daerah                   = strip_tags(request()->post('daerah'));
         $data->jumlah                   = strip_tags(request()->post('jumlah'));
-        $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
+        $data->kecamatan                = $kecamatan;
         $data->kasus                    = strip_tags(request()->post('kasus'));
         $data->background               = request()->post('background');
         $data->tindakan                 = strip_tags(request()->post('tindakan'));

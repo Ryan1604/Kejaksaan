@@ -17,19 +17,20 @@ class CreatePengawasansTable extends Migration
             $table->bigIncrements('id');
             $table->date('tgl');
             $table->unsignedSmallInteger('negara_id');
-            $table->string('locus');
             $table->string('orang_asing');
-            $table->unsignedSmallInteger('tinggal_sementara_id')->nullable();
-            $table->string('ket_sementara')->nullable();
+            $table->string('tk')->nullable();
+            $table->string('mhs')->nullable();
+            $table->string('peneliti')->nullable();
+            $table->string('keluarga')->nullable();
+            $table->string('rohaniawan')->nullable();
             $table->string('pendatang_ilegal')->nullable();
-            $table->unsignedSmallInteger('kunjungan_id')->nullable();
-            $table->string('ket_kunjungan')->nullable();
+            $table->string('usaha')->nullable();
+            $table->string('sosbud')->nullable();
+            $table->string('wisata')->nullable();
             $table->string('keterangan')->nullable();
             $table->timestamps();
 
             $table->foreign('negara_id')->references('id')->on('negaras')->onDelete('cascade');
-            $table->foreign('tinggal_sementara_id')->references('id')->on('tingga_sementara_w_n_a_s')->onDelete('cascade');
-            $table->foreign('kunjungan_id')->references('id')->on('kunjungan_w_n_a_s')->onDelete('cascade');
         });
     }
 

@@ -61,7 +61,7 @@
                                                 <select class="select2 form-control form-control-sm @error('biodata') is-invalid @enderror" name="biodata" id="biodata">
                                                     <option value="" selected disabled>-- Pilih Terdakwa --</option>
                                                     @foreach ($biodatas as $biodata )
-                                                        <option value="{{ $biodata->id }}" {{ old('biodata') == $biodata->id || $data->biodata_id == $biodata->id ? 'selected' : '' }}>{{ $biodata->name }}</option>
+                                                        <option value="{{ $biodata->id }}" {{ old('biodata') == $biodata->id || $data->biodata_id == $biodata->id ? 'selected' : '' }}>{{ $biodata->name }} - {{ $data->kecamatan->name }}</option>
                                                     @endforeach
                                                 </select>
                                                 <div class="invalid-feedback" id="valid-biodata">{{ $errors->first('biodata') }}</div>
@@ -71,7 +71,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="kecamatan">Kecamatan</label>
+                                                <label for="kecamatan">Locus</label>
                                                 <select class="select2 form-control form-control-sm @error('kecamatan') is-invalid @enderror" name="kecamatan" id="kecamatan">
                                                     <option value="" selected disabled>-- Pilih Kecamatan --</option>
                                                     @foreach ($kecamatans as $kecamatan )
@@ -79,6 +79,15 @@
                                                     @endforeach
                                                 </select>
                                                 <div class="invalid-feedback" id="valid-kecamatan">{{ $errors->first('kecamatan') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="locus">Tempus <sup class="text-danger">*</sup></label>
+                                                <input type="date" class="form-control form-control-sm @error('locus') is-invalid @enderror" name="locus" id="locus" value="@error('locus'){{ old('locus') }}@else{{ $data->locus }}@enderror" placeholder="Masukkan Locus dan Tempus">
+                                                <div class="invalid-feedback" id="valid-locus">{{ $errors->first('locus') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -94,15 +103,6 @@
                                                         <input type="date" class="form-control form-control-sm" name="tgl_pencegahan" id="tgl_pencegahan" value="@error('tgl_pencegahan'){{ old('tgl_pencegahan') }}@else{{ $data->tgl_pencegahan }}@enderror">
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="form-group">
-                                                <label for="locus">Locus dan Tempus <sup class="text-danger">*</sup></label>
-                                                <input type="text" class="form-control form-control-sm @error('locus') is-invalid @enderror" name="locus" id="locus" value="@error('locus'){{ old('locus') }}@else{{ $data->locus }}@enderror" placeholder="Masukkan Locus dan Tempus">
-                                                <div class="invalid-feedback" id="valid-locus">{{ $errors->first('locus') }}</div>
                                             </div>
                                         </div>
                                     </div>

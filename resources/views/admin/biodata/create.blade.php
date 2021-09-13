@@ -45,6 +45,15 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
+                                                <label for="nomor">Nomor <sup class="text-danger">*</sup></label>
+                                                <input type="text" class="form-control form-control-sm @error('nomor') is-invalid @enderror" name="nomor" id="nomor" value="{{ old('nomor') }}" placeholder="Masukkan Nomor" maxlength="16">
+                                                <div class="invalid-feedback" id="valid-nomor">{{ $errors->first('nomor') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group">
                                                 <label for="nik">NIK <sup class="text-danger">*</sup></label>
                                                 <input type="text" class="form-control form-control-sm @error('nik') is-invalid @enderror" name="nik" id="nik" value="{{ old('nik') }}" placeholder="Masukkan NIK" maxlength="16">
                                                 <div class="invalid-feedback" id="valid-nik">{{ $errors->first('nik') }}</div>
@@ -126,9 +135,20 @@
                                                 <select class="select2 form-control form-control-sm @error('kecamatan') is-invalid @enderror" name="kecamatan" id="kecamatan">
                                                     <option value="" selected disabled>-- Pilih Kecamatan --</option>
                                                         @foreach ($kecamatan as $data)
-                                                            <option value="{{ $data->id }}" {{ old('kecamatan') == $data->id ? 'selected' : '' }}>{{ $data->name }}</option>
+                                                            <option value="{{ $data->name }}" {{ old('kecamatan') == $data->name ? 'selected' : '' }}>{{ $data->name }}</option>
                                                         @endforeach
+                                                        <option value="Lainnya">Lainnya</option>
                                                 </select>
+                                                <div class="invalid-feedback" id="valid-kecamatan">{{ $errors->first('kecamatan') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="kecamatan">Kecamatan (Optional)</label>
+                                                <input type="text" class="form-control form-control-sm @error('kecamatan') is-invalid @enderror" name="kecamatan_" id="kecamatan_" value="{{ old('kecamatan') }}" placeholder="Masukkan kecamatan" readonly>
+                                                <small>Kosongkan jika tidak diperlukan</small>
                                                 <div class="invalid-feedback" id="valid-kecamatan">{{ $errors->first('kecamatan') }}</div>
                                             </div>
                                         </div>
@@ -477,6 +497,15 @@
             $('.select2').on('select2:selecting', function() {
                 $(this).removeClass('is-invalid');
             });
+
+            $('body').on('change', '#kecamatan', function() {
+                var value = $(this).val();
+                if (value == 'Lainnya') {
+                    $("#kecamatan_").attr("readonly", false); 
+                } else {
+                    $("#kecamatan_").attr("readonly", true); 
+                }
+            })
 
             function filePreview2(input) {
                 if(input.files && input.files[0]) {

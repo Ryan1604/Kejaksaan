@@ -27,13 +27,12 @@ class PengawasanController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            return datatables()->of(Pengawasan::with('negara', 'tinggalSementara', 'kunjungan')
+            return datatables()->of(Pengawasan::with('negara')
                 ->orderBy('updated_at', 'DESC')
                 ->get())
                 ->addColumn('negara', 'admin.pengawasan.negara')
-                ->addColumn('kunjungan', 'admin.pengawasan.kunjungan')
                 ->addColumn('action', 'admin.pengawasan.action')
-                ->rawColumns(['negara', 'kunjungan', 'action'])
+                ->rawColumns(['negara', 'action'])
                 ->addIndexColumn()
                 ->make(true);
         }
@@ -48,10 +47,8 @@ class PengawasanController extends Controller
     public function create()
     {
         $negara             = Negara::orderBy('name')->get();
-        $tinggalSementara   = TinggaSementaraWNA::orderBy('name')->get();
-        $kunjungan          = KunjunganWNA::orderBy('name')->get();
 
-        return view('admin.pengawasan.create', compact('negara', 'tinggalSementara', 'kunjungan'));
+        return view('admin.pengawasan.create', compact('negara'));
     }
 
     /**
@@ -65,26 +62,32 @@ class PengawasanController extends Controller
         request()->validate([
             'tgl'                   => 'required|date',
             'negara_id'             => 'required|integer',
-            'locus'                 => 'nullable|string',
             'orang_asing'           => 'nullable|string',
-            'tinggal_sementara_id'  => 'required|integer',
-            'ket_sementara'         => 'nullable|string',
+            'tk'                    => 'nullable|string',
+            'mhs'                   => 'nullable|string',
+            'peneliti'              => 'nullable|string',
+            'keluarga'              => 'nullable|string',
+            'rohaniawan'            => 'nullable|string',
             'pendatang_ilegal'      => 'nullable|string',
-            'kunjungan_id'          => 'required|integer',
-            'ket_kunjungan'         => 'nullable|string',
+            'usaha'                 => 'nullable|string',
+            'sosbud'                => 'nullable|string',
+            'wisata'                => 'nullable|string',
             'keterangan'            => 'nullable|string',
         ], $this->customMessages);
 
         $data = new Pengawasan();
         $data->tgl                      = request()->post('tgl');
         $data->negara_id                = strip_tags(request()->post('negara_id'));
-        $data->locus                    = strip_tags(request()->post('locus'));
         $data->orang_asing              = strip_tags(request()->post('orang_asing'));
-        $data->tinggal_sementara_id     = strip_tags(request()->post('tinggal_sementara_id'));
-        $data->ket_sementara            = strip_tags(request()->post('ket_sementara'));
+        $data->tk                       = strip_tags(request()->post('tk'));
+        $data->mhs                      = strip_tags(request()->post('mhs'));
+        $data->peneliti                 = strip_tags(request()->post('peneliti'));
+        $data->keluarga                 = strip_tags(request()->post('keluarga'));
+        $data->rohaniawan               = strip_tags(request()->post('rohaniawan'));
         $data->pendatang_ilegal         = strip_tags(request()->post('pendatang_ilegal'));
-        $data->kunjungan_id             = strip_tags(request()->post('kunjungan_id'));
-        $data->ket_kunjungan            = strip_tags(request()->post('ket_kunjungan'));
+        $data->usaha                    = strip_tags(request()->post('usaha'));
+        $data->sosbud                   = strip_tags(request()->post('sosbud'));
+        $data->wisata                   = strip_tags(request()->post('wisata'));
         $data->keterangan               = strip_tags(request()->post('keterangan'));
         $data->save();
 
@@ -114,10 +117,8 @@ class PengawasanController extends Controller
     {
         $data               = Pengawasan::findOrFail($id);
         $negaras             = Negara::orderBy('name')->get();
-        $tinggalSementaras   = TinggaSementaraWNA::orderBy('name')->get();
-        $kunjungans          = KunjunganWNA::orderBy('name')->get();
 
-        return view('admin.pengawasan.edit', compact('data', 'negaras', 'tinggalSementaras', 'kunjungans'));
+        return view('admin.pengawasan.edit', compact('data', 'negaras'));
     }
 
     /**
@@ -133,25 +134,31 @@ class PengawasanController extends Controller
         request()->validate([
             'tgl'                   => 'required|date',
             'negara_id'             => 'required|integer',
-            'locus'                 => 'nullable|string',
             'orang_asing'           => 'nullable|string',
-            'tinggal_sementara_id'  => 'required|integer',
-            'ket_sementara'         => 'nullable|string',
+            'tk'                    => 'nullable|string',
+            'mhs'                   => 'nullable|string',
+            'peneliti'              => 'nullable|string',
+            'keluarga'              => 'nullable|string',
+            'rohaniawan'              => 'nullable|string',
             'pendatang_ilegal'      => 'nullable|string',
-            'kunjungan_id'          => 'required|integer',
-            'ket_kunjungan'         => 'nullable|string',
+            'usaha'                 => 'nullable|string',
+            'sosbud'                => 'nullable|string',
+            'wisata'                => 'nullable|string',
             'keterangan'            => 'nullable|string',
         ], $this->customMessages);
 
         $data->tgl                      = request()->post('tgl');
         $data->negara_id                = strip_tags(request()->post('negara_id'));
-        $data->locus                    = strip_tags(request()->post('locus'));
         $data->orang_asing              = strip_tags(request()->post('orang_asing'));
-        $data->tinggal_sementara_id     = strip_tags(request()->post('tinggal_sementara_id'));
-        $data->ket_sementara            = strip_tags(request()->post('ket_sementara'));
+        $data->tk                       = strip_tags(request()->post('tk'));
+        $data->mhs                      = strip_tags(request()->post('mhs'));
+        $data->peneliti                 = strip_tags(request()->post('peneliti'));
+        $data->keluarga                 = strip_tags(request()->post('keluarga'));
+        $data->rohaniawan               = strip_tags(request()->post('rohaniawan'));
         $data->pendatang_ilegal         = strip_tags(request()->post('pendatang_ilegal'));
-        $data->kunjungan_id             = strip_tags(request()->post('kunjungan_id'));
-        $data->ket_kunjungan            = strip_tags(request()->post('ket_kunjungan'));
+        $data->usaha                    = strip_tags(request()->post('usaha'));
+        $data->sosbud                   = strip_tags(request()->post('sosbud'));
+        $data->wisata                   = strip_tags(request()->post('wisata'));
         $data->keterangan               = strip_tags(request()->post('keterangan'));
         $data->save();
 
@@ -169,5 +176,25 @@ class PengawasanController extends Controller
         $data = Pengawasan::destroy($id);
 
         return response()->json($data);
+    }
+
+    public function filter()
+    {
+        return view('admin.pengawasan.filter');
+    }
+
+    public function download(Request $request)
+    {
+        $month          = request()->post('bulan');
+        $year           = request()->post('tahun');
+        $jabatan        = request()->post('jabatan');
+        $nama           = request()->post('nama');
+        $nip            = request()->post('nip');
+        $year           = request()->post('tahun');
+        $data = Pengawasan::with('negara')->whereYear('tgl', '=', $year)
+            ->whereMonth('tgl', '=', $month)
+            ->get();
+
+        return view('admin.pengawasan.show', compact('data', 'month', 'year', 'jabatan', 'nama', 'nip'));
     }
 }

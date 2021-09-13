@@ -17,6 +17,7 @@ class CreateAsingPidanasTable extends Migration
             $table->bigIncrements('id');
             $table->date('tgl');
             $table->unsignedSmallInteger('biodata_id');
+            $table->unsignedSmallInteger('kecamatan_id');
             $table->string('locus');
             $table->string('tindak_pidana');
             $table->string('tahapan_dik')->nullable();
@@ -28,6 +29,7 @@ class CreateAsingPidanasTable extends Migration
             $table->timestamps();
 
             $table->foreign('biodata_id')->references('id')->on('biodata_w_n_a_s')->onDelete('cascade');
+            $table->foreign('kecamatan_id')->references('id')->on('kecamatans')->onDelete('cascade');
         });
     }
 

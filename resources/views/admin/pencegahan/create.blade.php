@@ -57,7 +57,7 @@
                                                 <select class="select2 form-control form-control-sm @error('biodata') is-invalid @enderror" name="biodata" id="biodata">
                                                     <option value="" selected disabled>-- Pilih Terdakwa --</option>
                                                         @foreach ($biodata as $data)
-                                                            <option value="{{ $data->id }}" {{ old('biodata') == $data->id ? 'selected' : '' }}>{{ $data->name }}</option>
+                                                            <option value="{{ $data->id }}" {{ old('biodata') == $data->id ? 'selected' : '' }}>{{ $data->name }} - {{ $data->kecamatan->name }}</option>
                                                         @endforeach
                                                 </select>
                                                 <div class="invalid-feedback" id="valid-biodata">{{ $errors->first('biodata') }}</div>
@@ -67,7 +67,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="kecamatan">Kecamatan</label>
+                                                <label for="kecamatan">Locus</label>
                                                 <select class="select2 form-control form-control-sm @error('kecamatan') is-invalid @enderror" name="kecamatan" id="kecamatan">
                                                     <option value="" selected disabled>-- Pilih Kecamatan --</option>
                                                         @foreach ($kecamatan as $data)
@@ -75,6 +75,15 @@
                                                         @endforeach
                                                 </select>
                                                 <div class="invalid-feedback" id="valid-kecamatan">{{ $errors->first('kecamatan') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="locus">Tempus <sup class="text-danger">*</sup></label>
+                                                <input type="date" class="form-control form-control-sm @error('locus') is-invalid @enderror" name="locus" id="locus" value="{{ old('locus') }}" placeholder="Masukkan Locus dan Tempus">
+                                                <div class="invalid-feedback" id="valid-locus">{{ $errors->first('locus') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -90,15 +99,6 @@
                                                         <input type="date" class="form-control form-control-sm" name="tgl_pencegahan" id="tgl_pencegahan" value="{{ old('tgl_pencegahan') }}">
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="form-group">
-                                                <label for="pasal">Locus dan Tempus <sup class="text-danger">*</sup></label>
-                                                <input type="text" class="form-control form-control-sm @error('locus') is-invalid @enderror" name="locus" id="locus" value="{{ old('locus') }}" placeholder="Masukkan Locus dan Tempus">
-                                                <div class="invalid-feedback" id="valid-locus">{{ $errors->first('locus') }}</div>
                                             </div>
                                         </div>
                                     </div>

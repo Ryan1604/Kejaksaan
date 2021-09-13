@@ -31,6 +31,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'active', '
 
     // Biodata Terpidana WNI
     Route::resource('wni', 'BiodataWNIController');
+    Route::get('wni/search/{id}', 'BiodataWNIController@search')->name('wni.search');
 
     // Biodata Terpidana WNA
     Route::resource('wna', 'BiodataWNAController');
@@ -54,56 +55,90 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'active', '
 
     // Korupsi
     Route::resource('korupsi', 'KorupsiController');
+    Route::get('filter', 'KorupsiController@filter')->name('korupsi.filter');
+    Route::post('download', 'KorupsiController@download')->name('korupsi.download');
 
     // Narkotika
     Route::resource('narkotika', 'NarkotikaController');
+    Route::get('narkotika_filter', 'NarkotikaController@filter')->name('narkotika.filter');
+    Route::post('narkotika_download', 'NarkotikaController@download')->name('narkotika.download');
 
     // Umum
     Route::resource('umum', 'UmumController');
+    Route::get('umum_filter', 'UmumController@filter')->name('umum.filter');
+    Route::post('umum_download', 'UmumController@download')->name('umum.download');
 
     /* Label Intel */
 
     // Pencegahan dan Penangkalan
     Route::resource('pencegahan', 'PencegahanController');
+    Route::get('pencegahan_filter', 'PencegahanController@filter')->name('pencegahan.filter');
+    Route::post('pencegahan_download', 'PencegahanController@download')->name('pencegahan.download');
 
     // Pengawasan WNA
     Route::resource('pengawasan', 'PengawasanController');
+    Route::get('pengawasan_filter', 'PengawasanController@filter')->name('pengawasan.filter');
+    Route::post('pengawasan_download', 'PengawasanController@download')->name('pengawasan.download');
 
     // WNA yang terlibat tindak pidana
     Route::resource('asing-pidana', 'AsingPidanaController');
+    Route::get('asing_filter', 'AsingPidanaController@filter')->name('asing.filter');
+    Route::post('asing_download', 'AsingPidanaController@download')->name('asing.download');
 
     // Pengamanan Sumber Daya Kejaksaan
     Route::resource('pengamanan', 'PengamananSumberDayaController');
+    Route::get('pengamanan_filter', 'PengamananSumberDayaController@filter')->name('pengamanan.filter');
+    Route::post('pengamanan_download', 'PengamananSumberDayaController@download')->name('pengamanan.download');
 
     // Pengawasan Barang Cetakan
     Route::resource('pengawasan_barang', 'PengawasanBarangController');
+    Route::get('pengawasan_barang_filter', 'PengawasanBarangController@filter')->name('pengawasan_barang.filter');
+    Route::post('pengawasan_barang_download', 'PengawasanBarangController@download')->name('pengawasan_barang.download');
 
     // Pengawasan Media Komunikasi
     Route::resource('pengawasan_media', 'PengawasanMediaController');
+    Route::get('pengawasan_media_filter', 'PengawasanMediaController@filter')->name('pengawasan_media.filter');
+    Route::post('pengawasan_media_download', 'PengawasanMediaController@download')->name('pengawasan_media.download');
 
     // Pengobatan Tradiotional
     Route::resource('pengobatan', 'PengobatanController');
+    Route::get('pengobatan_filter', 'PengobatanController@filter')->name('pengobatan.filter');
+    Route::post('pengobatan_download', 'PengobatanController@download')->name('pengobatan.download');
 
     // Pengawasan Aliran Kepercayaan Masyarakat
     Route::resource('kepercayaan', 'PengawasanKepercayaanController');
+    Route::get('kepercayaan_filter', 'PengawasanKepercayaanController@filter')->name('kepercayaan.filter');
+    Route::post('kepercayaan_download', 'PengawasanKepercayaanController@download')->name('kepercayaan.download');
 
     // Pengawasan Aliran Keagamaan
     Route::resource('keagamaan', 'PengawasanKeagamaanController');
+    Route::get('keagamaan_filter', 'PengawasanKeagamaanController@filter')->name('keagamaan.filter');
+    Route::post('keagamaan_download', 'PengawasanKeagamaanController@download')->name('keagamaan.download');
 
     // Pengawasan Organisasi Kemasyarakatan
     Route::resource('pengawasan_organisasi', 'PengawasanOrganisasiController');
+    Route::get('pengawasan_organisasi_filter', 'PengawasanOrganisasiController@filter')->name('pengawasan_organisasi.filter');
+    Route::post('pengawasan_organisasi_download', 'PengawasanOrganisasiController@download')->name('pengawasan_organisasi.download');
 
     // Ketertiban
     Route::resource('ketertiban', 'KetertibanController');
+    Route::get('ketertiban_filter', 'KetertibanController@filter')->name('ketertiban.filter');
+    Route::post('ketertiban_download', 'KetertibanController@download')->name('ketertiban.download');
 
     // Pembinaan
     Route::resource('pembinaan', 'PembinaanController');
+    Route::get('pembinaan_filter', 'PembinaanController@filter')->name('pembinaan.filter');
+    Route::post('pembinaan_download', 'PembinaanController@download')->name('pembinaan.download');
 
     // Konflik Sosial
     Route::resource('konflik', 'KonflikController');
+    Route::get('konflik_filter', 'KonflikController@filter')->name('konflik.filter');
+    Route::post('konflik_download', 'KonflikController@download')->name('konflik.download');
 
     // Posko
     Route::resource('posko', 'PoskoController');
+    Route::get('posko_filter', 'PoskoController@filter')->name('posko.filter');
+    Route::post('posko_download', 'PoskoController@download')->name('posko.download');
 
     /* Reference Data */
 

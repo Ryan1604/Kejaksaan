@@ -44,6 +44,15 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
+                                                <label for="nomor">Nomor <sup class="text-danger">*</sup></label>
+                                                <input type="text" class="form-control form-control-sm @error('nomor') is-invalid @enderror" name="nomor" id="nomor" value="{{ old('nomor') }}" placeholder="Masukkan Nomor" maxlength="16">
+                                                <div class="invalid-feedback" id="valid-nomor">{{ $errors->first('nomor') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="form-group">
                                                 <label for="nama">Nama Organisasi<sup class="text-danger">*</sup></label>
                                                 <input type="text" class="form-control form-control-sm @error('nama') is-invalid @enderror" name="nama" id="nama" value="{{ old('nama') }}" placeholder="Masukkan Nama Organisasi">
                                                 <div class="invalid-feedback" id="valid-nama">{{ $errors->first('nama') }}</div>

@@ -15,6 +15,7 @@ class CreateTIKBarangsTable extends Migration
     {
         Schema::create('t_i_k_barangs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nomor');
             $table->string('nama');
             $table->string('penerbit');
             $table->string('pengarang');
@@ -25,7 +26,7 @@ class CreateTIKBarangsTable extends Migration
             $table->string('alamat_penerbit');
             $table->string('alamat_percetakan');
             $table->string('jumlah_oplah');
-            $table->unsignedSmallInteger('kecamatan_id');
+            $table->string('kecamatan');
             $table->string('kasus')->nullable();
             $table->string('background')->nullable();
             $table->string('tindakan')->nullable();
@@ -35,8 +36,6 @@ class CreateTIKBarangsTable extends Migration
             $table->string('keterangan')->nullable();
             $table->string('photo')->nullable();
             $table->timestamps();
-
-            $table->foreign('kecamatan_id')->references('id')->on('kecamatans')->onDelete('cascade');
         });
     }
 

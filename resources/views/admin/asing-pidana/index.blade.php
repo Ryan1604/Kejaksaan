@@ -39,6 +39,10 @@
             <div class="section-body">
                 <div class="card card-primary">  
                     <div class="card-header">
+                        <a class="btn btn-primary" href="{{ route('admin.asing.filter') }}">
+                            <i class="fas fa-download"></i>
+                            Download
+                        </a>
                         <a class="btn btn-primary ml-auto" href="{{ route('admin.asing-pidana.create') }}">
                             <i class="fas fa-plus-circle"></i>
                             Tambah Data
