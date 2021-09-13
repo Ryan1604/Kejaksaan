@@ -374,4 +374,26 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'active', '
 
     // Kawasan Industri
     Route::resource('perkara', 'PerkaraController');
+
+    /* Pemetaan */
+
+    // Sosbud
+    Route::get('peta_sosbud', 'PetaSosbudController@index')->name('peta-sosbud');
+    Route::get('peta_sosbud/search/{id}', 'PetaSosbudController@search')->name('peta-sosbud.search');
+
+    // Pembangunan
+    Route::get('peta_pembangunan', 'PetaPembangunanController@index')->name('peta-pembangunan');
+    Route::get('peta_pembangunan/search/{id}', 'PetaPembangunanController@search')->name('peta-pembangunan.search');
+
+    // Teknologi
+    Route::get('peta_teknologi', 'PetaTeknologiController@index')->name('peta-teknologi');
+    Route::get('peta_teknologi/search/{id}', 'PetaTeknologiController@search')->name('peta-teknologi.search');
+
+    // Ekonomi
+    Route::get('peta_ekonomi', 'PetaEkonomiController@index')->name('peta-ekonomi');
+    Route::get('peta_ekonomi/search/{id}', 'PetaEkonomiController@search')->name('peta-ekonomi.search');
+
+    // Pertahanan
+    Route::get('peta_pertahanan', 'PetaPertahananController@index')->name('peta-pertahanan');
+    Route::get('peta_pertahanan/search/{id}', 'PetaPertahananController@search')->name('peta-pertahanan.search');
 });

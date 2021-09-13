@@ -489,6 +489,26 @@
                     </li>
                 </ul>
             </li>
+            <li class="dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Pemetaan</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ request()->segment(2) == 'peta_sosbud' ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.peta-sosbud') }}">Sosial Budaya</a>
+                    </li>
+                    <li class="{{ request()->segment(2) == 'peta-pembangunan' ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.peta-pembangunan') }}">Pembangunan</a>
+                    </li>
+                    <li class="{{ request()->segment(2) == 'peta-teknologi' ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.peta-teknologi') }}">Teknologi</a>
+                    </li>
+                    <li class="{{ request()->segment(2) == 'peta-ekonomi' ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.peta-ekonomi') }}">Ekonomi</a>
+                    </li>
+                    <li class="{{ request()->segment(2) == 'peta-pertahanan' ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('admin.peta-pertahanan') }}">Pertahanan</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </aside>
 </div>
