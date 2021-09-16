@@ -7,10 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Kepabeanan extends Model
 {
     protected $fillable = [
-        'name',
+        'biodata_id',
         'locus',
         'kecamatan_id',
+        'ket',
     ];
+
+    public function biodata()
+    {
+        return $this->belongsTo('App\Models\BiodataWNI');
+    }
 
     public function kecamatan()
     {

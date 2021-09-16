@@ -21,7 +21,17 @@
                     <form id="company-form">
                         <input type="hidden" name="id" id="id">
                         <div class="form-group">
-                            <label for="kecamatan_id">Kecamatan</label>
+                            <label for="biodata_id">Biodata WNI</label>
+                            <select class="select2 form-control form-control-sm @error('biodata_id') is-invalid @enderror" name="biodata_id" id="biodata_id">
+                                <option value="" selected disabled>-- Pilih Biodata --</option>
+                                    @foreach ($biodata as $data)
+                                        <option value="{{ $data->id }}" {{ old('biodata_id') == $data->id ? 'selected' : '' }}>{{ $data->name }} - {{ $data->nik }}</option>
+                                    @endforeach
+                            </select>
+                            <div class="invalid-feedback" id="valid-category">{{ $errors->first('kecamatan_id') }}</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="kecamatan_id">Locus</label>
                             <select class="select2 form-control form-control-sm @error('kecamatan_id') is-invalid @enderror" name="kecamatan_id" id="kecamatan_id">
                                 <option value="" selected disabled>-- Pilih Kecamatan --</option>
                                     @foreach ($kecamatan as $data)
@@ -31,18 +41,18 @@
                             <div class="invalid-feedback" id="valid-category">{{ $errors->first('kecamatan_id') }}</div>
                         </div>
                         <div class="form-group">
-                            <label for="name">Nama <sup class="text-danger">*</sup></label>
-                            <input type="text" class="form-control" id="name" name="name"
-                                placeholder="Masukkan nama..." autocomplete="off">
-                            <div class="invalid-feedback" id="valid-name"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="locus">Locus dan Tempus <sup class="text-danger">*</sup></label>
-                            <input type="text" class="form-control" id="locus" name="locus"
-                                placeholder="Masukkan Locus dan Tempus..." autocomplete="off">
+                            <label for="locus">Tempus <sup class="text-danger">*</sup></label>
+                            <input type="date" class="form-control" id="locus" name="locus" autocomplete="off">
                             <div class="invalid-feedback" id="valid-locus"></div>
                         </div>
+                        <div class="form-group">
+                            <label for="ket">Keterangan <sup class="text-danger">*</sup></label>
+                            <input type="text" class="form-control" id="ket" name="ket"
+                                placeholder="Masukkan keterangan..." autocomplete="off">
+                            <div class="invalid-feedback" id="valid-ket"></div>
+                        </div>
                     </form>
+
                 </div>
                 <div class="modal-footer no-bd">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -91,11 +101,12 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Locus dan Tempus</th>
-                                        <th>Kecamatan</th>
+                                        <th>Biodata WNI</th>
+                                        <th>Locus</th>
+                                        <th>Tempus</th>
                                         <th>Aksi</th>
                                     </tr>
+
                                 </thead>
                             </table>
                         </div>
@@ -132,16 +143,16 @@
                         searchable: false
                     },
                     {
-                        data: 'name',
-                        name: 'name'
-                    },
-                    {
-                        data: 'locus',
-                        name: 'locus'
+                        data: 'biodata',
+                        name: 'biodata'
                     },
                     {
                         data: 'kecamatan',
                         name: 'kecamatan'
+                    },
+                    {
+                        data: 'locus',
+                        name: 'locus'
                     },
                     {
                         data: 'action',
@@ -151,6 +162,7 @@
                         searchable: false
                     }
                 ],
+
                 buttons: [],
                 order: []
             });
@@ -172,10 +184,12 @@
             // Store new company or update company
             $('#btn-save').click(function() {
                 var formData = {
-                    name: $('#name').val(),
+                    biodata: $('#biodata_id').val(),
                     locus: $('#locus').val(),
-                    kecamatan: $('#kecamatan_id').val()
+                    kecamatan: $('#kecamatan_id').val(),
+                    ket: $('#ket').val(),
                 };
+
 
 
                 var state = $('#btn-save').val();
@@ -275,9 +289,11 @@
                 $.get('{{ route('admin.pariwisata.index') }}' + '/' + id + '/edit', function(data) {
                     $('#company-form').find('.form-control').removeClass('is-invalid is-valid');
                     $('#id').val(data.id);
-                    $('#name').val(data.name);
+                    $('#biodata_id').val(data.biodata_id);
                     $('#locus').val(data.locus);
                     $('#kecamatan_id').val(data.kecamatan_id);
+                    $('#ket').val(data.ket);
+
                     $('#btn-save').val('update').removeAttr('disabled');
                     $('#formModal').modal('show');
                     $('.modal-title').html('Edit Data');

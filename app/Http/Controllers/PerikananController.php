@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BiodataWNI;
 use App\Models\Kecamatan;
 use App\Models\Perikanan;
 use Illuminate\Http\Request;
@@ -12,23 +13,26 @@ class PerikananController extends Controller
         'required' => 'Please input the :attribute.',
         'unique' => 'This :attribute has already been taken.',
         'max' => ':Attribute may not be more than :max characters.',
+        'biodata_id.required' => 'Please select Districts.',
         'kecamatan_id.required' => 'Please select Districts.',
     ];
 
     public function index()
     {
         if (request()->ajax()) {
-            return datatables()->of(Perikanan::with('kecamatan')
+            return datatables()->of(Perikanan::with('kecamatan', 'biodata')
                 ->orderBy('updated_at', 'DESC')
                 ->get())
+                ->addColumn('biodata', 'admin.perikanan.biodata')
                 ->addColumn('kecamatan', 'admin.perikanan.kecamatan')
-                ->addColumn('action', 'admin.perikanan.action')
-                ->rawColumns(['action'])
+                ->addColumn('action', 'admin.Perikanan.action')
+                ->rawColumns(['biodata', 'action'])
                 ->addIndexColumn()
                 ->make(true);
         }
-        $kecamatan = Kecamatan::orderBy('name')->get();
-        return view('admin.perikanan.index', compact('kecamatan'));
+        $kecamatan  = Kecamatan::orderBy('name')->get();
+        $biodata    = BiodataWNI::orderBy('name')->get();
+        return view('admin.perikanan.index', compact('kecamatan', 'biodata'));
     }
 
     public function create()
@@ -39,15 +43,17 @@ class PerikananController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'name'          => 'required|string',
+            'biodata'       => 'nullable|integer|exists:biodata_w_n_i_s,id',
             'locus'         => 'required|string',
-            'kecamatan_id'  => 'nullable|integer|exists:kecamatans,id',
+            'kecamatan'     => 'nullable|integer|exists:kecamatans,id',
+            'ket'           => 'nullable|string',
         ], $this->customMessages);
 
         $data = Perikanan::create([
-            'name'          => strip_tags(request()->post('name')),
+            'biodata_id'    => strip_tags(request()->post('biodata')),
             'locus'         => strip_tags(request()->post('locus')),
-            'kecamatan_id'  => strip_tags(request()->post('kecamatan'))
+            'kecamatan_id'  => strip_tags(request()->post('kecamatan')),
+            'ket'           => strip_tags(request()->post('ket')),
         ]);
 
         return response()->json($data);
@@ -70,16 +76,19 @@ class PerikananController extends Controller
     {
         $data = Perikanan::findOrFail($id);
 
+
         request()->validate([
-            'name'          => 'required|string',
+            'biodata'       => 'nullable|integer|exists:biodata_w_n_i_s,id',
             'locus'         => 'required|string',
-            'kecamatan_id'  => 'nullable|integer|exists:kecamatans,id',
+            'kecamatan'     => 'nullable|integer|exists:kecamatans,id',
+            'ket'           => 'nullable|string',
         ], $this->customMessages);
 
         $data->update([
-            'name'          => strip_tags(request()->post('name')),
+            'biodata_id'    => strip_tags(request()->post('biodata')),
             'locus'         => strip_tags(request()->post('locus')),
-            'kecamatan_id'  => strip_tags(request()->post('kecamatan'))
+            'kecamatan_id'  => strip_tags(request()->post('kecamatan')),
+            'ket'           => strip_tags(request()->post('ket')),
         ]);
 
         return response()->json($data);

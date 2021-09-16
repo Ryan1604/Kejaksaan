@@ -15,14 +15,14 @@ class CreateKeuanganNegarasTable extends Migration
     {
         Schema::create('keuangan_negaras', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 100);
+            $table->unsignedSmallInteger('biodata_id');
             $table->string('locus', 100);
             $table->unsignedSmallInteger('kecamatan_id');
+            $table->string('ket', 100)->nullable();
             $table->timestamps();
 
+            $table->foreign('biodata_id')->references('id')->on('biodata_w_n_i_s')->onDelete('cascade');
             $table->foreign('kecamatan_id')->references('id')->on('kecamatans')->onDelete('cascade');
-
-
         });
     }
 

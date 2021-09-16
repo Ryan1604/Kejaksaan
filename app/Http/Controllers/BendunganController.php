@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bendungan;
+use App\Models\BiodataWNI;
 use App\Models\Kecamatan;
 use Illuminate\Http\Request;
 
@@ -12,23 +13,26 @@ class BendunganController extends Controller
         'required' => 'Please input the :attribute.',
         'unique' => 'This :attribute has already been taken.',
         'max' => ':Attribute may not be more than :max characters.',
+        'biodata_id.required' => 'Please select Districts.',
         'kecamatan_id.required' => 'Please select Districts.',
     ];
 
     public function index()
     {
         if (request()->ajax()) {
-            return datatables()->of(Bendungan::with('kecamatan')
+            return datatables()->of(Bendungan::with('kecamatan', 'biodata')
                 ->orderBy('updated_at', 'DESC')
                 ->get())
+                ->addColumn('biodata', 'admin.bendungan.biodata')
                 ->addColumn('kecamatan', 'admin.bendungan.kecamatan')
                 ->addColumn('action', 'admin.bendungan.action')
-                ->rawColumns(['action'])
+                ->rawColumns(['biodata', 'action'])
                 ->addIndexColumn()
                 ->make(true);
         }
-        $kecamatan = Kecamatan::orderBy('name')->get();
-        return view('admin.bendungan.index', compact('kecamatan'));
+        $kecamatan  = Kecamatan::orderBy('name')->get();
+        $biodata    = BiodataWNI::orderBy('name')->get();
+        return view('admin.bendungan.index', compact('kecamatan', 'biodata'));
     }
 
     public function create()
@@ -39,15 +43,17 @@ class BendunganController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'name'          => 'required|string',
+            'biodata'       => 'nullable|integer|exists:biodata_w_n_i_s,id',
             'locus'         => 'required|string',
-            'kecamatan_id'  => 'nullable|integer|exists:kecamatans,id',
+            'kecamatan'     => 'nullable|integer|exists:kecamatans,id',
+            'ket'           => 'nullable|string',
         ], $this->customMessages);
 
         $data = Bendungan::create([
-            'name'          => strip_tags(request()->post('name')),
+            'biodata_id'    => strip_tags(request()->post('biodata')),
             'locus'         => strip_tags(request()->post('locus')),
-            'kecamatan_id'  => strip_tags(request()->post('kecamatan'))
+            'kecamatan_id'  => strip_tags(request()->post('kecamatan')),
+            'ket'           => strip_tags(request()->post('ket')),
         ]);
 
         return response()->json($data);
@@ -70,16 +76,19 @@ class BendunganController extends Controller
     {
         $data = Bendungan::findOrFail($id);
 
+
         request()->validate([
-            'name'          => 'required|string',
+            'biodata'       => 'nullable|integer|exists:biodata_w_n_i_s,id',
             'locus'         => 'required|string',
-            'kecamatan_id'  => 'nullable|integer|exists:kecamatans,id',
+            'kecamatan'     => 'nullable|integer|exists:kecamatans,id',
+            'ket'           => 'nullable|string',
         ], $this->customMessages);
 
         $data->update([
-            'name'          => strip_tags(request()->post('name')),
+            'biodata_id'    => strip_tags(request()->post('biodata')),
             'locus'         => strip_tags(request()->post('locus')),
-            'kecamatan_id'  => strip_tags(request()->post('kecamatan'))
+            'kecamatan_id'  => strip_tags(request()->post('kecamatan')),
+            'ket'           => strip_tags(request()->post('ket')),
         ]);
 
         return response()->json($data);
