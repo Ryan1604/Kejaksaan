@@ -1,3 +1,3 @@
 @if($biodata <> NULL) 
-    {{ $biodata['name'] }}
+    {{ $biodata['nama'] }}
 @endif

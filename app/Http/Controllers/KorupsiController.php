@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BiodataWNI;
 use App\Models\Kecamatan;
 use App\Models\Korupsi;
+use App\Models\TIKTerdakwa;
 use Illuminate\Http\Request;
 
 class KorupsiController extends Controller
@@ -47,7 +48,7 @@ class KorupsiController extends Controller
      */
     public function create()
     {
-        $biodata = BiodataWNI::orderBy('name')->get();
+        $biodata = TIKTerdakwa::orderBy('nama')->get();
         $kecamatan = Kecamatan::orderBy('name')->get();
 
         return view('admin.korupsi.create', compact('biodata', 'kecamatan'));
@@ -121,7 +122,7 @@ class KorupsiController extends Controller
     public function edit($id)
     {
         $data = Korupsi::findOrFail($id);
-        $biodatas = BiodataWNI::orderBy('name')->get();
+        $biodatas = TIKTerdakwa::orderBy('nama')->get();
         $kecamatans = Kecamatan::orderBy('name')->get();
 
         return view('admin.korupsi.edit', compact('data', 'biodatas', 'kecamatans'));

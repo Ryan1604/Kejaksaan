@@ -57,9 +57,9 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="negara_id">Asal Negara/Kebangsaan</label>
+                                                <label for="negara_id">Identitas WNA</label>
                                                 <select class="select2 form-control form-control-sm @error('negara_id') is-invalid @enderror" name="negara_id" id="negara_id">
-                                                    <option value="" selected disabled>-- Pilih Asal Negara --</option>
+                                                    <option value="" selected disabled>-- Pilih Data --</option>
                                                     @foreach ($negaras as $negara )
                                                         <option value="{{ $negara->id }}" {{ old('negara_id') == $negara->id || $data->negara_id == $negara->id ? 'selected' : '' }}>{{ $negara->name }}</option>
                                                     @endforeach
@@ -71,13 +71,11 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="orang_asing">Orang Asing Penduduk <sup class="text-danger">*</sup></label>
-                                                <input type="text" class="form-control form-control-sm @error('orang_asing') is-invalid @enderror" name="orang_asing" id="orang_asing" value="@error('orang_asing'){{ old('orang_asing') }}@else{{ $data->orang_asing }}@enderror" placeholder="Masukkan Orang Asing Penduduk">
-                                                <div class="invalid-feedback" id="valid-orang_asing">{{ $errors->first('orang_asing') }}</div>
+                                                <label>Asal Negara</label>
+                                                <input type="text" class="form-control form-control-sm" id="x" readonly>
                                             </div>
                                         </div>
-                                    </div>
-                                    
+                                    </div> 
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
@@ -92,16 +90,16 @@
                                             <div class="form-group">
                                                 <label>Tinggal Sementara</label>
                                                 <div class="row">
-                                                    <div class="col-md-3 col-sm-3">
+                                                    <div class="col-md-2 col-sm-2">
                                                         <input type="text" class="form-control form-control-sm @error('tk') is-invalid @enderror" name="tk" id="tk"  placeholder="Tenaga Kerja" value="@error('tk'){{ old('tk') }}@else{{ $data->tk }}@enderror">   
                                                     </div>
-                                                    <div class="col-md-3 col-sm-3">
+                                                    <div class="col-md-2 col-sm-2">
                                                         <input type="text" class="form-control form-control-sm @error('mhs') is-invalid @enderror" name="mhs" id="mhs"  placeholder="Mahasiswa" value="@error('mhs'){{ old('mhs') }}@else{{ $data->mhs }}@enderror"> 
                                                     </div>
-                                                    <div class="col-md-3 col-sm-3">
+                                                    <div class="col-md-2 col-sm-2">
                                                         <input type="text" class="form-control form-control-sm @error('peneliti') is-invalid @enderror" name="peneliti" id="peneliti" placeholder="Peneliti" value="@error('peneliti'){{ old('peneliti') }}@else{{ $data->peneliti }}@enderror">  
                                                     </div>
-                                                    <div class="col-md-3 col-sm-3">
+                                                    <div class="col-md-2 col-sm-2">
                                                         <input type="text" class="form-control form-control-sm @error('keluarga') is-invalid @enderror" name="keluarga" id="keluarga" placeholder="Keluarga" value="@error('keluarga'){{ old('keluarga') }}@else{{ $data->keluarga }}@enderror">
                                                     </div>
                                                     <div class="col-md-2 col-sm-2">
@@ -209,6 +207,25 @@
                 filePreview2(this);
                 $('#valid-thumbnail').html('');
             });
+
+            $('body').on('change', '#negara_id', function() {
+                var id = $(this).val();
+                ajaxurl = '{{ route("admin.wna.search", "id") }}'
+                $.ajax({
+                    type: 'GET',
+                    url: ajaxurl,
+                    data: {
+                        id: id,
+                    },
+                    success: function(data) {
+                        console.log(data[0])
+                        $('#x').val(data[0].country.name);
+                    },
+                    error: function(data) {
+                        console.log(data)
+                    }
+                });
+            })
 
             $('form').submit(function() {
                 $('#btn-submit').html('<i class="fas fa-cog fa-spin"></i> Saving...').attr("disabled", true);

@@ -16,8 +16,7 @@ class CreatePengawasansTable extends Migration
         Schema::create('pengawasans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('tgl');
-            $table->unsignedSmallInteger('negara_id');
-            $table->string('orang_asing');
+            $table->unsignedSmallInteger('biodata_id');
             $table->string('tk')->nullable();
             $table->string('mhs')->nullable();
             $table->string('peneliti')->nullable();
@@ -30,7 +29,7 @@ class CreatePengawasansTable extends Migration
             $table->string('keterangan')->nullable();
             $table->timestamps();
 
-            $table->foreign('negara_id')->references('id')->on('negaras')->onDelete('cascade');
+            $table->foreign('biodata_id')->references('id')->on('biodata_w_n_a_s')->onDelete('cascade');
         });
     }
 

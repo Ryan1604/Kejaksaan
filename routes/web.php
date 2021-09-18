@@ -35,6 +35,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'active', '
 
     // Biodata Terpidana WNA
     Route::resource('wna', 'BiodataWNAController');
+    Route::get('wna/search/{id}', 'BiodataWNAController@search')->name('wna.search');
 
     // Kartu TIK Biodata
     Route::resource('tik/biodata', 'TIKBiodataController');

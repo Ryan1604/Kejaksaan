@@ -61,7 +61,7 @@
                                                 <select class="select2 form-control form-control-sm @error('biodata') is-invalid @enderror" name="biodata" id="biodata">
                                                     <option value="" selected disabled>-- Pilih Terdakwa --</option>
                                                     @foreach ($biodatas as $biodata )
-                                                        <option value="{{ $biodata->id }}" {{ old('biodata') == $biodata->id || $data->biodata_id == $biodata->id ? 'selected' : '' }}>{{ $biodata->name }}</option>
+                                                        <option value="{{ $biodata->id }}" {{ old('biodata') == $biodata->id || $data->biodata_id == $biodata->id ? 'selected' : '' }}>{{ $biodata->nama }}</option>
                                                     @endforeach
                                                 </select>
                                                 <div class="invalid-feedback" id="valid-biodata">{{ $errors->first('biodata') }}</div>

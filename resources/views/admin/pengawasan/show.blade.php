@@ -73,12 +73,15 @@
                         <td>13</td>
                     </tr>
                 </thead>
+                @php
+                    $no = 1
+                @endphp
                 @foreach($data as $item)
                 <tbody>
-                    <tr height="40px">
-                        <td></td>
-                        <td>{{ $item->negara->name }}</td>
-                        <td>{{ $item->orang_asing }}</td>
+                    <tr height="40px" align="center">
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $item->biodata->country->name }}</td>
+                        <td>{{ $item->biodata->name }}</td>
                         <td>{{ $item->tk }}</td>
                         <td>{{ $item->mhs }}</td>
                         <td>{{ $item->peneliti }}</td>

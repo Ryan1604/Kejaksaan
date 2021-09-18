@@ -53,11 +53,11 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="negara_id">Asal Negara/Kebangsaan</label>
+                                                <label for="negara_id">Identitas WNA</label>
                                                 <select class="select2 form-control form-control-sm @error('negara_id') is-invalid @enderror" name="negara_id" id="negara_id">
-                                                    <option value="" selected disabled>-- Pilih Asal Negara --</option>
-                                                        @foreach ($negara as $data)
-                                                            <option value="{{ $data->id }}" {{ old('negara_id') == $data->id ? 'selected' : '' }}>{{ $data->name }}</option>
+                                                    <option value="" selected disabled>-- Pilih Data --</option>
+                                                        @foreach ($biodatas as $biodata)
+                                                            <option value="{{ $biodata->id }}" {{ old('negara_id') == $biodata->id ? 'selected' : '' }}>{{ $biodata->name }}</option>
                                                         @endforeach
                                                 </select>
                                                 <div class="invalid-feedback" id="valid-negara_id">{{ $errors->first('negara_id') }}</div>
@@ -67,9 +67,8 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="orang_asing">Orang Asing Penduduk <sup class="text-danger">*</sup></label>
-                                                <input type="text" class="form-control form-control-sm @error('orang_asing') is-invalid @enderror" name="orang_asing" id="orang_asing" value="{{ old('orang_asing') }}" placeholder="Masukkan Orang Asing Penduduk">
-                                                <div class="invalid-feedback" id="valid-orang_asing">{{ $errors->first('orang_asing') }}</div>
+                                                <label>Asal Negara</label>
+                                                <input type="text" class="form-control form-control-sm" id="x" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -168,6 +167,25 @@
             $('.select2').on('select2:selecting', function() {
                 $(this).removeClass('is-invalid');
             });
+
+            $('body').on('change', '#negara_id', function() {
+                var id = $(this).val();
+                ajaxurl = '{{ route("admin.wna.search", "id") }}'
+                $.ajax({
+                    type: 'GET',
+                    url: ajaxurl,
+                    data: {
+                        id: id,
+                    },
+                    success: function(data) {
+                        console.log(data[0])
+                        $('#x').val(data[0].country.name);
+                    },
+                    error: function(data) {
+                        console.log(data)
+                    }
+                });
+            })
 
             $('form').submit(function() {
                 $('#btn-submit').html('<i class="fas fa-cog fa-spin"></i> Saving...').attr("disabled", true);

@@ -1,3 +1,3 @@
-@if($negara <> NULL) 
-    {{ $negara['name'] }}
+@if($biodata <> NULL) 
+    {{ $biodata['name'] }}
 @endif

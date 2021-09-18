@@ -54,7 +54,7 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th>No</th>
-                                        <th>Asal Negara/Kebangsaan</th>
+                                        <th>Nama</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -93,8 +93,8 @@
                         searchable: false
                     },
                     {
-                        data: 'negara',
-                        name: 'negara',
+                        data: 'biodata',
+                        name: 'biodata',
                     },
                     {
                         data: 'action',

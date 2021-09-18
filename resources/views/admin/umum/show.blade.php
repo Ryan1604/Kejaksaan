@@ -49,11 +49,14 @@
                         <td>7</td>
                     </tr>
                 </thead>
+                @php
+                    $no = 1
+                @endphp
                 @foreach($data as $item)
                 <tbody>
-                    <tr height="40px">
-                        <td></td>
-                        <td>{{ $item->biodata->name }}</td>
+                    <tr height="40px" align="center">
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $item->biodata->nama }}</td>
                         <td>{{ $item->nomor_surat_pra_penuntutan }} / {{ $item->tgl_surat_pra_penuntutan }}</td>
                         <td>{{ $item->nomor_surat_penuntutan }} / {{ $item->tgl_surat_penuntutan }}</td>
                         <td>{{ $item->eksekusi }}</td>

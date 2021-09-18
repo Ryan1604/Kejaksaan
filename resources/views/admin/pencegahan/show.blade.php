@@ -50,10 +50,13 @@
                         <td>8</td>
                     </tr>
                 </thead>
+                @php
+                    $no = 1
+                @endphp
                 @foreach($data as $item)
                 <tbody>
-                    <tr height="40px">
-                        <td></td>
+                    <tr height="40px" align="center">
+                        <td>{{ $no++ }}</td>
                         <td>{{ $item->biodata->name }}</td>
                         <td>{{ $item->nomor_pencegahan }} / {{ $item->tgl_pencegahan }}</td>
                         <td>{{ $item->pasal }}</td>

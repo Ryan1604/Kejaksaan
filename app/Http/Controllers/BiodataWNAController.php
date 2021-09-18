@@ -131,4 +131,12 @@ class BiodataWNAController extends Controller
 
         return response()->json($data);
     }
+
+    public function search()
+    {
+        $id = $_GET['id'];
+        $data = BiodataWNA::with('country')->where('id', $id)->get();
+
+        return $data;
+    }
 }

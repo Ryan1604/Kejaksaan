@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BiodataWNI;
 use App\Models\Kecamatan;
 use App\Models\Narkotika;
+use App\Models\TIKTerdakwa;
 use Illuminate\Http\Request;
 
 class NarkotikaController extends Controller
@@ -47,7 +48,7 @@ class NarkotikaController extends Controller
      */
     public function create()
     {
-        $biodata = BiodataWNI::orderBy('name')->get();
+        $biodata = TIKTerdakwa::orderBy('nama')->get();
         $kecamatan = Kecamatan::orderBy('name')->get();
 
         return view('admin.narkotika.create', compact('biodata', 'kecamatan'));
@@ -117,7 +118,7 @@ class NarkotikaController extends Controller
     public function edit($id)
     {
         $data = Narkotika::findOrFail($id);
-        $biodatas = BiodataWNI::orderBy('name')->get();
+        $biodatas = TIKTerdakwa::orderBy('nama')->get();
         $kecamatans = Kecamatan::orderBy('name')->get();
 
         return view('admin.narkotika.edit', compact('data', 'biodatas', 'kecamatans'));

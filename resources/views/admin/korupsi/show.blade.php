@@ -53,11 +53,12 @@
                         <td>10</td>
                     </tr>
                 </thead>
+                @php $no = 1; @endphp
                 @foreach($data as $item)
                     <tbody>
-                        <tr height="50px">
-                            <td></td>
-                            <td>{{ $item->biodata->name }}</td>
+                        <tr height="50px" align="center">
+                            <td>{{ $no++ }}</td>
+                            <td>{{ $item->biodata->nama }}</td>
                             <td>{{ $item->pasal }}</td>
                             <td>{{ $item->penyelidikan }}</td>
                             <td>{{ $item->tgl_surat_kejaksaan }}/{{ $item->nomor_surat_kejaksaan }}</td>

@@ -21,8 +21,8 @@ class Pengawasan extends Model
         'keterangan',
     ];
 
-    public function negara()
+    public function biodata()
     {
-        return $this->belongsTo('App\Models\Negara');
+        return $this->belongsTo('App\Models\BiodataWNA');
     }
 }

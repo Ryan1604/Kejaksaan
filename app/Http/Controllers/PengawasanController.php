@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\KunjunganWNA;
+use App\Models\BiodataWNA;
 use App\Models\Negara;
 use App\Models\Pengawasan;
-use App\Models\TinggaSementaraWNA;
 use Illuminate\Http\Request;
 
 class PengawasanController extends Controller
@@ -27,12 +26,12 @@ class PengawasanController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            return datatables()->of(Pengawasan::with('negara')
+            return datatables()->of(Pengawasan::with('biodata')
                 ->orderBy('updated_at', 'DESC')
                 ->get())
-                ->addColumn('negara', 'admin.pengawasan.negara')
+                ->addColumn('biodata', 'admin.pengawasan.negara')
                 ->addColumn('action', 'admin.pengawasan.action')
-                ->rawColumns(['negara', 'action'])
+                ->rawColumns(['biodata', 'action'])
                 ->addIndexColumn()
                 ->make(true);
         }
@@ -46,9 +45,9 @@ class PengawasanController extends Controller
      */
     public function create()
     {
-        $negara             = Negara::orderBy('name')->get();
+        $biodatas             = BiodataWNA::orderBy('name')->get();
 
-        return view('admin.pengawasan.create', compact('negara'));
+        return view('admin.pengawasan.create', compact('biodatas'));
     }
 
     /**
@@ -62,7 +61,6 @@ class PengawasanController extends Controller
         request()->validate([
             'tgl'                   => 'required|date',
             'negara_id'             => 'required|integer',
-            'orang_asing'           => 'nullable|string',
             'tk'                    => 'nullable|string',
             'mhs'                   => 'nullable|string',
             'peneliti'              => 'nullable|string',
@@ -77,8 +75,7 @@ class PengawasanController extends Controller
 
         $data = new Pengawasan();
         $data->tgl                      = request()->post('tgl');
-        $data->negara_id                = strip_tags(request()->post('negara_id'));
-        $data->orang_asing              = strip_tags(request()->post('orang_asing'));
+        $data->biodata_id               = strip_tags(request()->post('negara_id'));
         $data->tk                       = strip_tags(request()->post('tk'));
         $data->mhs                      = strip_tags(request()->post('mhs'));
         $data->peneliti                 = strip_tags(request()->post('peneliti'));
@@ -116,7 +113,7 @@ class PengawasanController extends Controller
     public function edit($id)
     {
         $data               = Pengawasan::findOrFail($id);
-        $negaras             = Negara::orderBy('name')->get();
+        $negaras             = BiodataWNA::orderBy('name')->get();
 
         return view('admin.pengawasan.edit', compact('data', 'negaras'));
     }
@@ -134,7 +131,6 @@ class PengawasanController extends Controller
         request()->validate([
             'tgl'                   => 'required|date',
             'negara_id'             => 'required|integer',
-            'orang_asing'           => 'nullable|string',
             'tk'                    => 'nullable|string',
             'mhs'                   => 'nullable|string',
             'peneliti'              => 'nullable|string',
@@ -148,8 +144,7 @@ class PengawasanController extends Controller
         ], $this->customMessages);
 
         $data->tgl                      = request()->post('tgl');
-        $data->negara_id                = strip_tags(request()->post('negara_id'));
-        $data->orang_asing              = strip_tags(request()->post('orang_asing'));
+        $data->biodata_id                = strip_tags(request()->post('negara_id'));
         $data->tk                       = strip_tags(request()->post('tk'));
         $data->mhs                      = strip_tags(request()->post('mhs'));
         $data->peneliti                 = strip_tags(request()->post('peneliti'));
@@ -191,7 +186,7 @@ class PengawasanController extends Controller
         $nama           = request()->post('nama');
         $nip            = request()->post('nip');
         $year           = request()->post('tahun');
-        $data = Pengawasan::with('negara')->whereYear('tgl', '=', $year)
+        $data = Pengawasan::with('biodata')->whereYear('tgl', '=', $year)
             ->whereMonth('tgl', '=', $month)
             ->get();
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BiodataWNI;
 use App\Models\Kecamatan;
+use App\Models\TIKTerdakwa;
 use App\Models\Umum;
 use Illuminate\Http\Request;
 
@@ -42,7 +43,7 @@ class UmumController extends Controller
      */
     public function create()
     {
-        $biodata = BiodataWNI::orderBy('name')->get();
+        $biodata = TIKTerdakwa::orderBy('nama')->get();
         $kecamatan = Kecamatan::orderBy('name')->get();
 
         return view('admin.umum.create', compact('biodata', 'kecamatan'));
@@ -110,7 +111,7 @@ class UmumController extends Controller
     public function edit($id)
     {
         $data = Umum::findOrFail($id);
-        $biodatas = BiodataWNI::orderBy('name')->get();
+        $biodatas = TIKTerdakwa::orderBy('nama')->get();
         $kecamatans = Kecamatan::orderBy('name')->get();
 
         return view('admin.umum.edit', compact('data', 'biodatas', 'kecamatans'));

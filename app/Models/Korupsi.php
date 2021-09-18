@@ -25,7 +25,7 @@ class Korupsi extends Model
 
     public function biodata()
     {
-        return $this->belongsTo('App\Models\BiodataWNI');
+        return $this->belongsTo('App\Models\TIKTerdakwa');
     }
 
     public function kecamatan()
