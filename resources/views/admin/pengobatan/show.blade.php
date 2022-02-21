@@ -38,22 +38,22 @@
 
         <div class="tabel-responsive">
             <table class="table table-sm table-bordered">
-                <thead class="table">
+                <thead class="table" align="center">
                     <tr class="text-center text-wrap" style="width: 8rem">
-                        <th rowspan="2">No</th>
-                        <th rowspan="2">NAMA DAN ALAMAT KLIK PENGOBATAN</th>
-                        <th rowspan="2">IDENTITAS LENGKAP</th>
-                        <th rowspan="2">JUMLAH PEMBANTU</th>
-                        <th rowspan="2">
+                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 40px;">No</span></th>
+                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 30px;">NAMA DAN ALAMAT KLIK PENGOBATAN</span></th>
+                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 20px;">IDENTITAS LENGKAP</span></th>
+                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 20px;">JUMLAH PEMBANTU</span></th>
+                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 20px;">
                             SUMBER INFORMASI DAN MEDIA PENGOBATAN YANG DIGUNAKAN
-                        </th>
-                        <th colspan="2">KEGIATAN PENGOBATAN</th>
-                        <th rowspan="2">NOMOR DAN ATANGGAL IIN DINAS KESEHATAN</th>
-                        <th rowspan="2">KETERANGAN</th>
+                        </span></th>   
+                        <th colspan="2"><span style="font-size: 13px;position: relative;bottom: 0px;">KEGIATAN PENGOBATAN</span></th>
+                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 10px;">NOMOR DAN TANGGAL IZIN DINAS KESEHATAN</span></th>
+                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 40px;">KETERANGAN</span></th>
                     </tr>
                     <tr>
-                        <th>ASAL MULA PENEMUAN PENGOBATAN</th>
-                        <th>CARA PENGOBATAN</th>
+                        <th align="center"><span style="font-size: 13px;position: relative;bottom: 0px;">ASAL MULA PENEMUAN PENGOBATAN</span></th>
+                        <th><span style="font-size: 13px;position: relative;bottom: 10px;">CARA PENGOBATAN</span></th>
                     </tr>
                     <tr height="5px" class="text-center">
                         <td>1</td>
@@ -75,7 +75,7 @@
                         <tbody>
                             <tr height="40px" align="center">
                                 <td>{{ $no++ }}</td>
-                                <td>{{ $item->nama_klinik }}, {{ $item->alamat }}</td>
+                                <td style="text-align: left ;word-break: break-all">{{ $item->nama_klinik }}, {{ $item->alamat }}</td>
                                 <td>{{ $item->identitas }}</td>
                                 <td>{{ $item->jumlah_pembantu }}</td>
                                 <td>{{ $item->sumber_informasi }}</td>
@@ -105,10 +105,10 @@
             <div class="row">
                 <div class="col-md-7 offset-md-7 mb-5 text-center">{{ $jabatan }}</div>
             </div>
-            <div class="row">
-                <div class="col-md-5 offset-md-8 text-center" style="text-decoration: underline"$nama }}</div>
+            <div class="row" style="left: 4px;position: relative;">
+                <div class="col-md-5 offset-md-8 text-center" style="text-decoration: underline;">{{ $nama }}</div>
             </div>
-            <div class="row">
+            <div class="row" style="left: 4px;position: relative;">
                 <div class="col-md-5 offset-md-8 text-center">{{ $nip }}</div>
             </div>
         </div>

@@ -14,7 +14,7 @@
             {{-- Data --}}
             @if (auth()->user()->isAdmin())
                 <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Tabel</span></a>
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-table"></i> <span>Tabel</span></a>
                     <ul class="dropdown-menu">
                     <li class="{{ request()->segment(2) == 'kecamatan' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.kecamatan.index') }}">Kecamatan</a></li>
                     <li class="{{ request()->segment(2) == 'kelurahan' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.kelurahan.index') }}">Kelurahan</a></li>
@@ -29,7 +29,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Master</span></a>
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-database"></i> <span>Master</span></a>
                     <ul class="dropdown-menu">
                     <li class="{{ request()->segment(2) == 'wni' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.wni.index') }}">Biodata WNI</a></li>
                     <li class="{{ request()->segment(2) == 'wna' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.wna.index') }}">Biodata WNA</a></li>
@@ -46,7 +46,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Pidum dan Pidsus</span></a>
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-briefcase"></i> <span>Pidum dan Pidsus</span></a>
                     <ul class="dropdown-menu">
                     <li class="{{ request()->segment(2) == 'korupsi' ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('admin.korupsi.index') }}">Korupsi</a>
@@ -56,7 +56,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Laporan Bulanan</span></a>
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file"></i> <span>Laporan Bulanan</span></a>
                     <ul class="dropdown-menu">
                         <li class="{{ request()->segment(2) == 'pencegahan' ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('admin.pencegahan.index') }}">1. Pencegahan dan Penangkalan</a>
@@ -139,7 +139,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Lain-lain</span></a>
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-info-circle"></i> <span>Lain-lain</span></a>
                     <ul class="dropdown-menu">
                         <li class="{{ request()->segment(2) == 'pancasila' ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('admin.pancasila.index') }}">
@@ -434,7 +434,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Pemetaan</span></a>
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-map-marker"></i> <span>Pemetaan</span></a>
                     <ul class="dropdown-menu">
                         <li class="{{ request()->segment(2) == 'peta-pertahanan' ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('admin.peta-pertahanan') }}">D.IN 2</a>
@@ -461,7 +461,7 @@
                 </li>
             @elseif ( auth()->user()->isLeader())
                 <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Pemetaan</span></a>
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-map-marker"></i> <span>Pemetaan</span></a>
                     <ul class="dropdown-menu">
                         <li class="{{ request()->segment(2) == 'peta-pertahanan' ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('admin.peta-pertahanan') }}">D.IN 2</a>
@@ -485,7 +485,7 @@
                 </li>
             @elseif ( auth()->user()->isOperator())
                 <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Tabel</span></a>
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-table"></i> <span>Tabel</span></a>
                     <ul class="dropdown-menu">
                     <li class="{{ request()->segment(2) == 'kecamatan' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.kecamatan.index') }}">Kecamatan</a></li>
                     <li class="{{ request()->segment(2) == 'kelurahan' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.kelurahan.index') }}">Kelurahan</a></li>
@@ -500,7 +500,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Master</span></a>
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-database"></i> <span>Master</span></a>
                     <ul class="dropdown-menu">
                     <li class="{{ request()->segment(2) == 'wni' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.wni.index') }}">Biodata WNI</a></li>
                     <li class="{{ request()->segment(2) == 'wna' ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.wna.index') }}">Biodata WNA</a></li>
@@ -517,7 +517,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Pidum dan Pidsus</span></a>
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-briefcase"></i> <span>Pidum dan Pidsus</span></a>
                     <ul class="dropdown-menu">
                     <li class="{{ request()->segment(2) == 'korupsi' ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('admin.korupsi.index') }}">Korupsi</a>
@@ -527,7 +527,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Laporan Bulanan</span></a>
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file"></i> <span>Laporan Bulanan</span></a>
                     <ul class="dropdown-menu">
                         <li class="{{ request()->segment(2) == 'pencegahan' ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('admin.pencegahan.index') }}">1. Pencegahan dan Penangkalan</a>
@@ -610,7 +610,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Lain-lain</span></a>
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-info-circle"></i> <span>Lain-lain</span></a>
                     <ul class="dropdown-menu">
                         <li class="{{ request()->segment(2) == 'pancasila' ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('admin.pancasila.index') }}">
@@ -906,7 +906,7 @@
                 </li>
             @elseif ( auth()->user()->isUser())
                 <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-id-card"></i> <span>Pemetaan</span></a>
+                    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-map-marker"></i> <span>Pemetaan</span></a>
                     <ul class="dropdown-menu">
                         <li class="{{ request()->segment(2) == 'peta-pertahanan' ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('admin.peta-pertahanan') }}">D.IN 2</a>

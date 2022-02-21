@@ -38,7 +38,7 @@
 
         <div class="tabel-responsive">
             <table class="table table-sm table-bordered">
-                <thead class="table">
+                <thead class="table" align="center">
                     <tr class="text-center text-wrap" style="width: 8rem">
                         <th rowspan="2">No</th>
                         <th rowspan="2">ASAL NEGARA/KEBANGSAAN</th>
@@ -117,7 +117,7 @@
                 <div class="col-md-7 offset-md-7 mb-5 text-center">{{ $jabatan }}</div>
             </div>
             <div class="row">
-                <div class="col-md-5 offset-md-8 text-center" style="text-decoration: underline;">{{ $nama }}</div>
+                <div class="col-md-5     offset-md-8 text-center" style="text-decoration: underline;">{{ $nama }}</div>
             </div>
             <div class="row">
                 <div class="col-md-5 offset-md-8 text-center">{{ $nip }}</div>
