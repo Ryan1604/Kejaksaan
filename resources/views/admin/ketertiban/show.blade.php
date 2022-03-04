@@ -103,7 +103,7 @@
             <div class="row">
                 <div class="col-md-5 offset-md-8 text-center" style="text-decoration: underline"{ $nama }}</div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-left: 14.5px;">
                 <div class="col-md-5 offset-md-8 text-center">{{ $nip }}</div>
             </div>
         </div>
