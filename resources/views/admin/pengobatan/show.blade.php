@@ -42,18 +42,18 @@
                     <tr class="text-center text-wrap" style="width: 8rem">
                         <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 40px;">No</span></th>
                         <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 30px;">NAMA DAN ALAMAT KLIK PENGOBATAN</span></th>
-                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 20px;">IDENTITAS LENGKAP</span></th>
-                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 20px;">JUMLAH PEMBANTU</span></th>
-                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 20px;">
+                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 20px;text-align: center;display: flex;justify-content: center;align-items: center">IDENTITAS LENGKAP</span></th>
+                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 20px;display: flex;justify-content: center;align-items: center">JUMLAH PEMBANTU</span></th>
+                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 20px;display: flex;justify-content: center;align-items: center">
                             SUMBER INFORMASI DAN MEDIA PENGOBATAN YANG DIGUNAKAN
                         </span></th>   
                         <th colspan="2"><span style="font-size: 13px;position: relative;bottom: 0px;">KEGIATAN PENGOBATAN</span></th>
-                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 10px;">NOMOR DAN TANGGAL IZIN DINAS KESEHATAN</span></th>
-                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 40px;">KETERANGAN</span></th>
+                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 10px;display: flex;justify-content: center;align-items: center">NOMOR DAN TANGGAL IZIN DINAS KESEHATAN</span></th>
+                        <th rowspan="2"><span style="font-size: 13px;position: relative;bottom: 40px;display: flex;justify-content: center;align-items: center">KETERANGAN</span></th>
                     </tr>
                     <tr>
-                        <th align="center"><span style="font-size: 13px;position: relative;bottom: 0px;">ASAL MULA PENEMUAN PENGOBATAN</span></th>
-                        <th><span style="font-size: 13px;position: relative;bottom: 10px;">CARA PENGOBATAN</span></th>
+                        <th><span style="font-size: 13px;position: relative;bottom: 0px;display: flex;justify-content: center;align-items: center">ASAL MULA PENEMUAN PENGOBATAN</span></th>
+                        <th><span style="font-size: 13px;position: relative;bottom: 10px;display: flex;justify-content: center;align-items: center">CARA PENGOBATAN</span></th>
                     </tr>
                     <tr height="5px" class="text-center">
                         <td>1</td>
@@ -108,7 +108,7 @@
             <div class="row" style="left: 4px;position: relative;">
                 <div class="col-md-5 offset-md-8 text-center" style="text-decoration: underline;">{{ $nama }}</div>
             </div>
-            <div class="row" style="left: 4px;position: relative;">
+            <div class="row" style="left: 4.5px;position: relative;">
                 <div class="col-md-5 offset-md-8 text-center">{{ $nip }}</div>
             </div>
         </div>
