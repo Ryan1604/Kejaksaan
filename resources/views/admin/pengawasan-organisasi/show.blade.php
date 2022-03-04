@@ -98,7 +98,7 @@
                 <div class="col-md-7 offset-md-7 mb-5 text-center">{{ $jabatan }}</div>
             </div>
             <div class="row">
-                <div class="col-md-5 offset-md-8 text-center" style="text-decoration: underline" $nama }}</div>
+                <div class="col-md-5 offset-md-8 text-center" style="text-decoration: underline">{{ $nama }}</div>
             </div>
             <div class="row" style="margin-left: 11px;">
                 <div class="col-md-5 offset-md-8 text-center">{{ $nip }}</div>
