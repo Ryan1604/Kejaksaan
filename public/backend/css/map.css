@@ -51,9 +51,9 @@ body {
 }
 
 .purple {
-    left: 480px;
-    width: 370px;
-    bottom: 101px;
+    left: 490px;
+    width: 350px;
+    bottom: 110px;
 }
 
 .purple:hover {
@@ -87,8 +87,9 @@ body {
 }
 
 .cream {
-    left: 370px;
+    left: 350px;
     top: 30px;
+    transform: rotate(-3deg);
     width: 370px;
 }
 
