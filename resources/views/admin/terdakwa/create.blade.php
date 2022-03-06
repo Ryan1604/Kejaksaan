@@ -197,7 +197,7 @@
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
                                                 <label for="pendidikan">Pendidikan</label>
-                                                <select class="select2 form-control form-control-sm @error('pendidikan') is-invalid @enderror" name="pendidikan" id="pendidikan">
+                                                <select class="select2 form-control form-control-sm @error('pendidikan') is-invalid @enderror" name="pendidikan" id="pendidikan" required>
                                                     <option value="" selected disabled>-- Pilih Pendidikan --</option>
                                                         @foreach ($pendidikan as $data)
                                                             <option value="{{ $data->id }}" {{ old('pendidikan') == $data->id ? 'selected' : '' }}>{{ $data->name }}</option>
@@ -211,7 +211,7 @@
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
                                                 <label for="pekerjaan">Pekerjaan</label>
-                                                <select class="select2 form-control form-control-sm @error('pekerjaan') is-invalid @enderror" name="pekerjaan" id="pekerjaan">
+                                                <select class="select2 form-control form-control-sm @error('pekerjaan') is-invalid @enderror" name="pekerjaan" id="pekerjaan" required>
                                                     <option value="" selected disabled>-- Pilih Pekerjaan --</option>
                                                         @foreach ($pekerjaan as $data)
                                                             <option value="{{ $data->id }}" {{ old('pekerjaan') == $data->id ? 'selected' : '' }}>{{ $data->name }}</option>
