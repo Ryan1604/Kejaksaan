@@ -197,7 +197,7 @@
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
                                                 <label for="pendidikan">Pendidikan</label>
-                                                <select class="select2 form-control form-control-sm @error('pendidikan') is-invalid @enderror" name="pendidikan" id="pendidikan" required>
+                                                <select class="select2 form-control form-control-sm @error('pendidikan') is-invalid @enderror" name="pendidikan" id="pendidikan">
                                                     <option value="" selected disabled>-- Pilih Pendidikan --</option>
                                                         @foreach ($pendidikan as $data)
                                                             <option value="{{ $data->id }}" {{ old('pendidikan') == $data->id ? 'selected' : '' }}>{{ $data->name }}</option>
@@ -211,7 +211,7 @@
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
                                                 <label for="pekerjaan">Pekerjaan</label>
-                                                <select class="select2 form-control form-control-sm @error('pekerjaan') is-invalid @enderror" name="pekerjaan" id="pekerjaan" required>
+                                                <select class="select2 form-control form-control-sm @error('pekerjaan') is-invalid @enderror" name="pekerjaan" id="pekerjaan">
                                                     <option value="" selected disabled>-- Pilih Pekerjaan --</option>
                                                         @foreach ($pekerjaan as $data)
                                                             <option value="{{ $data->id }}" {{ old('pekerjaan') == $data->id ? 'selected' : '' }}>{{ $data->name }}</option>
@@ -225,7 +225,7 @@
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
                                                 <label for="alamat_kantor">Alamat Kantor<sup class="text-danger">*</sup></label>
-                                                <input type="text" class="form-control form-control-sm @error('alamat_kantor') is-invalid @enderror" name="alamat_kantor" id="alamat_kantor" value="{{ old('alamat_kantor') }}" placeholder="Masukkan alamat kantor" required>
+                                                <input type="text" class="form-control form-control-sm @error('alamat_kantor') is-invalid @enderror" name="alamat_kantor" id="alamat_kantor" value="{{ old('alamat_kantor') }}" placeholder="Masukkan alamat kantor">
                                                 <div class="invalid-feedback" id="valid-alamat_kantor">{{ $errors->first('alamat_kantor') }}</div>
                                             </div>
                                         </div>
@@ -234,7 +234,7 @@
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
                                                 <label for="perkawinan">Status Perkawinan</label>
-                                                <select class="select2 form-control form-control-sm @error('perkawinan') is-invalid @enderror" name="perkawinan" id="perkawinan" required>
+                                                <select class="select2 form-control form-control-sm @error('perkawinan') is-invalid @enderror" name="perkawinan" id="perkawinan">
                                                     <option value="" selected disabled>-- Pilih Status Perkawinan --</option>
                                                         @foreach ($perkawinan as $data)
                                                             <option value="{{ $data->id }}" {{ old('perkawinan') == $data->id ? 'selected' : '' }}>{{ $data->name }}</option>
