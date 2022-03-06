@@ -189,7 +189,7 @@
 
             $('body').on('change', '#biodata', function() {
                 var id = $(this).val();
-                ajaxurl = '{{ route("admin.wni.search", "id") }}'
+                ajaxurl = '{{ route("admin.terdakwa.search", "id") }}'
                 $.ajax({
                     type: 'GET',
                     url: ajaxurl,
