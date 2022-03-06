@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\File;
 class TIKTerdakwaController extends Controller
 {
     protected $customMessages = [
-        'required'              => ':attribute harus diisi',
+        'required'              => ':Attribute harus diisi',
         'unique'                => 'This :attribute has already been taken.',
         'integer'               => ':Attribute must be a number.',
         'min'                   => ':Attribute must be at least :min.',
@@ -78,10 +78,10 @@ class TIKTerdakwaController extends Controller
             'phone'                 => 'nullable|string',
             'pasport'               => 'nullable|string',
             'agama'                 => 'required|integer',
-            'pendidikan'            => 'nullable|integer',
-            'pekerjaan'             => 'nullable|integer',
-            'alamat_kantor'         => 'nullable|string',
-            'perkawinan'            => 'nullable|integer',
+            'pendidikan'            => 'required|integer',
+            'pekerjaan'             => 'required|integer',
+            'alamat_kantor'         => 'required|string',
+            'perkawinan'            => 'required|integer',
             'kepartaian'            => 'nullable|string',
             'kasus'                 => 'nullable|string',
             'background'            => 'nullable|string',
@@ -314,7 +314,7 @@ class TIKTerdakwaController extends Controller
         return view('admin.terdakwa.download');
     }
     
-     public function search()
+    public function search()
     {
         $id = $_GET['id'];
         $data = TIKTerdakwa::where('id', $id)->get();
