@@ -53,6 +53,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'admin', 'active', '
 
     // Kartu TIK Terdakwa
     Route::resource('tik/terdakwa', 'TIKTerdakwaController');
+    Route::get('terdakwa/search/{id}', 'TIKTerdakwaController@search')->name('terdakwa.search');
 
     /* Pidum Pidsus */
 
