@@ -313,4 +313,12 @@ class TIKTerdakwaController extends Controller
     {
         return view('admin.terdakwa.download');
     }
+    
+     public function search()
+    {
+        $id = $_GET['id'];
+        $data = TIKTerdakwa::where('id', $id)->get();
+
+        return $data;
+    }
 }
