@@ -409,7 +409,7 @@
                 if(input.files && input.files[0]) {
                     var reader = new FileReader();
                     reader.onload = function(e) {
-                        $('#photo + img').remove();
+                        $('img').remove();
                         $('#photo').after('<br><img src="' + e.target.result + '" class="img-thumbnail">');
                     };
                     reader.readAsDataURL(input.files[0]);
