@@ -57,13 +57,8 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="biodata">Identitas Terdakwa</label>
-                                                <select class="select2 form-control form-control-sm @error('biodata') is-invalid @enderror" name="biodata" id="biodata">
-                                                    <option value="" selected disabled>-- Pilih Terdakwa --</option>
-                                                    @foreach ($biodatas as $biodata )
-                                                        <option value="{{ $biodata->id }}" {{ old('biodata') == $biodata->id || $data->biodata_id == $biodata->id ? 'selected' : '' }}>{{ $biodata->nama }}</option>
-                                                    @endforeach
-                                                </select>
+                                                <label for="biodata">Identitas Terdakwa <sup class="text-danger">*</sup></label>
+                                                <input type="text" class="form-control form-control-sm @error('biodata') is-invalid @enderror" name="biodata" id="biodata" value="@error('biodata'){{ old('biodata') }}@else{{ $data->biodata }}@enderror">
                                                 <div class="invalid-feedback" id="valid-biodata">{{ $errors->first('biodata') }}</div>
                                             </div>
                                         </div>
@@ -103,7 +98,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="penyelidikan">Penyelidikan<sup class="text-danger">*</sup></label>
+                                                <label for="penyelidikan">Penyelidika</label>
                                                 <input type="text" class="form-control form-control-sm @error('penyelidikan') is-invalid @enderror" name="penyelidikan" id="penyelidikan" value="@error('penyelidikan'){{ old('penyelidikan') }}@else{{ $data->penyelidikan }}@enderror" placeholder="Masukkan Penyelidikan">
                                                 <div class="invalid-feedback" id="valid-penyelidikan">{{ $errors->first('penyelidikan') }}</div>
                                             </div>
@@ -133,7 +128,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="penuntutan">Penuntutan <sup class="text-danger">*</sup></label>
+                                                <label for="penuntutan">Penuntutan</label>
                                                 <input type="text" class="form-control form-control-sm @error('penuntutan') is-invalid @enderror" name="penuntutan" id="penuntutan" value="@error('penuntutan'){{ old('penuntutan') }}@else{{ $data->penuntutan }}@enderror" placeholder="Masukkan Penuntutan">
                                                 <div class="invalid-feedback" id="valid-penuntutan">{{ $errors->first('penuntutan') }}</div>
                                             </div>
@@ -142,7 +137,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="eksekusi">Eksekusi <sup class="text-danger">*</sup></label>
+                                                <label for="eksekusi">Eksekusi</label>
                                                 <input type="text" class="form-control form-control-sm @error('eksekusi') is-invalid @enderror" name="eksekusi" id="eksekusi" value="@error('eksekusi'){{ old('eksekusi') }}@else{{ $data->eksekusi }}@enderror" placeholder="Masukkan Eksekusi">
                                                 <div class="invalid-feedback" id="valid-eksekusi">{{ $errors->first('eksekusi') }}</div>
                                             </div>
@@ -151,7 +146,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="upaya">Upaya Hukum <sup class="text-danger">*</sup></label>
+                                                <label for="upaya">Upaya Hukum</label>
                                                 <input type="text" class="form-control form-control-sm @error('upaya') is-invalid @enderror" name="upaya" id="upaya" value="@error('upaya'){{ old('upaya') }}@else{{ $data->upaya }}@enderror" placeholder="Masukkan Upaya Hukum">
                                                 <div class="invalid-feedback" id="valid-upaya">{{ $errors->first('upaya') }}</div>
                                             </div>
@@ -160,7 +155,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="keterangan">Keterangan <sup class="text-danger">*</sup></label>
+                                                <label for="keterangan">Keterangan</label>
                                                 <input type="text" class="form-control form-control-sm @error('keterangan') is-invalid @enderror" name="keterangan" id="keterangan" value="@error('keterangan'){{ old('keterangan') }}@else{{ $data->keterangan }}@enderror" placeholder="Masukkan Keterangan">
                                                 <div class="invalid-feedback" id="valid-keterangan">{{ $errors->first('keterangan') }}</div>
                                             </div>

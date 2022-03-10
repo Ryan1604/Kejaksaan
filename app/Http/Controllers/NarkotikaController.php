@@ -29,13 +29,11 @@ class NarkotikaController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            return datatables()->of(Narkotika::with('biodata')
-                ->orderBy('updated_at', 'DESC')
+            return datatables()->of(Narkotika::orderBy('updated_at', 'DESC')
                 ->get())
-                ->addColumn('biodata', 'admin.narkotika.biodata')
                 ->addColumn('pasal', 'admin.narkotika.pasal')
                 ->addColumn('action', 'admin.narkotika.action')
-                ->rawColumns(['pasal', 'biodata', 'action'])
+                ->rawColumns(['pasal', 'action'])
                 ->addIndexColumn()
                 ->make(true);
         }
@@ -65,7 +63,7 @@ class NarkotikaController extends Controller
     {
         request()->validate([
             'tgl'                       => 'required|date',
-            'biodata'                   => 'required|integer',
+            'biodata'                   => 'required|string',
             'kecamatan'                 => 'required|integer',
             'locus'                     => 'required|date',
             'pasal'                     => 'required|string',
@@ -80,7 +78,7 @@ class NarkotikaController extends Controller
 
         $data = new Narkotika();
         $data->tgl                          = request()->post('tgl');
-        $data->biodata_id                   = strip_tags(request()->post('biodata'));
+        $data->biodata                      = strip_tags(request()->post('biodata'));
         $data->kecamatan_id                 = strip_tags(request()->post('kecamatan'));
         $data->locus                        = request()->post('locus');
         $data->pasal                        = strip_tags(request()->post('pasal'));
@@ -137,7 +135,7 @@ class NarkotikaController extends Controller
         $data = Narkotika::findOrFail($id);
         request()->validate([
             'tgl'                       => 'required|date',
-            'biodata'                   => 'required|integer',
+            'biodata'                   => 'required|string',
             'kecamatan'                 => 'required|integer',
             'locus'                     => 'required|string',
             'pasal'                     => 'required|string',
@@ -151,7 +149,7 @@ class NarkotikaController extends Controller
         ], $this->customMessages);
 
         $data->tgl                          = request()->post('tgl');
-        $data->biodata_id                   = strip_tags(request()->post('biodata'));
+        $data->biodata                      = strip_tags(request()->post('biodata'));
         $data->kecamatan_id                 = strip_tags(request()->post('kecamatan'));
         $data->locus                        = strip_tags(request()->post('locus'));
         $data->pasal                        = strip_tags(request()->post('pasal'));

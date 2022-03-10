@@ -146,7 +146,7 @@
                         case "ok" :
                             $.ajax({
                                 type: "DELETE",
-                                url: '{{ route('admin.pencegahan.index') }}' + '/' + id,
+                                url: '{{ route('admin.pengawasan.index') }}' + '/' + id,
                                 success: function(data) {
                                     $('#ebook-table').DataTable().draw(false);
                                     $('#ebook-table').DataTable().on('draw', function() {

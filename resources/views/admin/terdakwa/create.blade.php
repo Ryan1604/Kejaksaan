@@ -62,7 +62,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="panggilan">Nama samaran / panggilan <sup class="text-danger">*</sup></label>
+                                                <label for="panggilan">Nama samaran / panggilan</label>
                                                 <input type="text" class="form-control form-control-sm @error('panggilan') is-invalid @enderror" name="panggilan" id="panggilan" value="{{ old('panggilan') }}" placeholder="Masukkan Nama samaran / panggilan">
                                                 <div class="invalid-feedback" id="valid-panggilan">{{ $errors->first('panggilan') }}</div>
                                             </div>
@@ -164,7 +164,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="phone">No Handphone <sup class="text-danger">*</sup></label>
+                                                <label for="phone">No Handphone</label>
                                                 <input type="text" class="form-control form-control-sm @error('phone') is-invalid @enderror" name="phone" id="phone" value="{{ old('phone') }}" placeholder="Masukkan no handphone">
                                                 <div class="invalid-feedback" id="valid-phone">{{ $errors->first('phone') }}</div>
                                             </div>
@@ -173,7 +173,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="pasport">No Pasport <sup class="text-danger">*</sup></label>
+                                                <label for="pasport">No Pasport</label>
                                                 <input type="text" class="form-control form-control-sm @error('pasport') is-invalid @enderror" name="pasport" id="pasport" value="{{ old('pasport') }}" placeholder="Masukkan no pasport">
                                                 <div class="invalid-feedback" id="valid-pasport">{{ $errors->first('pasport') }}</div>
                                             </div>
@@ -224,7 +224,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="alamat_kantor">Alamat Kantor<sup class="text-danger">*</sup></label>
+                                                <label for="alamat_kantor">Alamat Kantor</label>
                                                 <input type="text" class="form-control form-control-sm @error('alamat_kantor') is-invalid @enderror" name="alamat_kantor" id="alamat_kantor" value="{{ old('alamat_kantor') }}" placeholder="Masukkan alamat kantor">
                                                 <div class="invalid-feedback" id="valid-alamat_kantor">{{ $errors->first('alamat_kantor') }}</div>
                                             </div>
@@ -247,7 +247,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="kepartaian">Kepartaian<sup class="text-danger">*</sup></label>
+                                                <label for="kepartaian">Kepartaian</label>
                                                 <input type="text" class="form-control form-control-sm @error('kepartaian') is-invalid @enderror" name="kepartaian" id="kepartaian" value="{{ old('kepartaian') }}" placeholder="Masukkan kepartaian">
                                                 <div class="invalid-feedback" id="valid-kepartaian">{{ $errors->first('kepartaian') }}</div>
                                             </div>

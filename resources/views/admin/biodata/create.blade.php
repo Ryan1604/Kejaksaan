@@ -165,7 +165,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="phone">No Handphone <sup class="text-danger">*</sup></label>
+                                                <label for="phone">No Handphone</label>
                                                 <input type="text" class="form-control form-control-sm @error('phone') is-invalid @enderror" name="phone" id="phone" value="{{ old('phone') }}" placeholder="Masukkan no handphone">
                                                 <div class="invalid-feedback" id="valid-phone">{{ $errors->first('phone') }}</div>
                                             </div>
@@ -174,7 +174,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="pasport">No Pasport <sup class="text-danger">*</sup></label>
+                                                <label for="pasport">No Pasport</label>
                                                 <input type="text" class="form-control form-control-sm @error('pasport') is-invalid @enderror" name="pasport" id="pasport" value="{{ old('pasport') }}" placeholder="Masukkan no pasport">
                                                 <div class="invalid-feedback" id="valid-pasport">{{ $errors->first('pasport') }}</div>
                                             </div>

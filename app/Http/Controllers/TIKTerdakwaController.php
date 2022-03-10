@@ -67,7 +67,7 @@ class TIKTerdakwaController extends Controller
         request()->validate([
             'nomor'                 => 'required|string',
             'nama'                  => 'required|string',
-            'panggilan'             => 'required|string',
+            'panggilan'             => 'nullable|string',
             'tempat_lahir'          => 'required|string',
             'tanggal_lahir'         => 'nullable|date',
             'jenis_kelamin'         => 'required|string',
@@ -75,14 +75,14 @@ class TIKTerdakwaController extends Controller
             'kewarganegaraan'       => 'required|integer',
             'kecamatan'             => 'nullable|string',
             'alamat'                => 'required|string',
-            'phone'                 => 'required|string',
-            'pasport'               => 'required|string',
+            'phone'                 => 'nullable|string',
+            'pasport'               => 'nullable|string',
             'agama'                 => 'required|integer',
             'pendidikan'            => 'required|integer',
             'pekerjaan'             => 'required|integer',
-            'alamat_kantor'         => 'required|string',
+            'alamat_kantor'         => 'nullable|string',
             'perkawinan'            => 'required|integer',
-            'kepartaian'            => 'required|string',
+            'kepartaian'            => 'nullable|string',
             'kasus'                 => 'nullable|string',
             'background'            => 'nullable|string',
             'no_skpp'               => 'nullable|string',
@@ -206,7 +206,7 @@ class TIKTerdakwaController extends Controller
         request()->validate([
             'nomor'                 => 'required|string',
             'nama'                  => 'required|string',
-            'panggilan'             => 'required|string',
+            'panggilan'             => 'nullable|string',
             'tempat_lahir'          => 'required|string',
             'tanggal_lahir'         => 'nullable|date',
             'jenis_kelamin'         => 'required|string',
@@ -214,14 +214,14 @@ class TIKTerdakwaController extends Controller
             'kewarganegaraan'       => 'required|integer',
             'kecamatan'             => 'nullable|string',
             'alamat'                => 'required|string',
-            'phone'                 => 'required|string',
-            'pasport'               => 'required|string',
+            'phone'                 => 'nullable|string',
+            'pasport'               => 'nullable|string',
             'agama'                 => 'required|integer',
             'pendidikan'            => 'required|integer',
             'pekerjaan'             => 'required|integer',
-            'alamat_kantor'         => 'required|string',
+            'alamat_kantor'         => 'nullable|string',
             'perkawinan'            => 'required|integer',
-            'kepartaian'            => 'required|string',
+            'kepartaian'            => 'nullable|string',
             'kasus'                 => 'nullable|string',
             'background'            => 'nullable|string',
             'no_skpp'               => 'nullable|string',
@@ -313,7 +313,7 @@ class TIKTerdakwaController extends Controller
     {
         return view('admin.terdakwa.download');
     }
-    
+
     public function search()
     {
         $id = $_GET['id'];

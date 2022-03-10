@@ -53,22 +53,9 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="biodata">Identitas Terdakwa</label>
-                                                <select class="select2 form-control form-control-sm @error('biodata') is-invalid @enderror" name="biodata" id="biodata">
-                                                    <option value="" selected disabled>-- Pilih Terdakwa --</option>
-                                                        @foreach ($biodata as $data)
-                                                            <option value="{{ $data->id }}" {{ old('biodata') == $data->id ? 'selected' : '' }}>{{ $data->nama }}</option>
-                                                        @endforeach
-                                                </select>
+                                                <label for="biodata">Identitas Terdakwa<sup class="text-danger">*</sup></label>
+                                                <input type="text" class="form-control form-control-sm @error('biodata') is-invalid @enderror" name="biodata" id="biodata" value="{{ old('biodata') }}" placeholder="Masukkan Identitas Terdakwa">
                                                 <div class="invalid-feedback" id="valid-biodata">{{ $errors->first('biodata') }}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="form-group">
-                                                <label>Kecamatan</label>
-                                                <input type="text" class="form-control form-control-sm" id="x" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -127,7 +114,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="eksekusi">Eksekusi <sup class="text-danger">*</sup></label>
+                                                <label for="eksekusi">Eksekusi</label>
                                                 <input type="text" class="form-control form-control-sm @error('eksekusi') is-invalid @enderror" name="eksekusi" id="eksekusi" value="{{ old('eksekusi') }}" placeholder="Masukkan Eksekusi">
                                                 <div class="invalid-feedback" id="valid-eksekusi">{{ $errors->first('eksekusi') }}</div>
                                             </div>
@@ -136,7 +123,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="upaya">Upaya Hukum <sup class="text-danger">*</sup></label>
+                                                <label for="upaya">Upaya Hukum</label>
                                                 <input type="text" class="form-control form-control-sm @error('upaya') is-invalid @enderror" name="upaya" id="upaya" value="{{ old('upaya') }}" placeholder="Masukkan Upaya Hukum">
                                                 <div class="invalid-feedback" id="valid-upaya">{{ $errors->first('upaya') }}</div>
                                             </div>
@@ -145,7 +132,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="keterangan">Keterangan <sup class="text-danger">*</sup></label>
+                                                <label for="keterangan">Keterangan</label>
                                                 <input type="text" class="form-control form-control-sm @error('keterangan') is-invalid @enderror" name="keterangan" id="keterangan" value="{{ old('keterangan') }}" placeholder="Masukkan Keterangan">
                                                 <div class="invalid-feedback" id="valid-keterangan">{{ $errors->first('keterangan') }}</div>
                                             </div>

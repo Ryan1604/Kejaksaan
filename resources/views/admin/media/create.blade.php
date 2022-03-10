@@ -80,7 +80,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="alamat">Alamat Usaha Media Komunikasi <sup class="text-danger">*</sup></label>
+                                                <label for="alamat">Alamat Usaha Media Komunikasi</label>
                                                 <input type="text" class="form-control form-control-sm @error('alamat') is-invalid @enderror" name="alamat" id="alamat" value="{{ old('alamat') }}" placeholder="Masukkan Alamat Usaha Media Komunikasi">
                                                 <div class="invalid-feedback" id="valid-alamat">{{ $errors->first('alamat') }}</div>
                                             </div>
@@ -89,7 +89,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="phone">Nomor Telepon / Website / Email <sup class="text-danger">*</sup></label>
+                                                <label for="phone">Nomor Telepon / Website / Email</label>
                                                 <input type="text" class="form-control form-control-sm @error('phone') is-invalid @enderror" name="phone" id="phone" value="{{ old('phone') }}" placeholder="Masukkan Nomor Telepon / Website / Email">
                                                 <div class="invalid-feedback" id="valid-phone">{{ $errors->first('phone') }}</div>
                                             </div>
@@ -98,7 +98,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="nama_pimpinan">Nama Pimpinan Media Komunikasi <sup class="text-danger">*</sup></label>
+                                                <label for="nama_pimpinan">Nama Pimpinan Media Komunikasi</label>
                                                 <input type="text" class="form-control form-control-sm @error('nama_pimpinan') is-invalid @enderror" name="nama_pimpinan" id="nama_pimpinan" value="{{ old('nama_pimpinan') }}" placeholder="Masukkan Nama Pimpinan Media Komunikasi">
                                                 <div class="invalid-feedback" id="valid-nama_pimpinan">{{ $errors->first('nama_pimpinan') }}</div>
                                             </div>
@@ -107,7 +107,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="penanggung_jawab">Penanggung Jawab Media Komunikasi <sup class="text-danger">*</sup></label>
+                                                <label for="penanggung_jawab">Penanggung Jawab Media Komunikasi</label>
                                                 <input type="text" class="form-control form-control-sm @error('penanggung_jawab') is-invalid @enderror" name="penanggung_jawab" id="penanggung_jawab" value="{{ old('penanggung_jawab') }}" placeholder="Masukkan Penanggung Jawab Media Komunikasi">
                                                 <div class="invalid-feedback" id="valid-penanggung_jawab">{{ $errors->first('penanggung_jawab') }}</div>
                                             </div>
@@ -116,7 +116,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="ijin_usaha">Ijin Usaha Media Komunikasi <sup class="text-danger">*</sup></label>
+                                                <label for="ijin_usaha">Ijin Usaha Media Komunikasi</label>
                                                 <input type="text" class="form-control form-control-sm @error('ijin_usaha') is-invalid @enderror" name="ijin_usaha" id="ijin_usaha" value="{{ old('ijin_usaha') }}" placeholder="Masukkan Ijin Usaha Media Komunikasi">
                                                 <div class="invalid-feedback" id="valid-ijin_usaha">{{ $errors->first('ijin_usaha') }}</div>
                                             </div>
@@ -125,7 +125,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="waktu">Waktu Peredaran Media Komunikasi <sup class="text-danger">*</sup></label>
+                                                <label for="waktu">Waktu Peredaran Media Komunikasi</label>
                                                 <input type="date" class="form-control form-control-sm @error('waktu') is-invalid @enderror" name="waktu" id="waktu" value="{{ old('waktu') }}" placeholder="Masukkan Waktu Peredaran Media Komunikasi">
                                                 <div class="invalid-feedback" id="valid-waktu">{{ $errors->first('waktu') }}</div>
                                             </div>
@@ -134,7 +134,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="daerah">Daerah Peredaran Media Komunikasi <sup class="text-danger">*</sup></label>
+                                                <label for="daerah">Daerah Peredaran Media Komunikasi</label>
                                                 <input type="text" class="form-control form-control-sm @error('daerah') is-invalid @enderror" name="daerah" id="daerah" value="{{ old('daerah') }}" placeholder="Masukkan Daerah Peredaran Media Komunikasi">
                                                 <div class="invalid-feedback" id="valid-daerah">{{ $errors->first('daerah') }}</div>
                                             </div>
@@ -143,7 +143,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="jumlah">Jumlah Peredaran Media Komunikasi <sup class="text-danger">*</sup></label>
+                                                <label for="jumlah">Jumlah Peredaran Media Komunikasi</label>
                                                 <input type="number" class="form-control form-control-sm @error('jumlah') is-invalid @enderror" name="jumlah" id="jumlah" value="{{ old('jumlah') }}" placeholder="Masukkan Jumlah Peredaran Media Komunikasi">
                                                 <div class="invalid-feedback" id="valid-jumlah">{{ $errors->first('jumlah') }}</div>
                                             </div>
@@ -177,7 +177,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="photo">Foto <sup class="text-danger">*</sup></label>
+                                                <label for="photo">Foto</label>
                                                 <input type="file" class="form-control form-control-sm @error('photo') is-invalid @enderror" name="photo" id="photo" value="{{ old('photo') }}">
                                                 <div class="invalid-feedback" id="valid-photo">{{ $errors->first('photo') }}</div>
                                             </div>

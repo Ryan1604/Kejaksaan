@@ -29,13 +29,11 @@ class KorupsiController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            return datatables()->of(Korupsi::with('biodata')
-                ->orderBy('updated_at', 'DESC')
+            return datatables()->of(Korupsi::orderBy('updated_at', 'DESC')
                 ->get())
-                ->addColumn('biodata', 'admin.korupsi.biodata')
                 ->addColumn('pasal', 'admin.korupsi.pasal')
                 ->addColumn('action', 'admin.korupsi.action')
-                ->rawColumns(['pasal', 'biodata', 'action'])
+                ->rawColumns(['pasal', 'action'])
                 ->addIndexColumn()
                 ->make(true);
         }
@@ -65,7 +63,7 @@ class KorupsiController extends Controller
     {
         request()->validate([
             'tgl'                   => 'nullable|date',
-            'biodata'               => 'required|integer',
+            'biodata'               => 'required|string',
             'kecamatan'             => 'required|integer',
             'locus'                 => 'required|date',
             'pasal'                 => 'nullable|string',
@@ -82,7 +80,7 @@ class KorupsiController extends Controller
 
         $data = new Korupsi();
         $data->tgl                      = request()->post('tgl');
-        $data->biodata_id               = strip_tags(request()->post('biodata'));
+        $data->biodata                  = strip_tags(request()->post('biodata'));
         $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
         $data->locus                    = request()->post('locus');
         $data->pasal                    = strip_tags(request()->post('pasal'));
@@ -141,7 +139,7 @@ class KorupsiController extends Controller
         $data = Korupsi::findOrFail($id);
         request()->validate([
             'tgl'                   => 'nullable|date',
-            'biodata'               => 'required|integer',
+            'biodata'               => 'required|string',
             'kecamatan'             => 'required|integer',
             'locus'                 => 'required|date',
             'pasal'                 => 'nullable|string',
@@ -157,7 +155,7 @@ class KorupsiController extends Controller
         ], $this->customMessages);
 
         $data->tgl                      = request()->post('tgl');
-        $data->biodata_id               = strip_tags(request()->post('biodata'));
+        $data->biodata                  = strip_tags(request()->post('biodata'));
         $data->kecamatan_id             = strip_tags(request()->post('kecamatan'));
         $data->locus                    = request()->post('locus');
         $data->pasal                    = strip_tags(request()->post('pasal'));

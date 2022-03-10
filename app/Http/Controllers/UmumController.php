@@ -24,12 +24,10 @@ class UmumController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            return datatables()->of(Umum::with('biodata')
-                ->orderBy('updated_at', 'DESC')
+            return datatables()->of(Umum::orderBy('updated_at', 'DESC')
                 ->get())
-                ->addColumn('biodata', 'admin.umum.biodata')
                 ->addColumn('action', 'admin.umum.action')
-                ->rawColumns(['biodata', 'action'])
+                ->rawColumns(['action'])
                 ->addIndexColumn()
                 ->make(true);
         }
@@ -59,7 +57,7 @@ class UmumController extends Controller
     {
         request()->validate([
             'tgl'                       => 'required|date',
-            'biodata'                   => 'required|integer',
+            'biodata'                   => 'required|string',
             'kecamatan'                 => 'required|integer',
             'locus'                     => 'required|date',
             'pasal'                     => 'required|string',
@@ -74,7 +72,7 @@ class UmumController extends Controller
 
         $data = new Umum();
         $data->tgl                          = request()->post('tgl');
-        $data->biodata_id                   = strip_tags(request()->post('biodata'));
+        $data->biodata                      = strip_tags(request()->post('biodata'));
         $data->kecamatan_id                 = strip_tags(request()->post('kecamatan'));
         $data->locus                        = request()->post('locus');
         $data->pasal                        = request()->post('pasal');
@@ -131,7 +129,7 @@ class UmumController extends Controller
         $data = Umum::findOrFail($id);
         request()->validate([
             'tgl'                       => 'required|date',
-            'biodata'                   => 'required|integer',
+            'biodata'                   => 'required|string',
             'kecamatan'                 => 'required|integer',
             'locus'                     => 'required|date',
             'pasal'                     => 'required|string',
@@ -145,7 +143,7 @@ class UmumController extends Controller
         ], $this->customMessages);
 
         $data->tgl                          = request()->post('tgl');
-        $data->biodata_id                   = strip_tags(request()->post('biodata'));
+        $data->biodata                      = strip_tags(request()->post('biodata'));
         $data->kecamatan_id                 = strip_tags(request()->post('kecamatan'));
         $data->locus                        = request()->post('locus');
         $data->pasal                        = request()->post('pasal');

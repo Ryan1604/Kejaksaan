@@ -71,7 +71,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="pengarang">Pengarang / Penanggung Jawab <sup class="text-danger">*</sup></label>
+                                                <label for="pengarang">Pengarang / Penanggung Jawab</label>
                                                 <input type="text" class="form-control form-control-sm @error('pengarang') is-invalid @enderror" name="pengarang" id="pengarang" value="{{ old('pengarang') }}" placeholder="Masukkan pengarang">
                                                 <div class="invalid-feedback" id="valid-pengarang">{{ $errors->first('pengarang') }}</div>
                                             </div>
@@ -80,7 +80,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="waktu">Waktu peredaran <sup class="text-danger">*</sup></label>
+                                                <label for="waktu">Waktu peredaran</label>
                                                 <input type="date" class="form-control form-control-sm @error('waktu') is-invalid @enderror" name="waktu" id="waktu" value="{{ old('waktu') }}">
                                                 <div class="invalid-feedback" id="valid-waktu">{{ $errors->first('waktu') }}</div>
                                             </div>
@@ -89,7 +89,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="daerah">Daerah Peredaran <sup class="text-danger">*</sup></label>
+                                                <label for="daerah">Daerah Peredaran</label>
                                                 <input type="text" class="form-control form-control-sm @error('daerah') is-invalid @enderror" name="daerah" id="daerah" value="{{ old('daerah') }}" placeholder="Masukkan daerah peredaran">
                                                 <div class="invalid-feedback" id="valid-daerah">{{ $errors->first('daerah') }}</div>
                                             </div>
@@ -98,7 +98,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="pencetak">Pencetak <sup class="text-danger">*</sup></label>
+                                                <label for="pencetak">Pencetak</label>
                                                 <input type="text" class="form-control form-control-sm @error('pencetak') is-invalid @enderror" name="pencetak" id="pencetak" value="{{ old('pencetak') }}" placeholder="Masukkan pencetak">
                                                 <div class="invalid-feedback" id="valid-pencetak">{{ $errors->first('pencetak') }}</div>
                                             </div>
@@ -107,7 +107,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="nama_pimpinan">Nama Pimpinan Redaksi <sup class="text-danger">*</sup></label>
+                                                <label for="nama_pimpinan">Nama Pimpinan Redaksi</label>
                                                 <input type="text" class="form-control form-control-sm @error('nama_pimpinan') is-invalid @enderror" name="nama_pimpinan" id="nama_pimpinan" value="{{ old('nama_pimpinan') }}" placeholder="Masukkan nama pimpinan redaksi">
                                                 <div class="invalid-feedback" id="valid-nama_pimpinan">{{ $errors->first('nama_pimpinan') }}</div>
                                             </div>
@@ -116,7 +116,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="alamat_penerbit">Alamat Penerbit <sup class="text-danger">*</sup></label>
+                                                <label for="alamat_penerbit">Alamat Penerbit</label>
                                                 <input type="text" class="form-control form-control-sm @error('alamat_penerbit') is-invalid @enderror" name="alamat_penerbit" id="alamat_penerbit" value="{{ old('alamat_penerbit') }}" placeholder="Masukkan alamat penerbit">
                                                 <div class="invalid-feedback" id="valid-alamat_penerbit">{{ $errors->first('alamat_penerbit') }}</div>
                                             </div>
@@ -125,7 +125,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="alamat_percetakan">Alamat Percetakan <sup class="text-danger">*</sup></label>
+                                                <label for="alamat_percetakan">Alamat Percetakan</label>
                                                 <input type="text" class="form-control form-control-sm @error('alamat_percetakan') is-invalid @enderror" name="alamat_percetakan" id="alamat_percetakan" value="{{ old('alamat_percetakan') }}" placeholder="Masukkan alamat percetakan">
                                                 <div class="invalid-feedback" id="valid-alamat_percetakan">{{ $errors->first('alamat_percetakan') }}</div>
                                             </div>
@@ -134,7 +134,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="form-group">
-                                                <label for="jumlah_oplah">Jumlah Oplah <sup class="text-danger">*</sup></label>
+                                                <label for="jumlah_oplah">Jumlah Oplah</label>
                                                 <input type="number" class="form-control form-control-sm @error('jumlah_oplah') is-invalid @enderror" name="jumlah_oplah" id="jumlah_oplah" value="{{ old('jumlah_oplah') }}" placeholder="Masukkan jumlah oplah">
                                                 <div class="invalid-feedback" id="valid-jumlah_oplah">{{ $errors->first('jumlah_oplah') }}</div>
                                             </div>
