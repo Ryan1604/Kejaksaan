@@ -31,128 +31,131 @@
             </h6>
         </div>
 
-        <div class="container fs-6 text-sm py-1 mx-1" style="position: relative;left: -10px;">
+        <div class="container fs-6 text-sm py-1 mx-1" style="position: relative;left: 30px;">
             <div class="row">
                 <div class="col-12">I. IDENTITAS</div>
+                <br>
+                <br>    
                 <div class="row col-12">
-                    <div class="row"></div>
-                        <div class="col-7 px-4">1. &emsp; Nama media komunikasi</div>
-                        <div class="col-1" style="margin-left: -50px;">:</div>
-                        <div class="col-4" style="margin-left: -23px;">{{ $data->nama }}</div>
+                    <div class="row" style="margin-bottom: 2px">
+                        <div class="col-8 px-8">1. &emsp; Nama media komunikasi</div>
+                        <div class="col-1" style="margin-left: -0px;">:</div>
+                        <div class="col-3" style="margin-left: -23px;">{{ $data->nama }}</div>
                     </div>
-                    <div class="row">
-                        <div class="col-7 px-4">2. &emsp; Nama/NPWP pemsahaan media komunikasi</div>
-                        <div class="col-1" style="margin-left: -50px;">:</div>
-                        <div class="col-4" style="margin-left: -23px;">{{ $data->npwp }}</div>
+                    <div class="row" style="margin-bottom: 2px">
+                        <div class="col-8 px-8">2. &emsp; Nama/NPWP pemsahaan media komunikasi</div>
+                        <div class="col-1" style="margin-left: -0px;">:</div>
+                        <div class="col-3" style="margin-left: -23px;">{{ $data->npwp }}</div>
                     </div>
-                    <div class="row">
-                        <div class="col-7 px-4">3. &emsp; Jenis usaha media komunikasi</div>
-                        <div class="col-1" style="margin-left: -50px;">:</div>
-                        <div class="col-4" style="margin-left: -23px;">{{ $data->jenis }}</div>
+                    <div class="row" style="margin-bottom: 2px">
+                        <div class="col-8 px-8">3. &emsp; Jenis usaha media komunikasi</div>
+                        <div class="col-1" style="margin-left: -0px;">:</div>
+                        <div class="col-3" style="margin-left: -23px;">{{ $data->jenis }}</div>
                     </div>
-                    <div class="row">
-                        <div class="col-7 px-4">4. &emsp; Alamat perusahaan media komunikasi</div>
-                        <div class="col-1" style="margin-left: -50px;">:</div>
-                        <div class="col-4" style="margin-left: -23px;">{{ $data->alamat }}</div>
+                    <div class="row" style="margin-bottom: 2px">
+                        <div class="col-8 px-8">4. &emsp; Alamat perusahaan media komunikasi</div>
+                        <div class="col-1" style="margin-left: -0px;">:</div>
+                        <div class="col-3" style="margin-left: -23px;">{{ $data->alamat }}</div>
                     </div>
-                    <div class="row">
-                        <div class="col-7 px-4">5. &emsp; Nomor telepon/website/email</div>
-                        <div class="col-1" style="margin-left: -50px;">:</div>
-                        <div class="col-4" style="margin-left: -23px;">{{ $data->phone }}</div>
+                    <div class="row" style="margin-bottom: 2px">
+                        <div class="col-8 px-8">5. &emsp; Nomor telepon/website/email</div>
+                        <div class="col-1" style="margin-left: -0px;">:</div>
+                        <div class="col-3" style="margin-left: -23px;">{{ $data->phone }}</div>
                     </div>
-                    <div class="row">
-                        <div class="col-7 px-4">6. &emsp; Nama pimpinan media komunikasi</div>
-                        <div class="col-1" style="margin-left: -50px;">:</div>
-                        <div class="col-4" style="margin-left: -23px;">{{ $data->nama_pimpinan }}</div>
+                    <div class="row" style="margin-bottom: 2px">
+                        <div class="col-8 px-8">6. &emsp; Nama pimpinan media komunikasi</div>
+                        <div class="col-1" style="margin-left: -0px;">:</div>
+                        <div class="col-3" style="margin-left: -23px;">{{ $data->nama_pimpinan }}</div>
                     </div>
-                    <div class="row">
-                        <div class="col-7 px-4">7. &emsp; Penanggungjawab media komunikasi</div>
-                        <div class="col-1" style="margin-left: -50px;">:</div>
-                        <div class="col-4" style="margin-left: -23px;">{{ $data->penanggung_jawab }}</div>
+                    <div class="row" style="margin-bottom: 2px">
+                        <div class="col-8 px-8">7. &emsp; Penanggungjawab media komunikasi</div>
+                        <div class="col-1" style="margin-left: -0px;">:</div>
+                        <div class="col-3" style="margin-left: -23px;">{{ $data->penanggung_jawab }}</div>
                     </div>
-                    <div class="row">
-                        <div class="col-7 px-4">8. &emsp; Ijin usaha media kornunikasi</div>
-                        <div class="col-1" style="margin-left: -50px;">:</div>
-                        <div class="col-4" style="margin-left: -23px;">{{ $data->ijin_usaha }}</div>
+                    <div class="row" style="margin-bottom: 2px">
+                        <div class="col-8 px-8">8. &emsp; Ijin usaha media kornunikasi</div>
+                        <div class="col-1" style="margin-left: -0px;">:</div>
+                        <div class="col-3" style="margin-left: -23px;">{{ $data->ijin_usaha }}</div>
                     </div>
-                    <div class="row">
-                        <div class="col-7 px-4">9. &emsp; Waktu peredaran media komunikasi</div>
-                        <div class="col-1" style="margin-left: -50px;">:</div>
-                        <div class="col-4" style="margin-left: -23px;">{{ $data->waktu }}</div>
+                    <div class="row" style="margin-bottom: 2px">
+                        <div class="col-8 px-8">9. &emsp; Waktu peredaran media komunikasi</div>
+                        <div class="col-1" style="margin-left: -0px;">:</div>
+                        <div class="col-3" style="margin-left: -23px;">{{ $data->waktu }}</div>
                     </div>
-                    <div class="row">
-                        <div class="col-7 px-4">10. &emsp; Daerah peredaran media komunikasi</div>
-                        <div class="col-1" style="margin-left: -50px;">:</div>
-                        <div class="col-4" style="margin-left: -23px;">{{ $data->daerah }}</div>
+                    <div class="row" style="margin-bottom: 2px">
+                        <div class="col-8 px-8">10.&emsp;Daerah peredaran media komunikasi</div>
+                        <div class="col-1" style="margin-left: -0px;">:</div>
+                        <div class="col-3" style="margin-left: -23px;">{{ $data->daerah }}</div>
                     </div>
-                    <div class="row">
-                        <div class="col-7 px-4">11. &emsp; Jumlah peredaran media komunikasi</div>
-                        <div class="col-1" style="margin-left: -50px;">:</div>
-                        <div class="col-4" style="margin-left: -23px;">{{ $data->jumlah }}</div>
+                    <div class="row" style="margin-bottom: 2px">
+                        <div class="col-8 px-8">11.&emsp;Jumlah peredaran media komunikasi</div>
+                        <div class="col-1" style="margin-left: -0px;">:</div>
+                        <div class="col-3" style="margin-left: -23px;">{{ $data->jumlah }}</div>
                     </div>
                     <br />
                 </div>
             </div>
             <br />
-            <div class="row">
+            <div class="row" style="position: relative;left: -6px;">
                 <div class="col-12">II. BIOGRAFI INTELIJEN</div>
+                <br>
+                <br>
                 <div class="row col-12">
                     <div class="row" style="width: max-content;flex-wrap: nowrap;">
-                        <div class="col-7 px-4">1. &emsp; Kasus/masalah yang terjadi</div>
-                        <div class="col-1" style="margin-left: 1px">:</div>
-                        <div class="col-4" style="margin-left: -20px;position: relative;display: flex;flex-wrap:wrap;width: 360px;height: max-content;"><p style="width: 360px;display: flex;flex-wrap: wrap;word-break: break-all">{{ $data->kasus }}</p></div>
+                        <div class="col-7 px-4">1.&emsp;Kasus/masalah yang terjadi</div>
+                        <div class="col-1" style="margin-left: 47px">:</div>
+                        <div class="col-4" style="margin-left: -22px;position: relative;display: flex;flex-wrap:wrap;width: 360px;height: max-content;"><p style="width: 360px;display: flex;flex-wrap: wrap;word-break: break-all">{{ $data->kasus }}</p></div>
                     </div>
-                    <div class="row" style="width: max-content;flex-wrap: nowrap;">
+                    <div class="row" style="width: max-content;flex-wrap: nowrap;margin-top: -12px;">
                         <div class="col-7 px-4">
-                            2. &emsp; Latar belakang dan akibatnnya
+                            2.&emsp;Latar belakang dan akibatnnya
                         </div>
-                        <div class="col-1" style="margin-left: -6px;">:</div>
-                        <div class="col-4" style="margin-left: -20px;position: relative;display: flex;flex-wrap:wrap;width: 360px;height: max-content;"><p style="width: 360px;display: flex;flex-wrap: wrap;word-break: break-all">{{ $data->background }}></p></div>
+                        <div class="col-1" style="margin-left: 47px;">:</div>
+                        <div class="col-4" style="margin-left: -22px;position: relative;display: flex;flex-wrap:wrap;width: 360px;height: max-content;"><p style="width: 360px;display: flex;flex-wrap: wrap;word-break: break-all">{{ $data->background }}></p></div>
                     </div>
-                    <div class="row">
+                    <div class="row" style="margin-top: -12px">
                         <div class="col-7 px-4">
-                            3. &emsp; Tindakan yang dilakukan oleh
+                            3.&emsp;Tindakan yang dilakukan oleh
                         </div>
-                        <div class="col-1" style="margin-left: -43px;">:</div>
                         <div class="col-4" style="margin-left: -25px;"></div>
                     </div>
                     <div class="row">
                         <div class="col-7 px-5">
                             &emsp;a. Kejaksaan
                         </div>
-                        <div class="col-1" style="margin-left: -43px;">:</div>
-                        <div class="col-4" style="margin-left: -25px;">{{ $data->tindakan_kejaksaan }}</div>
+                        <div class="col-1" style="position: relative;left: 47px;">:</div>
+                        <div class="col-4" style="position: relative;left: 22px;">{{ $data->tindakan_kejaksaan }}</div>
                     </div>
                     <div class="row">
                         <div class="col-7 px-5">
                             &emsp;b. Kepolisian
                         </div>
-                        <div class="col-1" style="margin-left: -43px;">:</div>
-                        <div class="col-4" style="margin-left: -25px;">{{ $data->tindakan_kepolisian }}</div>
+                        <div class="col-1" style="position: relative;left: 47px;">:</div>
+                        <div class="col-4" style="position: relative;left: 22px;">{{ $data->tindakan_kepolisian }}</div>
                     </div>
                     <div class="row">
                         <div class="col-7 px-5">
                             &emsp;c. Kominfo/diskominfo
                         </div>
-                        <div class="col-1" style="margin-left: -43px;">:</div>
-                        <div class="col-4" style="margin-left: -25px;">{{ $data->tindakan_kominfo }}</div>
+                        <div class="col-1" style="position: relative;left: 47px;">:</div>
+                        <div class="col-4" style="position: relative;left: 22px;">{{ $data->tindakan_kominfo }}</div>
                     </div>
                     <div class="row">
                         <div class="col-7 px-5">
                             &emsp;d. Pengadilan
 
                         </div>
-                        <div class="col-1" style="margin-left: -43px;">:</div>
-                        <div class="col-4" style="margin-left: -25px;">{{ $data->tindakan_pengadilan }}</div>
+                        <div class="col-1" style="position: relative;left: 47px;">:</div>
+                        <div class="col-4" style="position: relative;left: 22px;">{{ $data->tindakan_pengadilan }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-7 px-4">4. &emsp; Keterangan lain-lain</div>
-                        <div class="col-1" style="margin-left: -43px;">:</div>
-                        <div class="col-4" style="margin-left: -25px;">{{ $data->keterangan }}</div>
+                        <div class="col-7 px-4">4.&emsp;Keterangan lain-lain</div>
+                        <div class="col-1" style="position: relative;left: 47px;">:</div>
+                        <div class="col-4" style="position: relative;left: 22px;">{{ $data->keterangan }}</div>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="position: relative;left: 10px;">
                 <div class="col-6 py-5">
                     OTENTIKASI <br /> (Stampel dan Paraf)
                 </div>

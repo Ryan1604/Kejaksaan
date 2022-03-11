@@ -60,11 +60,11 @@
                     <td style="width: 5%"><p style="font-size: 12px">:</p></td>
                     <td style="width: 62%"><p style="font-size: 12px">{{ $data->berdiri }}</p></td>
                 </tr>
-                <tr style="line-height: 0px">
+                <tr style="line-height: 0px;">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">5.</p></td>
                     <td style="width: 40%"><p style="font-size: 12px;">Domisili hukum / alamat</p></td>
                     <td style="width: 5%"><p style="font-size: 12px">:</p></td>
-                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->alamat }}</p></td>
+                    <td style="width: 62%;"><p style="font-size: 12px;">{{ $data->alamat }}</p></td>
                 </tr>
                 <tr style="line-height: 0px">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">6.</p></td>
@@ -80,7 +80,7 @@
                 </tr>
                 <tr style="line-height: 0px;">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">8.</p></td>
-                    <td style="width: 40%"><p style="font-size: 12px; margin-left: -7px">Pengurus</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Pengurus</p></td>
                     <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
                 </tr>
                 <tr style="line-height: 0px">

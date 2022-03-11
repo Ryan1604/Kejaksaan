@@ -44,82 +44,81 @@
                 <div class="col-12">I. IDENTITAS</div>
                 <div class="row col-12">
                     <div class="row">
-                        <div class="col-6 px-4">1. &emsp; Nama Lengkap</div>
+                        <div class="col-8 px-4">1. &emsp; Nama Lengkap</div>
                         <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->nama }}</div>
+                        <div class="col-3" style="margin-left: -20px;">{{ $data->nama }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">2. &emsp; Nama samaran/panggilan</div>
+                        <div class="col-8 px-4">2. &emsp; Nama samaran/panggilan</div>
                         <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->panggilan }}</div>
+                        <div class="col-3" style="margin-left: -20px;">{{ $data->panggilan }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">3. &emsp; Tempat/Tgl lahir/Umur</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->tempat_lahir }} / {{ $data->tanggal_lahir }} / {{ $age }} tahun</div>
+                        <div class="col-7 px-4">3. &emsp; Tempat/Tgl lahir/Umur</div>
+                        <div class="col-1" style="position: relative;left: 35px">:</div>
+                        <div class="col-4" style="position: relative;left:14px;display:flex;">{{ $data->tempat_lahir }} / {{ $data->tanggal_lahir }} / {{ $age }} tahun</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">4. &emsp; Jenis Kelamin</div>
+                        <div class="col-8 px-4">4. &emsp; Jenis Kelamin</div>
                         <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->jenis_kelamin }}</div>
+                        <div class="col-3" style="margin-left: -20px;">{{ $data->jenis_kelamin }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">5. &emsp; Bangsa/Suku</div>
+                        <div class="col-8 px-4">5. &emsp; Bangsa/Suku</div>
                         <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->bangsa->name }}</div>
+                        <div class="col-3" style="margin-left: -20px;">{{ $data->bangsa->name }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">6. &emsp; Kewarganegaraan</div>
+                        <div class="col-8 px-4">6. &emsp; Kewarganegaraan</div>
                         <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->kewarganegaraan->name }}</div>
+                        <div class="col-3" style="margin-left: -20px;">{{ $data->kewarganegaraan->name }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">7. &emsp; Alamat/Tempat Tinggal</div>
+                        <div class="col-8 px-4">7. &emsp; Alamat/Tempat Tinggal</div>
                         <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->alamat }}</div>
+                        <div class="col-3" style="margin-left: -20px;">{{ $data->alamat }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">8. &emsp; Nomor Telepon/HP </div>
+                        <div class="col-8 px-4">8. &emsp; Nomor Telepon/HP </div>
                         <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->phone }}</div>
+                        <div class="col-3" style="margin-left: -20px;">{{ $data->phone }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">9. &emsp; Nomor Pasport</div>
+                        <div class="col-8 px-4">9. &emsp; Nomor Pasport</div>
                         <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->pasport }}</div>
+                        <div class="col-3" style="margin-left: -20px;">{{ $data->pasport }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">10. &emsp; Agama/Kepercayaan
+                        <div class="col-8 px-4">10.&emsp;Agama/Kepercayaan</div>
+                        <div class="col-1">:</div>
+                        <div class="col-3" style="margin-left: -20px;">{{ $data->agama->name }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8 px-4">11.&emsp;Pekerjaan</div>
+                        <div class="col-1">:</div>
+                        <div class="col-3" style="margin-left: -20px;">{{ $data->pekerjaan->name }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8 px-4">12.&emsp;Alamat Kantor</div>
+                        <div class="col-1">:</div>
+                        <div class="col-3" style="margin-left: -20px;">{{ $data->alamat_kantor }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8 px-4">13.&emsp;Status Perkawinan</div>
+                        <div class="col-1">:</div>
+                        <div class="col-3" style="margin-left: -20px;">{{ $data->perkawinan->name }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8 px-4">14.&emsp;Kepartaian
                         </div>
                         <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->agama->name }}</div>
+                        <div class="col-3" style="margin-left: -20px;">{{ $data->kepartaian }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">11. &emsp; Pekerjaan</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->pekerjaan->name }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">12. &emsp;Alamat Kantor</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->alamat_kantor }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">13. &emsp; Status Perkawinan</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->perkawinan->name }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">14. &emsp; Kepartaian
+                        <div class="col-8 px-4">15.&emsp;Pendidikan
                         </div>
                         <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->kepartaian }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">15. &emsp; Pendidikan
-                        </div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->pendidikan->name }}</div>
+                        <div class="col-3" style="margin-left: -20px;">{{ $data->pendidikan->name }}</div>
                     </div>
                     <br />
                 </div>
@@ -129,34 +128,30 @@
                 <div class="col-12">II. RIWAYAT PERKARA:</div>
                 <div class="row col-12">
                     <div class="row">
-                        <div class="col-6 px-4">1. &emsp; Kasus/masalah yang terjadi</div>
+                        <div class="col-8 px-4">1. &emsp; Kasus/masalah yang terjadi</div>
                     </div>
-                    <div class="row" style="width: max-content;flex-wrap: nowrap;">
-                        <div class="col-6 px-5">a &emsp; Kasus posisi secara singkat/ pasal yang dilanggar</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;position: relative;display: flex;flex-wrap:wrap;width: 360px;height: max-content;"><p style="width: 360px;display: flex;flex-wrap: wrap;word-break: break-all">{{ $data->kasus }}</p></div>
+                    <div class="row" style="position:relative;left:10px;width: max-content;flex-wrap: nowrap;">
+                        <div class="col-8 px-5" style="position: relative;left: 10px;">a. Kasus posisi secara singkat/ pasal yang dilanggar</div>
+                        <div class="col-1" style="margin-left: -10px;">:</div>
+                        <div class="col-3" style="margin-left: -20px;position: relative;display: flex;flex-wrap:wrap;width: 360px;height: max-content;"><p style="width: 360px;display: flex;flex-wrap: wrap;word-break: break-all">{{ $data->kasus }}</p></div>
                     </div>
-                    <div class="row" style="width: max-content;flex-wrap: nowrap;">
-                        <div class="col-6 px-5">b &emsp;Latar belakang & akibat- akibat peristiwa/kerugian</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;position: relative;display: flex;flex-wrap:wrap;width: 360px;height: max-content;"><p style="width: 360px;display: flex;flex-wrap: wrap;word-break: break-all">{{ $data->background }}</p></div>
+                    <div class="row" style="position:relative;left:10px;width: max-content;flex-wrap: nowrap;margin-top: -14px;">
+                        <div class="col-8 px-5" style="position: relative;left: 10px;">b. Latar belakang & akibat- akibat peristiwa/kerugian</div>
+                        <div class="col-1" style="margin-left: -10px;">:</div>
+                        <div class="col-3" style="margin-left: -20px;position: relative;display: flex;flex-wrap:wrap;width: 360px;height: max-content;"><p style="width: 360px;display: flex;flex-wrap: wrap;word-break: break-all">{{ $data->background }}</p></div>
                     </div>
-                    <div class="row">
-                        <div class="col-6 px-5">c&emsp;SP3/SK</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5">
-                            <div class="row" style="margin-left: -30px;">
-                                <div class="col-1">No. </div>
-                                <div class="col-4">{{ $data->no_skpp}}</div>
-                                <div class="col-1">Tgl</div>
-                                <div class="col-5">{{ $data->tgl_skpp }}</div>
-                            </div>
+                    <div class="row" style="position:relative;left:10px;margin-top: 3px;">
+                        <div class="col-8 px-5" style="position: relative;left: 10px;">c. SP3/SK</div>
+                        <div class="col-1" style="margin-left: -10px;">:</div>
+                        <div class="col-3">
+                            <div class="row" style="margin-left: -20px;display:flex">
+                                No. {{ $data->no_skpp}} Tgl. {{ $data->tgl_skpp }}                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-6 px-5">d &emsp; Putusan pengadilan</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5">
+                    <div class="row" style="position:relative;left:10px;">
+                        <div class="col-8 px-5" style="position: relative;left: 10px;">d. Putusan pengadilan</div>
+                        <div class="col-1" style="margin-left: -10px;">:</div>
+                        <div class="col-3">
                             <div class="row" style="margin-left: -30px;">
                                 <div class="col-1">PN</div>
                                 <div class="col-5">{{ $data->putusan_pengadilan_pn }}</div>
@@ -173,48 +168,47 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-6 px-4">
-                            2. &emsp; Nama orang tua/alamat
-
+                        <div class="col-8 px-4">
+                            2.  &emsp; Nama orang tua/alamat
                         </div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -18px;">{{ $data->nama_orangtua }}</div>
+                        <div class="col-1" style="position: relative;left:  0px;">:</div>
+                        <div class="col-3" style="margin-left: -18px;">{{ $data->nama_orangtua }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">
+                        <div class="col-8 px-4">
                             3. &emsp; Nama kawan yang dikenal
                         </div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -18px;">{{ $data->nama_kawan }}</div>
+                        <div class="col-1" style="position: relative;left:  0px;">:</div>
+                        <div class="col-3" style="margin-left: -18px;">{{ $data->nama_kawan }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-6 px-4">4. &emsp;Lain-lain
+                        <div class="col-8 px-4">4. &emsp; Lain-lain
                         </div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -18px;">{{ $data->lain }}</div>
+                        <div class="col-1" style="position: relative;left:  0px;">:</div>
+                        <div class="col-3" style="margin-left: -18px;">{{ $data->lain }}</div>
                     </div>
                 </div>
             </div>
-            <div class="row py-5">
-                <div class="col-sm-3">
+            <div style="width: 600px;display: flex;margin-top: 40px;">
+                <div style="width: 400px">
                     <p class="card-title">OTENTIKASI <br /> (Stampel dan Paraf)</p>
                 </div>
-                <div class="col-sm-3">
-                    <div class="card">
+                <div>
+                    <div class="card" style="width: 140px;height: 120px;left: -20px;position: relative;">
                         <div class="card-body">
                             <p class="card-title">SIDIK JARIl</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
-                    <div class="card">
+                <div>
+                    <div class="card" style="width: 140px;margin-left: 4px;height:120px;left: -10px;position: relative;">
                         <div class="card-body">
                             <p class="card-title">TANDA TANGAN</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
-                    <div class="card">
+                <div>
+                    <div class="card" style="margin-left: 4px;">
                         <div class="card-body p-0 ff">
                             <img src="{{ asset('img/terdakwa').'/'. $data->photo }}" alt="" width="100" height="100">
                         </div>
