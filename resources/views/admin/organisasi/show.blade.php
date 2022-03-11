@@ -31,101 +31,118 @@
             </h6>
         </div>
 
-        <div class="container fs-6 text-sm py-1 px-5 mx-1">
-            <div class="row">
-                <div class="col-12">I. IDENTITAS</div>
-                <div class="row col-12">
-                    <div class="row">
-                        <div class="col-6 px-4">1. &emsp; Nama Organisasi</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5">{{ $data->nama }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">2. &emsp; Akte Pendirian/ buku pendaftaran
-                        </div>
-                        <div class="col-1">:</div>
-                        <div class="col-5">{{ $data->akte }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">3. &emsp; Kedudukan / status
-                        </div>
-                        <div class="col-1">:</div>
-                        <div class="col-5">{{ $data->status }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">4. &emsp; Berdiri sejak</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5">{{ $data->berdiri }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">5. &emsp; Domisili hukum / alamat</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5">{{ $data->alamat }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">6. &emsp; Nomor Telepon</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5">{{ $data->phone }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">7. &emsp; Website/ E-mail</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5">{{ $data->web }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">8. &emsp; Pengurus</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-5" style="position: relative;left: 8px">- Nama </div>
-                        <div class="col-1">:</div>
-                        <div class="col-5">{{ $data->nama_pengurus }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-5" style="position: relative;left: 8px">- Kedudukan</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5">{{ $data->kedudukan_pengurus }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-5" style="position: relative;left: 8px">- Periode tahun</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5">{{ $data->periode_pengurus }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-5" style="position: relative;left: 8px">- Alamat</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5">{{ $data->alamat_pengurus }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-5" style="position: relative;left: 8px">- Nomor Telepon/HP</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5">{{ $data->hp_pengurus }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">9. &emsp; Ruang lingkup kegiatan organisasi</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-5">a. &emsp;Ke dalam</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5">{{ $data->kegiatan_kedalam }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-5">b. &emsp;Ke Luar</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5">{{ $data->kegiatan_keluar }}</div>
-                    </div><br><br>
-                    <div class="row">
-                        <p>II. KEGIATAN ORGANISASI PENGURUS ORGANISASI YANG BERKAITAN DENGAN / PELANGGARAN HUKUM :
-                        </p>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{ $data->kegiatan }}</textarea>
-                    </div>
-                    <br />
-                </div>
-            </div>
-            <br />
+        <div>
+            <table style="width: 100%;">
+                <tr>
+                    <td colspan="4"><h6 style="font-size: 14px;">1. IDENTITAS</h6></td>
+                </tr>
+                <tr style="line-height: 0px;">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">1.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Nama Organisasi</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px;">{{ $data->nama }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">2.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Akte Pendirian/ buku pendaftaran</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->akte }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">3.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Kedudukan / status</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->status }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">4.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Berdiri sejak</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->berdiri }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">5.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Domisili hukum / alamat</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->alamat }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">6.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Nomor Telepon</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->phone }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">7.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Website/ E-mail</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->web }}</p></td>
+                </tr>
+                <tr style="line-height: 0px;">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">8.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px; margin-left: -7px">Pengurus</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">a.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">- Nama</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->nama_pengurus }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">b.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">- Kedudukan</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->kedudukan_pengurus }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">c.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">- Periode tahun</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->periode_pengurus }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">d.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">- Alamat</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->alamat_pengurus }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">e.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">- Nomor Telepon/HP</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->hp_pengurus }}</p></td>
+                </tr>
+                <tr style="line-height: 0px;">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">9.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px; margin-left: -7px">Ruang lingkup kegiatan organisasi</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">a.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Ke dalam</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->kegiatan_kedalam }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">b.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Ke Luar</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->kegiatan_keluar }}</p></td>
+                </tr>
+            </table>
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 50%">
+                        <h6 style="font-size: 14px;">2. KEGIATAN ORGANISASI PENGURUS ORGANISASI YANG BERKAITAN DENGAN / PELANGGARAN HUKUM :</h6>
+                    </td>
+                </tr>
+                <tr style="line-height: 19px;">
+                    <td style="width: 100%"><p style="font-size: 12px;">{{ $data->kegiatan }}</p></td>
+                </tr>
+               
+            </table>
+            
         </div>
     </section>
 

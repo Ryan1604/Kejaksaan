@@ -31,123 +31,124 @@
             </h6>
         </div>
 
-        <div class="container fs-6 text-sm py-1 px-5 mx-1">
-            <div class="row">
-                <div class="col-12">I. IDENTITAS</div>
-                <div class="row col-12">
-                    <div class="row">
-                        <div class="col-6 px-4">1. &emsp; Nama barang cetakan</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->nama }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">2. &emsp;Penerbit</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->penerbit }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">3. &emsp; Pengarang</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->pengarang }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">4. &emsp; Waktu peredaran</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->waktu }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">5. &emsp; Daerah peredaran</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->daerah }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">6. &emsp; Pencetak</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->pencetak }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">7. &emsp; Nama Pimpinan Redaksi</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->nama_pimpinan }}</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 px-4">8. &emsp; Alamat penerbit</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">
-                            {{ $data->alamat_penerbit }}
-                        </div>
-                    </div>
-                    <div class=" row ">
-                        <div class="col-6 px-4 ">9. &emsp; Alamat percetakan</div>
-                        <div class="col-1 ">:</div>
-                        <div class="col-5" style="margin-left: -20px;">
-                            {{ $data->alamat_percetakan }}
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-6 px-4">10. &emsp;Jumlah Oplah</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->jumlah_oplah }}</div>
-                    </div>
-                    <br />
-                </div>
-            </div>
-            <br />
-            <div class="row ">
-                <div class="col-12 ">II. BIOGRAFI INTELIJEN</div>
-                <div class="row col-12 ">
-                    <div class="row" style="width: max-content;flex-wrap: nowrap;">
-                        <div class="col-6 px-4 ">1. &emsp; Kasus/masalah yang terjadi</div>
-                        <div class="col-1 ">:</div>
-                        <div class="col-5" style="margin-left: -20px;position: relative;display: flex;flex-wrap:wrap;width: 360px;height: max-content;"><p style="width: 360px;display: flex;flex-wrap: wrap;word-break: break-all">{{ $data->kasus }}</p></div>
-                    </div>
-                    <div class="row" style="width: max-content;flex-wrap: nowrap;">
-                        <div class="col-6 px-4 ">
-                            2. &emsp; Latar belakang dan akibatnya
-                        </div>
-                        <div class="col-1 ">:</div>
-                        <div class="col-5" style="margin-left: -20px;position: relative;display: flex;flex-wrap:wrap;width: 360px;height: max-content;"><p style="width: 360px;display: flex;flex-wrap: wrap;word-break: break-all">{{ $data->background }}</p></div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-6 px-4 ">
-                            3. &emsp; Tindakan yang dilakukan oleh
-                        </div>
-                        <div class="col-1 ">:</div>
-                        <div class="col-5" style="margin-left: -20px;"></div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-6 px-5 ">
-                            &emsp; a. Kejaksaan
-                        </div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->tindakan_kejaksaan }}</div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-6 px-5 ">
-                            &emsp; b. Kepolisian
-                        </div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->tindakan_kepolisian }}</div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-6 px-5 ">
-                            &emsp;c. Pengadilan
-                        </div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->tindakan_pengadilan }}</div>
-                    </div>
-                    <div class="row ">
-                        <div class="col-6 px-4">4. &emsp; Keterangan lain-lain</div>
-                        <div class="col-1">:</div>
-                        <div class="col-5" style="margin-left: -20px;">{{ $data->keterangan }}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="row ">
-                <div class="col-6 py-5 ">
-                    OTENTIKASI <br /> (Stampel dan Paraf)
-                </div>
-            </div>
+        <div>
+            <table style="width: 100%;">
+                <tr>
+                    <td colspan="4"><h6 style="font-size: 14px;">1. IDENTITAS</h6></td>
+                </tr>
+                <tr style="line-height: 0px;">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">1.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Nama barang cetakan</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px;">{{ $data->nama }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">2.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Penerbit</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->penerbit }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">3.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Pengarang</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->pengarang }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">4.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Waktu peredaran</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->waktu }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">5.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Daerah peredaran</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->daerah }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">6.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Pencetak</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->pencetak }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">7.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Nama Pimpinan Redaksi</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->nama_pimpinan }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">8.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Alamat penerbit</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->alamat_penerbit }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">9.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Alamat percetakan</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->alamat_percetakan }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">10.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Jumlah Oplah</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->jumlah_oplah }}</p></td>
+                </tr>
+            </table>
+            <table style="width: 100%;">
+                <tr>
+                    <td colspan="4"><h6 style="font-size: 14px;">2. BIOGRAFI INTELIJEN</h6></td>
+                </tr>
+                <tr style="line-height: 0px;">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">1.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px; margin-left: -7px">Kasus/masalah yang terjadi</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->kasus }}</p></td>
+                </tr>
+                <tr style="line-height: 0px;">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">2.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px; margin-left: -7px">Latar belakang dan akibatnya</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->background }}</p></td>
+                </tr>
+                <tr style="line-height: 0px;">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">3.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px; margin-left: -7px">Tindakan yang dilakukan oleh</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">a.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Kejaksaan</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->tindakan_kejaksaan }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">b.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Kepolisian</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->tindakan_kepolisian }}</p></td>
+                </tr>
+                <tr style="line-height: 0px">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">c.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px;">Pengadilan</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->tindakan_pengadilan }}</p></td>
+                </tr>
+                <tr style="line-height: 0px;">
+                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">4.</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px; margin-left: -7px">Keterangan lain-lain</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->keterangan }}</p></td>
+                </tr>
+                <tr style="">
+                    <td style="width: 3%" colspan="4"><p style="font-size: 12px; margin-left: 10px">Otentikasi</p></td>
+                </tr>
+                <tr style="line-height: 10px">
+                    <td style="width: 3%" colspan="4"><p style="font-size: 12px; margin-left: 10px">(Stampel dan Paraf)</p></td>
+                </tr>
+            </table>
         </div>
     </section>
 
