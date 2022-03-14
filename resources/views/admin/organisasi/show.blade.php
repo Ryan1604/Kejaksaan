@@ -24,114 +24,112 @@
         <p>KEJAKSAAN NEGERI PAGAR ALAM</p>
         <u><span class="ml-auto" style="position: absolute;right: 30px;top: 30px;">D.IN.14</span></u> <br />
         <br>
-        <div class="cont py-3">
+        <div class="cont py-3" style="margin-top: -30px;">
             <h5 class="text-center"><u>KARTU TIK ORGANISASI</u></h5>
             <h6 class="text-center">
                 Nomor : {{ $data->nomor }}
             </h6>
         </div>
 
-        <div>
+        <div style="margin-top: 20px">
             <table style="width: 100%;">
                 <tr>
                     <td colspan="4"><h6 style="font-size: 14px;">1. IDENTITAS</h6></td>
                 </tr>
-                <tr style="line-height: 0px;">
+                <tr style="line-height: auto;">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">1.</p></td>
                     <td style="width: 40%"><p style="font-size: 12px;">Nama Organisasi</p></td>
                     <td style="width: 5%"><p style="font-size: 12px">:</p></td>
                     <td style="width: 62%"><p style="font-size: 12px;">{{ $data->nama }}</p></td>
                 </tr>
-                <tr style="line-height: 0px">
+                <tr style="line-height:auto">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">2.</p></td>
                     <td style="width: 40%"><p style="font-size: 12px;">Akte Pendirian/ buku pendaftaran</p></td>
                     <td style="width: 5%"><p style="font-size: 12px">:</p></td>
                     <td style="width: 62%"><p style="font-size: 12px">{{ $data->akte }}</p></td>
                 </tr>
-                <tr style="line-height: 0px">
+                <tr style="line-height: auto">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">3.</p></td>
                     <td style="width: 40%"><p style="font-size: 12px;">Kedudukan / status</p></td>
                     <td style="width: 5%"><p style="font-size: 12px">:</p></td>
                     <td style="width: 62%"><p style="font-size: 12px">{{ $data->status }}</p></td>
                 </tr>
-                <tr style="line-height: 0px">
+                <tr style="line-height: auto">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">4.</p></td>
                     <td style="width: 40%"><p style="font-size: 12px;">Berdiri sejak</p></td>
                     <td style="width: 5%"><p style="font-size: 12px">:</p></td>
                     <td style="width: 62%"><p style="font-size: 12px">{{ $data->berdiri }}</p></td>
                 </tr>
-                <tr style="line-height: 0px;">
+                <tr style="line-height: auto">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">5.</p></td>
                     <td style="width: 40%"><p style="font-size: 12px;">Domisili hukum / alamat</p></td>
                     <td style="width: 5%"><p style="font-size: 12px">:</p></td>
-                    <td style="width: 62%;"><p style="font-size: 12px;">{{ $data->alamat }}</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->alamat }}</p></td>
                 </tr>
-                <tr style="line-height: 0px">
+                <tr style="line-height: auto">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">6.</p></td>
                     <td style="width: 40%"><p style="font-size: 12px;">Nomor Telepon</p></td>
                     <td style="width: 5%"><p style="font-size: 12px">:</p></td>
                     <td style="width: 62%"><p style="font-size: 12px">{{ $data->phone }}</p></td>
                 </tr>
-                <tr style="line-height: 0px">
+                <tr style="line-height: auto">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">7.</p></td>
                     <td style="width: 40%"><p style="font-size: 12px;">Website/ E-mail</p></td>
                     <td style="width: 5%"><p style="font-size: 12px">:</p></td>
                     <td style="width: 62%"><p style="font-size: 12px">{{ $data->web }}</p></td>
                 </tr>
-                <tr style="line-height: 0px;">
+                <tr style="line-height: auto;">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">8.</p></td>
-                    <td style="width: 40%"><p style="font-size: 12px;">Pengurus</p></td>
-                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
+                    <td style="width: 40%"><p style="font-size: 12px; margin-left: -7px">Pengurus</p></td>
                 </tr>
-                <tr style="line-height: 0px">
+                <tr style="line-height: auto;position: relative;left: 10px;">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">a.</p></td>
                     <td style="width: 40%"><p style="font-size: 12px;">- Nama</p></td>
-                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
-                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->nama_pengurus }}</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: 0px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px;position: relative;left: -10px;">{{ $data->nama_pengurus }}</p></td>
                 </tr>
-                <tr style="line-height: 0px">
+                <tr style="line-height: auto;position: relative;left: 10px;">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">b.</p></td>
                     <td style="width: 40%"><p style="font-size: 12px;">- Kedudukan</p></td>
-                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
-                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->kedudukan_pengurus }}</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: 0px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px;position: relative;left: -10px;">{{ $data->kedudukan_pengurus }}</p></td>
                 </tr>
-                <tr style="line-height: 0px">
+                <tr style="line-height: auto;position: relative;left: 10px;">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">c.</p></td>
                     <td style="width: 40%"><p style="font-size: 12px;">- Periode tahun</p></td>
-                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
-                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->periode_pengurus }}</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: 0px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px;position: relative;left: -10px;">{{ $data->periode_pengurus }}</p></td>
                 </tr>
-                <tr style="line-height: 0px">
+                <tr style="line-height: auto;position: relative;left: 10px;">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">d.</p></td>
                     <td style="width: 40%"><p style="font-size: 12px;">- Alamat</p></td>
-                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
-                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->alamat_pengurus }}</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: 0px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px;position: relative;left: -10px;">{{ $data->alamat_pengurus }}</p></td>
                 </tr>
-                <tr style="line-height: 0px">
+                <tr style="line-height: auto;position: relative;left: 10px;">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">e.</p></td>
                     <td style="width: 40%"><p style="font-size: 12px;">- Nomor Telepon/HP</p></td>
-                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
-                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->hp_pengurus }}</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: 0px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px;position: relative;left: -10px;">{{ $data->hp_pengurus }}</p></td>
                 </tr>
-                <tr style="line-height: 0px;">
+                <tr style="line-height: auto;">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 10px">9.</p></td>
                     <td style="width: 40%"><p style="font-size: 12px; margin-left: -7px">Ruang lingkup kegiatan organisasi</p></td>
-                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
                 </tr>
-                <tr style="line-height: 0px">
+                <tr style="line-height: auto;position: relative;left: 10px;">
                     <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">a.</p></td>
                     <td style="width: 40%"><p style="font-size: 12px;">Ke dalam</p></td>
-                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
-                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->kegiatan_kedalam }}</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: 0px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px;position: relative;left: -10px;">{{ $data->kegiatan_kedalam }}</p></td>
                 </tr>
-                <tr style="line-height: 0px">
-                    <td style="width: 3%"><p style="font-size: 12px; margin-left: 20px">b.</p></td>
+                <tr style="line-height:auto;position: relative;left: 10px;">
+                    <td style="width: 3%;"><p style="font-size: 12px; margin-left: 20px">b.</p></td>
                     <td style="width: 40%"><p style="font-size: 12px;">Ke Luar</p></td>
-                    <td style="width: 5%"><p style="font-size: 12px; margin-left: -4px">:</p></td>
-                    <td style="width: 62%"><p style="font-size: 12px">{{ $data->kegiatan_keluar }}</p></td>
+                    <td style="width: 5%"><p style="font-size: 12px; margin-left: 0px">:</p></td>
+                    <td style="width: 62%"><p style="font-size: 12px;position: relative;left: -10px;">{{ $data->kegiatan_keluar }}</p></td>
                 </tr>
             </table>
-            <table style="width: 100%;">
+            <table style="width: 100%;margin-top:20px;">
                 <tr>
                     <td style="width: 50%">
                         <h6 style="font-size: 14px;">2. KEGIATAN ORGANISASI PENGURUS ORGANISASI YANG BERKAITAN DENGAN / PELANGGARAN HUKUM :</h6>
